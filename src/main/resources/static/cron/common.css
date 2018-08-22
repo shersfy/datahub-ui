@@ -1,0 +1,70 @@
+/*css reset*/
+html, body, div, span, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, code, del, em, img, strong, sub, sup, b, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, figure, figcaption, footer, header, hgroup, menu, nav, 
+section, summary, time, mark, audio, video, input, textarea{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*reset end*/
+
+label{font-weight: normal;}
+input, button, select, button:focus{outline: 0; border: 1px solid #ccc;}
+input[type="radio"], input[type='radio']:focus{border:0; outline: 0;}
+input[disabled], select[disabled]{cursor: not-allowed; background: rgb(235, 235, 228);}
+input[type="text"], input[type="password"], select{
+    line-height: 25px;
+    height: 27px;
+    border:1px solid #ccc;
+}
+input.error, select.error{border: 1px solid red;}
+a, a:hover, a:focus{text-decoration: none; outline: 0;}
+textarea{resize: none;}
+body{font-size: 12px; color:#555; font-family: 'microsoft yahei';}
+
+.hidden{display: none;}
+.btn-item{
+    padding: 0;
+    line-height: 30px;
+    height: 30px;
+    background: #368cdf;
+    color: #fff;
+    display: inline-block;
+    cursor:pointer;
+    width:80px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.btn-item:hover, .btn-item:focus{background: #368ccc;}
+.btn-item.disabled{cursor:not-allowed; background: #ccc;}
+.btn-cancel{
+    padding: 0;
+    line-height: 30px;
+    height: 30px;    
+    background: #fff;
+    width:80px;
+    display: inline-block;
+    cursor:pointer;    
+    text-align: center;
+    border: 1px solid #ccc;
+    color: #000;
+}
+.btn-cancel:hover, .btn-cancel:focus{background: #f6f6f6;}
+.select2-container .select2-results__option[aria-selected]{white-space: nowrap;}

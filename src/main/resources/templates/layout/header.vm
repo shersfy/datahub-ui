@@ -1,0 +1,36 @@
+<div class="header">
+	<a href="./" title='$!{i18n.getProperty("common.title.retIndex")}' class="logo"><i></i></a>
+	<div class="header-menu">
+		<a class="header-menu-item item-l" href="javascript:;" id="overview">$!{i18n.getProperty("common.title.overview")}</a>
+		<div id="dan-top-menu">
+			<!--<a class="header-menu-sep" href="javascript:;"></a>
+			<a class="header-menu-item item-l" href="javascript:;" id="sqlEntry">查询分析器</a>
+			<a class="header-menu-sep" href="javascript:;"></a>
+			<a class="header-menu-item item-l" href="javascript:;" id="procEntry">任务调度</a>
+			<a class="header-menu-sep" href="javascript:;"></a>
+			<a class="header-menu-item item-l cur" href="javascript:;" id="dhubEntry">数据集成</a>
+			<a class="header-menu-sep" href="javascript:;"></a>
+			<a class="header-menu-item item-l" href="javascript:;" id="mdataEntry">元数据管理</a>-->
+		</div>	
+		<div class="navRight">
+			<ul>
+				<li>
+					<a href="javascript:;" id="IconUser"><i class="iconUser"></i></a>
+					<div class="userExt" id="UserExt" style="display: none;">
+						<p>${loginUser.userName}</p>
+						<p>
+							<a href="javascript:;" class="logoutLink" onclick="logout()" title="$!{i18n.getProperty("common.title.exit")}">$!{i18n.getProperty("common.title.exit")}</a>
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="dan-top-menu-right" style="float:right">
+			<a class="header-menu-item item-l" id="switch-language" href="javascript:;" style="padding:0 15px">$!{i18n.getProperty("common.option.lang")}</a>
+			<a class="header-menu-item item-l" id="leapidEntry" href="javascript:;" style="padding:0 15px">$!{i18n.getProperty("common.title.auth")}</a>
+		</div>	
+	</div>
+</div>
+<script>
+	var common_i18n_lang = "$!{lang}" ;
+</script>

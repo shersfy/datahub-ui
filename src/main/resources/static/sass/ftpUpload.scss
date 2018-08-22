@@ -1,0 +1,1913 @@
+
+body:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.mainCon {
+  margin-left: 239px;
+}
+
+.innerCon {
+//  background: #edf1f2;
+}
+
+
+h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+  b{color:#000; font-size: 14px;}
+  a{color:#999;}
+  a:hover{text-decoration: underline;}
+}
+
+
+.innerCon .upload-conatiner {
+  margin: 20px;
+}
+
+.innerCon .upload-tab {
+  width: 100%;
+  background: #fff;
+  padding: 24px 0 24px 0;
+  padding-top: 0;
+}
+
+.upload-tab>p {
+  position: relative;
+  padding-left: 6px;
+  margin-bottom: 22px;
+}
+
+.upload-tab .clientDownload {
+  margin-bottom: 50px;
+  border: 1px solid #edf1f2;
+  padding: 15px;
+}
+
+.upload-tab .clientDownload:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.upload-tab .clientDownload img {
+  float: left;
+  margin-right: 56px;
+}
+
+.upload-tab .client-tab {
+  font-size: 13px;
+  color: #000!important;
+  border: 1px solid #d9d9d9!important;
+  position: relative;
+}
+
+.upload-tab .client-tab thead {
+  background: #efefef;
+}
+
+.upload-tab .client-tab .topTip {
+  width: 100%;
+}
+
+.upload-tab .client-tab tr {
+  height: 34px;
+}
+
+.upload-tab .client-tab input {
+  border: none;
+}
+
+.upload-tab .client-tab th:nth-child(1) {
+  text-align: center;
+  width: 42px;
+}
+
+.upload-tab .client-tab th:nth-child(2) {
+  width: 176px;
+  padding-left: 18px;
+}
+
+.client-tab th:nth-child(3) {
+  width: 209px;
+  padding-left: 24px;
+}
+
+.client-tab th:nth-child(4) {
+  padding-left: 24px;
+  width: 230px;
+}
+
+.client-tab th:nth-child(5) {
+  width: 246px;
+  padding-left: 24px;
+}
+
+.client-tab th:nth-child(6) {
+  width: 246px;
+  text-align: center;
+}
+
+.upload-tab .client-tab .newmanage {
+  text-align: left!important;
+  padding-left: 14px;
+}
+
+.client-tab .newmanage img {
+  margin-right: 6px;
+}
+.upload-tab .mapTaskMsg{
+  padding-top:20px;
+}
+
+.processCon{margin: 20px 0;border-bottom: 1px solid #eee;}
+.process{ text-align: center;
+    .item{float: left; font-size: 15px; width: 33%;line-height: 40px;
+        .itemCon{display: inline-block;
+      &.cur{border-bottom: 2px solid #004c6f; margin-bottom: -2px;
+        .step{background: #004c6f;}
+        span{color:#004c6f;}
+      }
+    }
+  }
+  .step{
+    border-radius: 50%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    color:#fff;
+    font-style: normal;
+    background: #ccc;
+    color:#fff;
+  }
+}
+
+.upload-tab .taskNav {
+  width: 100%;
+  background:#fff;
+  overflow:hidden;
+}
+
+.redStar{
+  color:#f00;
+  line-height:27px;
+}
+
+.mapTaskMsg .oneRow {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding-left: 24px;
+  overflow:hidden;
+}
+.mapTaskMsg .oneRow .mapTit{
+  font-weight:bold;
+  font-size:15px;
+  padding-left:14px;
+  position:relative;
+}
+.mapTaskMsg .oneRow .mapTit:after{
+  content: "";
+  display: block;
+  width: 4px;
+  height: 15px;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  background: #014b70;
+}
+.mapTaskMsg .oneRow .left {
+  float: left;
+  width: 8%;
+  height: 27px;
+  line-height: 27px;
+  border-radius: 0;
+  color:#2f2f2f;
+}
+
+.mapTaskMsg .oneRow .right {
+  width: 410px;
+  float: left;
+  border-radius: 0;
+  padding-left: 14px;
+}
+
+.mapTaskMsg .discribleZone {
+  padding-bottom: 24px;
+  height: 80px;
+  overflow:hidden;
+  border-bottom:1px solid #f4f4f4;
+}
+
+.mapTaskMsg .oneRow .tipOnly {
+  width: auto;
+}
+
+.dumpbtn {
+  background: #3bb064;
+  width:100%;
+  height: 30px;
+  margin-bottom: 12px;
+  line-height:30px;
+  cursor:pointer;
+  text-align:center;
+  margin-top:10px;
+}
+
+.dumpbtn .addBtn {
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  position:relative;
+}
+.dumpbtn .addBtn .addTip{
+  display: block;
+  position: absolute;
+  color: #898989;
+  top: 0px;
+  left:120px;
+  width:600px;
+
+}
+.dumpbtn #fileupload {
+  height:100%;
+  width:100%;
+  position:relative;
+  cursor: pointer;
+  outline: medium none;
+  -webkit-filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+  left: 0px;
+  top: -30px;
+  border: 0;
+}
+
+.aRow{
+  width:100%;
+  height:27px;
+  padding-left:24px;
+  margin-top:10px;
+}
+.aRow .left{
+  width:8%;
+  float:left;
+  height:27px;
+  line-height:27px;
+  margin-right:10px;
+  color:#2f2f2f;
+  min-width:90px;
+}
+.aRow .right{
+  width:173px;
+  height:27px;
+  float:left;
+  border-radius:0;
+  padding-left:8px;
+}
+.uploadFile .tipOnly{
+  font-size:15px;
+  font-weight:bold;
+  width:auto;
+}
+.btnZone{
+  width:230px;
+  margin:0 auto;
+  margin-top:30px;
+  overflow:hidden;
+}
+.btnZone .CancelBtn{
+  display:block;
+  float:left;
+  width:100px;
+  height:30px;
+  margin-right:20px;
+  padding-left: 0;
+  background:#f6f6f6;
+  color:#838282;
+}
+.btnZone .CancelBtn:hover{
+  background:#e3e3e3!important;
+}
+.btnZone .FileNext{
+  display:block;
+  float:left;
+  width:100px;
+  height:30px;
+  background:#014b70;
+  border-color:#014b70;
+  color:#fff;
+  padding-left: 0;
+}
+.btnZone .FileNext:hover{
+  background:#014b5d!important;
+}
+.btnZone .prevBtn{
+  display:block;
+  float:left;
+  width:100px;
+  height:30px;
+  margin-right:20px;
+  background:#f6f6f6;
+  color:#838282;
+  padding-left: 0;
+}
+.btnZone .prevBtn:hover{
+  background:#e3e3e3!important;
+}
+.btnZone .startImport, .btnZone .nextStep{
+  display:block;
+  float:left;
+  width:100px;
+  height:30px;
+  background:#014b70;
+  border-color:#014b70;
+  color:#fff;
+  padding-left: 0;
+}
+.btnZone .startImport:hover{
+  background:#014b5d!important;
+}
+#choiceRouteStepOne{
+
+}
+#choiceRouteStepOne h1{
+  border:0;
+  margin-top:0;
+}
+#choiceRouteStepOne h1 .icon{
+  color: #fff;
+  border: 1px solid #8c8c8c;
+  background: #8c8c8c;
+}
+#choiceRouteStepOne h1 .word{
+  color: #8c8c8c;
+}
+#choiceRouteStepOne .span{
+  background:#edf1f2;
+}
+#choiceRouteStepTwo{
+  background:#fff;
+}
+#choiceRouteStepTwo h1{
+  border-bottom: 2px solid #014b72;
+  margin-top: 2px;
+  padding-left:22px;
+}
+#choiceRouteStepTwo .icon{
+  color: #fff;
+  border: 1px solid #014b72;
+  background: #014b72;
+}
+#choiceRouteStepTwo .word{
+  color:#014b72;
+}
+#choiceRouteStepTwo .span{
+  background:#fff;
+}
+.mapRange{
+  width:100%;
+  padding:0 24px;
+}
+
+.dbCheckZone{
+  width:100%;
+  margin-top:10px;
+  height:530px;
+  max-height:1000px;
+}
+.taskDescribe{
+  padding-top:4px;
+  height:50px;
+}
+.mapTaskMsg .discribleZone .wordLength{
+  float:left;
+  padding-top: 33px;
+  padding-left: 6px;
+  color: #ddd;
+}
+.dbCheckZone .leftZone{
+  width:32%;
+  height:100%;
+  float:left;
+  border-left:1px solid #d7d7d7;
+  border-bottom:1px solid #d7d7d7;
+  position:relative;
+}
+.dbCheckZone .leftZone .loadingTip{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.3);
+  padding-top:120px;
+  display:none;
+}
+.leftZone .loadingTip .gifBox{
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  left: 50%;
+  margin-left: -32px;
+  top: 50%;
+  margin-top: -32px;
+}
+.dbCheckZone .leftZone .header{
+  width:100%;
+  height:36px;
+  line-height: 30px;
+  background:#fff;
+  border-bottom:1px solid #d7d7d7;
+  border-top:1px solid #d7d7d7;
+  padding-left:12px;
+}
+.leftZone .header .dataTab{
+  height:100%;
+  float:left;
+  color:#2f2f2f;
+  font-weight:bold;
+  font-family:"微软雅黑";
+}
+.leftZone .checkAllDb{
+  display:block;
+  margin-right:10px;
+  cursor:pointer;
+}
+.leftZone #checkAllDb{
+  display:none;
+}
+.dbCheckZone .leftZone .dbZone{
+  width:100%;
+  min-width:210px;
+  overflow-y:scroll;
+  height:460px;
+}
+.leftZone .dbZone .firstUl{
+  width:100%;
+}
+.dbZone .oneMeun .oneDataLi{
+  min-height: 30px;
+  height:auto;
+  float: left;
+  min-width: 100%;
+}
+.oneMeun .oneDataLi .slideUp, .oneMeun .oneDataLi .slideDown{
+  cursor:pointer;
+  padding-left: 5px;
+}
+.dbZone .oneMeun .oneTabLi{
+  cursor: pointer;
+}
+
+.dbZone .oneMeun .oneDataLi:after{
+  content:"";
+  display:block;
+  clear:both;
+  height:0;
+}
+
+.oneMeun .oneDataLi .oneResult{line-height:30px; white-space: nowrap;}
+.oneDataLi .oneResult .slideDown{
+  display:none;
+}
+.oneDataLi .oneResult .aDbName{
+  padding-left:30px;
+  background: url("../../images/oneDump.png") no-repeat;
+  background-position: 9px 2px;
+}
+.oneDataLi .oneResult .aTabName{
+  padding-left:25px;
+  background: url("../../images/parseDump.png") no-repeat;
+  background-position: 5px 0;
+  white-space: nowrap;
+}
+.oneDataLi .oneResult .tabSize{
+  padding-left: 20px;
+  font-size: 12px;
+}
+.oneMeun .oneDataLi .checkLabel{
+  display:block;
+  width: 16px;
+  height: 16px;
+  float:left;
+  margin-top: 7px;
+  background: url("../../images/boxLost.png") no-repeat;
+  margin-left: 10px;
+}
+
+.leftZone .checkAllDb{
+  margin-left:3px;
+  margin-top:6px;
+  background:url("../../images/boxLost.png") no-repeat;
+  background-position: 0 2px;
+  display:none;
+}
+.checkAllDb #checkAllDb{
+  width:16px;
+  height:16px;
+  display:none;
+}
+
+.tabcheck{
+  background:#eaeaea;
+}
+.dbCheckZone .rightZone{
+  width:62%;
+  height:100%;
+  float:left;
+}
+.displayNone{
+  display:none;
+}
+.displayInline{
+  display:inline;
+}
+.dbCheckZone .rightZone .delDbBtn{
+  cursor:pointer;
+}
+.dbCheckZone .centerZone{
+  width:5%;
+  height:100%;
+  float:left;
+  background:#fff;
+  border-left:1px solid #d7d7d7;
+}
+.dbCheckZone .centerZone .transBtn{
+  height:50%;
+  margin-top:210px;
+}
+.centerZone .transBtn #pointRight,#pointLeft{
+  margin:0 auto;
+  height:22px;
+  width:26px;
+  text-align:center;
+  cursor:pointer;
+  line-height:75px;
+  position:relative;
+}
+.transBtn #pointRight img{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+}
+.transBtn #pointRight img.select{
+  display:none;
+}
+.transBtn #pointLeft img{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: block;
+}
+.transBtn #pointLeft img.select{
+  display:none;
+}
+.centerZone .transBtn #pointRight{
+  color:#fff;
+  margin-bottom:40px;
+}
+.centerZone .transBtn #pointLeft{
+  color:#fff;
+}
+.dbCheckZone .rightZone .header{
+  width:100%;
+  height:30px;
+  line-height: 30px;
+  background:#ededed;
+  border-bottom:1px solid #d7d7d7;
+  border-top:1px solid #d7d7d7;
+}
+.rightZone .header .leftHeader{
+  float:left;
+}
+.rightZone .header .rightHeader{
+  float:right;
+  display: block;
+  height:90%;
+  line-height:25px;
+}
+.dbCheckZone .rightZone .dbContainer{
+  width:100%;
+  height:100%;
+  border-top:1px solid #d7d7d7;
+}
+.rightZone .dbContainer .title{
+
+}
+.dbCheckZone .rightZone .dbShow{
+  border-top:1px dotted #eee;
+  height:50%;
+}
+.rightZone .dbShow table{
+  width:100%;
+}
+.rightZone .dbShow thead{
+  width: calc( 100% - 1em );
+  display:table;
+}
+.rightZone .dbShow tbody{
+  overflow-y:auto;
+  display:block;
+  height:88px;
+}
+.rightZone .dbShow tbody tr{
+  display:table;
+  width:87%;
+  table-layout:fixed;
+}
+.rightZone .dbShow thead tr{
+  width:100%;
+}
+.rightZone .dbShow thead th:nth-child(1){
+  width:30%;
+}
+.rightZone .dbShow thead th:nth-child(2){
+  width:50%;
+}
+.rightZone .dbShow thead th:nth-child(3){
+  width:20%;
+}
+.dbCheckZone .rightZone .tabShow{
+  height:100%;
+  border-right: 1px solid #dedede;
+}
+.tabShow .checkAllLab{
+  display:block;
+  width:16px;
+  height:16px;
+  margin:0 auto;
+  background:url("../../images/boxLost.png") no-repeat;
+}
+.tabShow .checkAllLab .tabCheckAll{
+  width: 16px;
+  height:16px;
+  display:none;
+}
+.tabShow .fileCheckLab{
+  display:block;
+  width: 16px;
+  height: 16px;
+  margin:0 auto;
+  background:url("../../images/boxLost.png") no-repeat;
+  margin-top:4px;
+}
+.tabShow .fileCheckLab .fileCheck{
+  width: 16px;
+  height: 16px;
+  display:none;
+}
+.rightZone .tabShow table{
+  width:100%;
+}
+.rightZone .tabShow .headTitle{
+  display:none;
+}
+.rightZone .tabShow .oneConfigure{
+  cursor:pointer;
+}
+.rightZone .tabShow thead{
+  width:100%;
+  th{font-weight: normal;
+    b{font-weight: normal;}
+  }
+}
+.rightZone .headTitle tr{
+  width:100%;
+  border-bottom:1px solid #dedede;
+  height:34px;
+  background:#ededed;
+  color:#2f2f2f;
+  font-family: "微软雅黑";
+}
+.rightZone .headTitle .allConfigure{
+  cursor:pointer;
+}
+.rightZone .headTitltTwo .allConfigure{
+  cursor:pointer;
+}
+.allConfigure b{
+  padding-left:6px;
+  color:#014b72;
+}
+.newTr b{
+  padding-left:6px;
+  color:#014b70;
+  font-weight: normal;
+}
+
+.headTitltTwo thead{
+  background:#fff;
+}
+
+.rightZone .headTitltTwo tr{
+  height:36px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.rightZone .tabShow #tabTbody{
+  overflow-y:scroll;
+  display:block;
+  height:180px;
+}
+.rightZone .tabShow #tabTbody tr{
+  display:table;
+  width:90%;
+  table-layout:fixed;
+  margin-bottom:6px;
+}
+.rightZone .headTitltTwo th:nth-child(4){
+  position:relative;
+}
+
+.addContentZone{
+  width:100%;
+  height:100%;
+  max-height:493px;
+  overflow-y:auto;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #d7d7d7;
+  background:#fff;
+}
+
+.createTab tr td input[type="text"],select{
+  width:90%;
+  margin:0;
+}
+.createTab tr .map .dbMap{
+  width:43%;
+  display:block;
+  float:left;
+  display:none;
+  margin-right:10px;
+  padding-left:8px;
+}
+.createTab tr .map .tabMap{
+  width:43%;
+  display:block;
+  float:left;
+  display:none;
+  padding-left:8px;
+}
+.createTab tr .map .routeMap{
+  padding-left:8px;
+}
+
+.createTab td .parseName{
+  padding-left:6px;
+}
+
+.createTab td .targetTab{
+  padding-left:6px;
+}
+.createTab td:nth-child(5){
+  border-right:0;
+}
+.createTab td{
+  padding-top:2px;
+  line-height:34px;
+}
+.createTab td.hdfs img{ vertical-align:middle;}
+.createTab td .parseName {
+  padding-left: 6px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.newTable td{
+  border:0;
+}
+.newTable th:nth-child(1){
+  border-right:1px solid #d7d7d7;
+}
+.newTable .noLine{
+  border-right:0;
+}
+.newTable thead{
+  width:100%;
+}
+.newTable tr{
+  border-bottom:1px solid #d7d7d7;
+}
+.newTable thead tr{
+  width:100%;
+  height:37px;
+  background:#f7f7f7;
+}
+.newTable thead th{
+  text-align:center;
+}
+.newTable th:nth-child(1){
+  text-align:center;
+  width:5.1%;
+}
+.newTable th:nth-child(2){
+  width:20%;
+  padding-left:19px;
+  text-align:left;
+}
+.newTable th .dbFile{
+  padding-left:6px;
+}
+.newTable th:nth-child(3){
+  width:30%;
+}
+
+.newTable .hdfsMap{
+  text-align:left;
+}
+.newTable .hdfsMap .hdfsRoute{
+  text-align:center;
+}
+.newTable th:nth-child(4){
+  width:32%;
+}
+.newTable th:nth-child(5){
+  border-right:0;
+  width:10.6%;
+}
+.newTr .checkOneLab{
+  display:block;
+  width:16px;
+  height:16px;
+  margin:0 auto;
+  background:url("../../images/boxLost.png") no-repeat;
+}
+.newTr .checkOneLab .tabCheckOne{
+  width:16px;
+  height:16px;
+  display:none;
+}
+.checkStatus{
+  background:url("../../images/boxCheck.png") no-repeat!important;
+}
+.mapTarget .sourceMsg .tit{
+  height:35px;
+  background:#ededed;
+  border-right:1px solid #d9d9d9;
+  border-bottom:1px solid #d9d9d9;
+  padding-left:20px;
+  line-height:35px;
+  font-weight:bold;
+}
+.mapTarget .targetMap{
+  width:74%;
+  height: 100%;
+  float:left;
+  background: #f3f3f3;
+}
+.mapTarget .targetMap .hdfsMap{
+  width:58%;
+  min-width:400px;
+  padding: 20px 0 0 20px;
+}
+.mapTarget .targetMap .hiveMap{
+  width:100%;
+  padding: 20px 20px 0 20px;
+  display:none;
+}
+.targetMap .hiveMap .hiveData{
+  width:58%;
+  min-width:400px;
+}
+.hiveMap .ddlZone{
+  width: 100%;
+  height:190px;
+  margin-top:10px;
+  background:#fff;
+  overflow:auto;
+}
+.hiveMap .ddlZone .oneSql{
+  display: block;
+  float: left;
+  width: 100%;
+  border: 0px;
+  padding-left: 36px;
+  height: 30px;
+}
+.hiveMap .ddlZone .index{
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #f0f0f0;
+  text-align: center;
+  line-height: 30px;
+  float: left;
+  margin-left: -100%;
+}
+.targetMap .thisRow{
+  overflow:hidden;
+  height:auto;
+  width:100%;
+  margin-bottom:20px;
+}
+.targetMap .part{
+  margin-bottom:10px;
+}
+.targetMap .thisRow .left{
+  float:left;
+  width:23%;
+  min-width:92px;
+  line-height:27px;
+  text-align:right;
+  padding-right:10px;
+}
+.targetMap .freshSql{
+  font-style: normal;
+  color:#2fb64f;
+  cursor:pointer;
+}
+.targetMap .thisRow .right{
+  display:block;
+  border-radius:0;
+  float:left;
+  width:77%;
+  overflow:hidden;
+  min-width:280px;
+}
+.thisRow .right .hdfsRoCheck{
+  display: block;
+  float:left;
+  width:80%;
+  min-width:240px;
+  border-radius:0;
+  border-right:0;
+  padding-left:10px;
+}
+.thisRow .right .rowNum{
+  width: 24px;
+  height: 16px;
+  border-radius: 0;
+}
+.thisRow .rowTip{
+  overflow:hidden;
+
+}
+.thisRow .rowTip .rowNumBtn,.rowNum{
+  display:block;
+  float:left;
+  line-height:16px;
+  text-align: center;
+}
+.thisRow .rowTip .rowNum{
+  margin-top:2px;
+}
+.thisRow .rowTip p{
+  float:left;
+}
+.thisRow .right span{
+  display:block;
+  float:left;
+  cursor:pointer;
+  width:20%;
+  height:27px;
+  text-align:center;
+  line-height:27px;
+  background:#3285ff;
+  color:#fff;
+  min-width:40px;
+}
+.thisRow #fileName{
+  padding-left:10px;
+}
+.mapTarget .targetMap .tit{
+  height:35px;
+  background:#ededed;
+  padding-left:20px;
+  line-height:35px;
+  border-bottom:1px solid #d9d9d9;
+  font-weight:bold;
+}
+.maskCell{
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity:0.5;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:999;
+}
+.delayTip{
+  display:none;
+  width:100%;
+  height:100%;
+  background-color: rgba(255,255,255,0.3);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1100;
+}
+.contentBox.hdfsRList{
+  min-height: 157px;
+  z-index: 22;
+  margin: 0 auto;
+  background: #f3f3f3;
+  width: 550px;
+}
+.contentBox .header{
+  width:100%;
+  height: 8%;
+  line-height: 48px;
+  padding-left:7%;
+  background:#f3f3f3;
+  overflow:hidden;
+  padding-bottom:4px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom:10px;
+}
+.contentBox .header .tabMsg{
+  float:left;
+}
+.contentBox .header .closeMap{
+  float:right;
+  margin-right: 36px;
+  width: 22px;
+  height: 24px;
+  background: #f26746;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  cursor:pointer;
+}
+.contentBox .mathRoute{
+  width:100%;
+  position:relative;
+  background:#f3f3f3;
+  padding: 20px 15px 0;
+}
+.contentBox .mathRoute .routeChoice{
+  height:200px;
+  overflow-y:auto;
+}
+.contentBox .import{
+  margin-top:10px;
+  width:420px;
+  height:40px;
+  margin:0 auto;
+}
+.contentBox .part{
+  display:none!important;
+}
+.contentBox .hdfsWrite{
+  width:100%;
+  height:auto;
+}
+.contentBox .import p{
+  float:left;
+  line-height:27px;
+  margin-right:5%;
+}
+.contentBox .hdfsWrite .routeTip{
+  line-height: 27px;
+}
+.contentBox .import select{
+  width:80%;
+  float:left;
+  border-radius:0;
+}
+.contentBox #partitions{
+  width:70%;
+  float:right;
+  border:1px solid #ccc;
+  border-radius:0;
+}
+.contentBox .import .hdfsRoute{
+  width:70%;
+  float:right;
+  border-radius:0;
+  padding-left:4px;
+}
+.contentBox .title{
+  line-height:50px;
+  background:#f3f3f3;
+  color:#626262;
+  font-size:14px;
+  overflow:hidden;
+  border-bottom: 1px solid #e2e2e2;
+  color:#000;
+  padding-left:35px;
+}
+.contentBox .title .routeTitle{
+  float:left;
+  color:#000;
+}
+.contentBox .title .closeMap{
+  float:right;
+  margin-right: 30px;
+  width: 22px;
+  height: 24px;
+  background: #f26746;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  cursor:pointer;
+  margin-right:18px;
+}
+
+.contentBox .fieldMap{
+  width:86%;
+  position:relative;
+  margin:0 auto;
+  background: #f3f3f3;
+}
+.contentBox .fieldMap .sqlTip{
+  width:100%;
+  margin:0 auto;
+  color: #f12121;
+}
+.contentBox .fieldMap .sqlSentence{
+  width:100%;
+  border:1px solid #d7d7d7;
+  overflow-y:scroll;
+  margin:0 auto;
+  margin-top:20px;
+  margin-bottom:20px;
+  height:250px;
+  background:#fff;
+}
+.allMeun.firstM{padding-left: 20px;}
+
+.sqlSentence .oneLineSql{
+
+}
+.sqlSentence .oneLineSql .lineIndex{
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #f0f0f0;
+  text-align: center;
+  line-height: 30px;
+  float: left;
+  margin-left:-100%;
+}
+.sqlSentence .oneLineSql .sqlWrite{
+  display: block;
+  float: left;
+  width: 100%;
+  border: 0px;
+  padding-left:36px;
+  height:30px;
+}
+.contentBox .bottomBtn{
+  width:100%;
+  height:50px;
+  background:#e2e2e2;
+  position:relative;
+  text-align: right;
+  overflow: hidden;
+}
+.contentBox .bakBtnZ{
+  width:100%;
+  height:48px;
+  background:#eee;
+  position:relative;
+  bottom:0;
+}
+.contentBox .bakBtnZ .bakRouteOk{
+  height:80%;
+  width:120px;
+  position:absolute;
+  right:10px;
+  top:12%;
+  background: #368cdf;
+  color: #fff;
+}
+.contentBox .bottomBtn .keep{  width: 70px; margin: 10px;  }
+.contentBox .bottomBtn .keep:hover{
+  background:#014b5d!important;
+}
+.contentBox .bottomBtn .cancelKeep{  width: 70px; margin: 10px;  }
+.contentBox .bottomBtn .cancelKeep:hover{
+  background:#f6f6f6!important;
+}
+
+.mathRoute .routeShow{ background:#f3f3f3; margin:15px 0;}
+.mathRoute .routeShow .defaultShow{
+  width:100%;
+  overflow:hidden;
+}
+.mathRoute .routeShow .suffixShow{
+  width:100%;
+  overflow:hidden;
+  margin-top:6px;
+}
+.routeShow .defaultShow p, .routeShow .sameNameAct p{
+  float:left;
+  width:80px;
+  line-height:27px;
+  text-align: right;
+  padding-right: 10px;
+}
+.routeShow .sameNameAct { line-height: 27px; margin-top: 5px;
+  label + label {margin-left: 20px;}
+}
+.routeShow .defaultShow input{
+  display:block;
+  float:left;
+  width:380px;
+  border-radius:0;
+}
+.routeShow .suffixShow p{
+  float:left;
+  width:80px;
+  text-align: right;
+  line-height: 27px;
+  padding-right: 10px;
+}
+.routeShow .suffixShow input{
+  display:block;
+  float:left;
+  width:380px;
+  border-radius:0;
+}
+.upload-tab .dumpCopyZone{
+  width:100%;
+  height:auto;
+  margin-top:20px;
+  overflow:hidden;
+}
+.upload-tab .copyTip p,.copyYes,.copyNo{
+  float:left;
+}
+.upload-tab .copyTip{
+  overflow:hidden;
+  margin-bottom:8px;
+}
+.upload-tab .copyTip p{
+  margin-right:10px;
+}
+.upload-tab .copyTip .copyYes input,.copyNo input{
+  display:none;
+}
+.upload-tab .copyTip .copyYes,.copyNo{
+  display:block;
+  width:40px;
+  height:20px;
+  text-align: center;
+  border:1px solid #ddd;
+  cursor:pointer;
+}
+.upload-tab .copyTip .copyYes{
+  border-right:0;
+}
+.dumpCopyOk{
+  background:#71e2e2;
+  color:#fff;
+}
+.dumpCopyNo{
+  background:#cd3974;
+  color:#fff;
+}
+.dumpCopyWrite{
+  line-height:27px;
+}
+.upload-tab .dumpCopyZone .copyMsg{
+  margin-bottom:6px;
+  color:#888;
+}
+.dumpCopyWrite .tip{
+  color:#888;
+  padding-left:8px;
+}
+
+.upSiteTip {
+  width:100%!important;
+  padding-top:4px;
+}
+
+.maskCell{
+  display:none;
+}
+
+.upload-conatiner .choiceRoute{
+  display:none;
+}
+.bottomZone {
+  padding-left:24px;
+  width:100%;
+  margin-top:20px;
+}
+.bottomZone .copyTipMsg{
+  overflow:hidden;
+}
+.bottomZone .copyTipMsg .copyCheck,.tip{
+  float:left;
+  line-height:40px;
+}
+.bottomZone .copyTipMsg .copyCheck{
+  color:#0a0a0a;
+  padding-left: 30px;
+  background-position: 0px 12px!important;
+}
+.copyNoCheck{
+  background:url("../../../images/copyOff.png") no-repeat;
+}
+.copyOk{
+  background:url("../../../images/copyOn.png") no-repeat!important;
+}
+.copyTipMsg .copyCheck .copyNameBtn{
+  width:26px;
+  height:16px;
+  display:none;
+}
+.bottomZone .copyTipMsg .tip{
+  color:#9c9c9c;
+}
+.bottomZone .copyWrite .name{
+  color:#0a0a0a;
+}
+.bottomZone .copyWrite .nameTip{
+  color:#9c9c9c;
+}
+.bottomZone .copyWrite #copyName{
+  width:252px;
+  height:28px;
+  border:1px solid #e2e2e2;
+  border-radius:0;
+  padding-left:8px;
+}
+.dumpBtnZone{
+  width:100%;
+  height:58px;
+  margin-top:18px;
+  padding-top:24px;
+  border-top:1px solid #e7e7e7;
+}
+.dumpBtnZone .center{
+  width:230px;
+  height:32px;
+  margin:0 auto;
+}
+.dumpBtnZone input[type="button"]{
+  display:inline-block;
+  width:101px;
+  height:30px;
+}
+.dumpBtnZone .dumpPreStep{
+  border:1px solid #e7e7e7;
+  background:#f6f6f6;
+  color:#838282;
+  margin-right:18px;
+}
+.dumpBtnZone .startImport{
+  background:#1889f2;
+  border:1px solid #1889f2;
+  color:#fff;
+}
+.menuZone {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: #fff;
+  font-weight: 100;
+  max-height: 300px;
+  min-height: 150px;
+  overflow-y: auto;
+}
+/*.menuZone .allMeun{
+    border-bottom:1px solid #eee;
+}*/
+.menuZone .allMeun .startLi{
+  padding-left:4px;
+  position:relative;
+}
+.startLi .routeLabel{
+  width:17px;
+  height: 17px;
+  position:absolute;
+  right:6px;
+  top:5px;
+  cursor:pointer;
+  background:url("../../../resources/images/routeLost.png") no-repeat;
+  z-index:10;
+}
+.startLi .routeLabel input{
+  display:none;
+}
+.menuZone .allMeun li{
+  line-height:34px;
+}
+.menuZone .allMeun .startThis{
+  padding-left:10px;
+  font-weight:normal;
+}
+.menuZone .allMeun .newRoute{
+  line-height:26px;
+  position:relative;
+}
+.allMeun .newRoute .routeLabel{
+  background: url("../../../resources/images/routeLost.png") no-repeat;
+  z-index:10;
+}
+.rCheckIcon{
+  background: url("../../../resources/images/routeCheck.png") no-repeat!important;
+}
+.allMeun .turnOn, .allMeun .turnOff{
+  padding-bottom: 4px;
+  cursor:pointer;
+  display: block;
+  float: left;
+  margin-top:6px;
+  -moz-user-select:none;/*火狐*/
+  -webkit-user-select:none;/*webkit浏览器*/
+  -ms-user-select:none;/*IE10*/
+  -khtml-user-select:none;/*早期浏览器*/
+  user-select:none;
+}
+.routeStart .turnOff, .routeStart .turnOn{
+  margin-top:6px;
+}
+.newRoute .routeLabel{
+  width:17px;
+  height: 17px;
+  position:absolute;
+  right:6px;
+  background:#f00;
+  top:5px;
+  cursor:pointer;
+}
+.newRoute .routeLabel input[type="checkbox"]{
+  display:none;
+}
+.allMeun .startLi .turnOn{
+  display:none;
+}
+.allMeun .newRoute .turnOn{
+  display:none;
+}
+.newRoute .oneRoute .thisRoute{
+  font-family: "微软雅黑";
+  font-weight: normal;
+  display: block;
+  width: calc(100% - 50px);
+  height: 26px;
+  overflow: hidden;
+  padding-left:6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.createTab tr:hover{
+  background: #fafafa;
+}
+.routeStart.oneRoute{border-bottom:1px solid #e2e2e2; line-height: 26px;}
+
+.allMeun .newRoute .oneRoute{
+  width:auto;
+  height:auto;
+  border-bottom:1px solid #e2e2e2;
+  position:relative;
+  overflow:hidden;
+}
+.clsBorder{
+  border-bottom:0;
+}
+.clsPadding{
+  padding-top:0px!important;
+}
+.parseTipTwo .parseOk{
+  padding-left:5px;
+}
+.parseTipTwo .parseIcon{
+  padding-bottom:2px;
+}
+.parsfailTip{
+  color:#f00;
+}
+.createTabTip{
+  display:none;
+  width:38%;
+  min-height:157px;
+  position:fixed;
+  z-index:1001;
+  left:31%;
+  top:100px;
+  background:#f3f3f3;
+}
+.createTabTip .headerTip{
+  position: relative;
+  height: 30px;
+}
+.createTabTip .headerTip .createCancel{
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: #f00;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  right: 20px;
+  cursor: pointer;
+}
+.createTabTip .tipCon{
+  padding: 10px;
+}
+.createTabTip .tipCon p{
+  margin-top:10px;
+}
+.createTabTip .tipCon table{
+  width:100%;
+}
+.createTabTip .tipCon table th{
+  background:#efefef;
+  text-align:center;
+}
+.createTabTip .tipCon td{
+  text-align:center;
+}
+.createTabTip .tipCon .tabBox{
+  overflow-y:auto;
+  min-height:180px;
+  max-height:180px;
+}
+.tipCon .tabBox .msgTab th{
+  border:1px solid #e2e2e2;
+}
+.tipCon .tabBox .msgTab td{
+  background:#fff;
+  border:1px solid #e2e2e2;
+}
+.createTabTip .bBtnZone{
+  margin-bottom: 20px;
+  overflow:hidden;
+}
+.createTabTip .bBtnZone input{
+  float:right;
+  margin-right:20px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+.createTabTip .bBtnZone .cancelnewTab{
+  background:#fff;
+}
+.createTabTip .bBtnZone .nextNewTab{
+  background:#1889f2;
+  color:#fff;
+}
+.createTabTip .newSuccess{
+  overflow:hidden;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+}
+.createTabTip .newSuccess p{
+  text-align: center;
+  font-size: 16px;
+  color: #014b70;
+  margin-top:30px;
+}
+.createTabTip .newSuccess .bottom{
+  padding-top:10px;
+  padding-bottom:10px;
+  background:#eee;
+  margin-top: 25px;
+  overflow: hidden;
+}
+.createTabTip .newSuccess input{
+  display: block;
+  width: 100px;
+  height: 30px;
+  float: right;
+  margin-right: 20px;
+  background:#fff;
+}
+.createTabTip .newSuccess input:hover{
+  background:#e2e2e2;
+}
+aside.aside ul .taskMNav{
+  color: #fff!important;
+  background: url("../../images/task_check.png") no-repeat!important;
+  background-position: 0 12px!important;
+}
+
+.select2-selection--single{
+  border-radius:0!important;
+  border: 1px solid #ccc!important;
+}
+.sameHdfs{
+  color:#f00;
+}
+.hdfsBox{
+  width: 550px;
+  height: 200px;
+  position: fixed;
+  top: 80px;
+  z-index: 1001;
+  display:none;
+  left: 50%;
+  margin-left: -250px;
+}
+.redWord{
+  color:#f00;
+}
+.hdfsRouH{
+  height:250px!important;
+}
+input[type="button"]{
+  font-family:"微软雅黑";
+  cursor:pointer;
+}
+button{
+  font-family: "微软雅黑";
+}
+.load1 .loader,
+.load1 .loader:before,
+.load1 .loader:after {
+  background: #FFF;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.load1 .loader:before,
+.load1 .loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.load1 .loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.load1 .loader {
+  text-indent: -9999em;
+  margin: 8em auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.load1 .loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #FFF;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em #ffffff;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 #FFF;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em #ffffff;
+    height: 5em;
+  }
+}
+.SelfnavBar .icon{
+  width:24px!important;
+  height:24px!important;
+  line-height:20px!important;
+}
+.SelfnavBar h1 .word{
+  line-height:60px!important;
+  font-size:13px;
+}
+
+i.check{width:16px; height:16px; display: inline-block; background:url("../../images/boxLost.png") no-repeat;margin-right:10px;
+  &.cur{background-image: url('../../images/boxCheck.png');}
+}
+i.radio{display: inline-block; width:16px; height:16px; background:url("../../images/newRadioNo.png") no-repeat; margin-right:10px; vertical-align:sub;
+  &.cur{background-image: url('../../images/newRadioOk.png');}
+}
+
+.choiceRoute {
+  .confType { padding-left: 20px;border-bottom: 1px solid #ccc;  padding-bottom: 10px;  margin-bottom: 10px;
+    label{margin-left: 20px;margin-right: 10px;}
+  }
+}
+.importRule{ display: none;
+  .setCron { padding: 20px;}
+}
+.dbZone{
+  .oneDataLi{cursor: pointer;}
+  &.dir {
+    .oneTabLi{cursor: auto;}
+  }
+  .root{ line-height: 30px;
+    .slideDown, .slideUp{padding-left:10px;}
+    .aDbName{padding-left: 25px; background-position: 5px 2px;}
+  }
+}
+
+.hdfsBox{
+  .matchMainCon{max-height: 400px; overflow-y: auto;
+    span.option{width:85px; float: left; text-align: right; padding-right: 10px;
+      b{color: red;}
+    }
+  }
+  .border-left{border-left: 3px solid #004c6f;  padding-left: 10px;  padding-right: 10px;  font-size: 14px;  line-height: 14px;  font-weight: 400; margin-bottom: 10px;}
+  .matchCon{padding: 20px 15px 0; line-height: 25px; display: none;
+    .srcPath{overflow:hidden;}
+    b{color:red;}
+    input {  width: 300px;  }
+    .preView { width: 60px;  line-height: 25px;  }
+    .abView{ position: absolute; display: none; width: 432px; margin-left: 85px; background: #fff; z-index:22; border:1px solid #ddd;
+      .head{ border-bottom: 1px solid #eee; padding-left: 10px;
+        .cancel{position: absolute; width: 25px; height: 25px; right: 20px; background: red; color:#fff; text-align: center;cursor: pointer;}
+      }
+      .main{max-height: 130px; overflow-y: auto; padding-left: 10px;
+        h4{border-bottom: 1px solid #eee;
+          .toggle{font-style: normal; float: left; width: 20px; text-align: center;}
+        }
+        .fileList{overflow:hidden;}
+        p{float: left; width: 50%; overflow:hidden; text-overflow: ellipsis; height: 25px;}
+      }
+    }
+    .srcSet{ overflow: hidden; margin-top:10px;
+      > span, > div {float: left;}
+      > div {
+        label { display: block;
+          input{width:150px; margin-left: 5px;}
+        }
+      }
+    }
+    .leftZone{height: 200px; background: #fff; overflow-y: auto; display: none; margin-left: 85px; margin-top: 10px;
+      .oneDataLi.oneTabLi{display: none;}
+    }
+  }
+
+  .tarDir{ margin:10px 0; line-height: 25px; display: none;
+    select {width:230px; }
+    label + label{margin-left: 20px;}
+    .tarFileName{
+      label + label {padding-left: 65px; display: block;}
+    }
+  }
+  .hdfsWrite{
+    .option{float: left;
+      b{ color:red; }
+    }
+    .routeStart{line-height: 26px;}
+
+  }
+}
+
+.upload-tab.uploadFile {
+  h3{font-size: 16px;color: #000; margin-left: 20px; padding-bottom: 10px; line-height: 20px;border-bottom: 1px solid #eee;
+    span{border-left: 3px solid #004c6f; display: block; padding-left: 10px;}
+  }
+  .connect{margin-top:20px; margin-bottom: 20px;}
+  .configTask {
+    li {
+      margin-bottom: 20px;
+      span.leftTitle { width: 140px;  float: left;  line-height: 27px;  padding-right: 20px;  color: #000;  text-align: right;
+        span{color:red;}
+      }
+      input, select, textarea {  width: 50%;  }
+      input, select {  height: 30px;  }
+      textarea {  vertical-align: top;  height: 60px;  }
+      #userApp {  padding-left: 10px;  }
+    }
+  }
+
+  .upload-type {
+    .typeCon {
+      margin-top: 20px;
+      span.leftTitle {  width: 140px;  float: left;  line-height: 27px;  padding-right: 20px;  color: #000;  text-align: right;  }
+      select {  width: 50%; }
+      span{line-height: 27px;}
+    }
+    li {
+      margin-top: 15px;
+      > span.key {
+        width: 140px;
+        float: left;
+        line-height: 27px;
+        padding-right: 20px;
+        color: #000;
+        text-align: right;
+      }
+      input, select {  width: 50%;  padding-left: 10px;  }
+      select {  padding-left: 6px;  }
+    }
+  }
+  .mt20 {  margin-top: 20px;  }
+  .choose-link {
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    a[href="./db.manage"] {  color: #198af2;  padding-left: 6px;  }
+    li:nth-child(1) {  color: #999;  }
+    .select2.select2-container {  text-align: left;  }
+    .text-center {  padding: 10px;  }
+    li {
+      margin-top: 15px;
+      > span.key {
+        width: 120px;
+        float: left;
+        line-height: 27px;
+        padding-right: 20px;
+        color: #000;
+        margin-left: 20px;
+      }
+      &:last-child {  margin-bottom: 20px;  }
+      &.mt5 {  margin-top: 5px;  }
+      span.port {  padding-left: 20px;  color: #000;  }
+      .tip {
+        color: #e2a869;
+        font-size: 12px;
+        margin-left: 140px;
+      }
+      input, select {
+        width: 50%;
+        font-family: "微软雅黑";
+      }
+      input[data-key="host"] {  width: 30%;  }
+      .port {
+        display: inline-block;
+        width: 60px;
+        padding-left: 20px;
+      }
+      input[data-key="port"] {  width: calc(20% - 60px);  }
+    }
+  }
+  .source {
+    .con {
+      width: 640px;
+      margin: 30px auto;
+      border: 1px solid #e2e2e2;
+    }
+    .nav { padding: 40px 40px 0 40px;  }
+    select, input, textarea {  width: 410px;  }
+    select {  padding-left: 6px;  }
+    textarea {  padding-left: 10px;  }
+    span.key {
+      float: left;
+      width: 120px;
+      padding-right: 20px;
+      line-height: 27px;
+      color: #000;
+      text-align: right;
+    }
+    .tab { margin: 20px 0;  padding-left: 40px;  }
+    .text-center {  padding: 10px;  }
+    .testConnect{
+      height: 27px;
+      line-height: 25px;
+      font-size: 12px;
+      width: auto;
+      padding: 0 10px;
+      vertical-align: top;
+    }
+  }
+}
+.upload-tab.choiceRoute{ padding-top:0;
+  h3.tip{font-size: 16px;color: #000; margin-bottom: 10px; padding-bottom: 10px; line-height: 20px;border-bottom: 1px solid #eee; float: none; padding-left: 20px;padding-right: 20px;
+    span{border-left: 3px solid #004c6f; display: block; padding-left: 10px;}
+    i {font-size: 12px;font-weight: normal;font-style: normal; padding-left:10px;}
+  }
+}
+
+.testRes{
+  i{margin:0 5px;display: inline-block; width: 16px; height: 16px; vertical-align: text-bottom;}
+  i.suc{background: url('../images/datahub/content_icon.png') 0 -32px no-repeat; }
+  i.fail{background: url('../images/datahub/content_icon.png') -16px -32px no-repeat;}
+  &.right{color:#3ca513;}
+  &.err{color:red;
+    a{color:#3491e9;}
+  }
+  .showTip{margin-left: 10px; cursor: pointer;}
+}
+
+.rightZone .headTitltTwo{ border-left: 1px solid #ddd;
+  th{width:20%;text-align: left; padding-left: 10px;}
+  th:nth-child(1){
+    width: 5%;
+  }
+  th:last-child{
+    width:10%;
+  }
+}
+
+.createTab{
+  td{width:20%;  text-align: left; padding-left: 10px; }
+  td:nth-child(1){
+    width: 5%;
+  }
+  td:last-child{
+    width:10%;
+  }
+}
+
+.returnRoot{line-height: 30px; text-align: center; cursor: pointer; color:#198af2; border-bottom: 1px solid #ccc;
+  &:hover{background: #198af2; color: #fff;}
+}
+
+.leftZone .noData{line-height: 30px; text-align: center;}
+.select2-container--default.select2-container--disabled .select2-selection--single{
+  background: #ebebe4;
+}

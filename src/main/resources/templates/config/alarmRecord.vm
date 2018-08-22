@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.option.alarmRecord")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/alarmRecord/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/iView/iview.css?v=15085800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/alarmRecord/alarmRecord.css?v=1515133616566">
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.option.alarmRecord")}</span></h2>
+        <div class="layout" v-cloak>
+            <i-col>
+                <i-menu mode="horizontal" :active-name="activeName" @on-select="listChange">
+                    <div class="layout-assistant">
+                        <menu-item name="0">$!{i18n.getProperty("alarm.title.transAlarm")}</menu-item>
+                        <menu-item name="1">$!{i18n.getProperty("alarm.title.clientAlarm")}</menu-item>
+                    </div>
+                </i-menu>
+            </i-col>
+        </div>
+
+        <article class="main trans" v-show="activeName == 0" v-cloak>
+            <Row type="flex" justify="end">
+                <i-col>
+                    <i-select style="width:100px" v-model="transType" @on-change="typeChange">
+                        <i-option value="1">$!{i18n.getProperty("manage.title.taskId")}</i-option>
+                        <i-option value="2">$!{i18n.getProperty("manage.title.taskName")}</i-option>
+                    </i-select>
+                </i-col>
+                <i-col>
+                    <i-input  style="width:200px" :maxlength="[8,60][+transType-1]" icon="ios-search" v-model="transWord" @on-click="transSearch" @on-enter="transSearch"></i-input>
+                </i-col>
+            </Row>
+            <i-table border v-show="transListGot" :no-data-text="noData" :loading="isLoading" :data="transList" :columns="transColumn">
+            </i-table>
+            <Page v-show="transPager.total" :total="transPager.total" :current="transPager.current" size="small" class="pager" @on-change="pagerChange"></Page>
+        </article>
+        <article class="main client" v-show="activeName == 1" v-cloak>
+            <Row type="flex" justify="end">
+                <i-col>
+                    <i-select style="width:100px" v-model="clientType" @on-change="clientTypeChange">
+                        <i-option value="2">ALL</i-option>
+                        <i-option value="1">$!{i18n.getProperty("alarm.option.clientStatus")}</i-option>
+                        <i-option value="0">$!{i18n.getProperty("alarm.option.clientTask")}</i-option>
+                    </i-select>
+                </i-col>
+            </Row>
+            <i-table border v-show="clientListGot" :no-data-text="noData" :loading="isLoading" :data="clientList" :columns="clientColumn">
+            </i-table>
+            <Page v-show="clientPager.total" :total="clientPager.total" :current="clientPager.current" size="small" class="pager" @on-change="pagerChange"></Page>
+        </article>
+    </div>
+</div>
+<div id="waitLoading" style="position:fixed;z-index:99 ; display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+    <div style="width: 20%;margin: 20% 40%;text-align: center;background: rgba(0,0,0,.5);color: #fff;padding: 20px;line-height: 30px;border-radius: 10px;">
+        <img src="resources/dist/images/loading.gif">
+        <article></article>
+    </div>
+</div>
+<script src="resources/dist/alarmRecord/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/iView/iview.min.js?v=15084958007"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/alarmRecord/alarmRecord.js?v=1522656467715" async></script>
+</body>
+</html>

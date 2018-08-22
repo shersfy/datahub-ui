@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<title>http</title>
+		<link rel="stylesheet" href="resources/dist/httpInterface/libs.min.css">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/httpInterface/httpInterface.css">
+	</head>
+	<body>
+		#parse("layout/header.vm")
+        #parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><span>数据迁移</span>&nbsp;>&nbsp;<a href="./manage">任务管理</a>&nbsp;>&nbsp;<a href="./">新建迁移任务</a>&nbsp;>&nbsp;<a>Open API</a></h2>
+				<div class="upload-conatiner">
+					<div class="upload-tab">
+						<div class="section">
+							<div class="headNav"><span class="liveInterface">Open API</span><!--<a href="" class="loadDoc">下载文档</a>--></div>
+                            <div class="item-row">
+					            <p class="startTip">datahub还可以将实时数据导入到kafka，提供数据实时导入接口，供开发人员使用。以下为接口说明：</p>
+					            <div class="interfaceMsg">
+					          	    <p class="interfaceTitle">一、接口访问前提：</p>
+					          	    <p class="tip">1、认证</p>
+					          	    <p class="keyMsg">目前访问实时接口需要申请appKey，与生成accessToken</p>
+					          	    <p class="tip">2、应用配置说明</p>
+					          	    <table class="appMapMsg">
+					          		    <tbody>
+					          			    <tr>
+					          				    <td>appKey</td>
+					          				    <td>//应用标识（主键accessToken//访问用</td>
+					          			    </tr>
+					          			    <tr>
+					          				    <td>accessToken</td>
+					          				    <td>访问用，可手动重置。重置后也同时跟新访问参数。</td>
+					          			    </tr>
+						          			<tr>
+						          				<td>enable</td>
+						          				<td>默认true,黑名单功能</td>
+						          			</tr>
+						          			<tr>
+						          				<td>sendType</td>
+						          				<td>默认是1 表示只发kafka，2 既发kafka也打日志， 3 表示只打日志</td>
+						          			</tr>
+						          			<tr>
+						          				<td>topic</td>
+						          				<td>默认是 default discard表示该数据不发往kafka 多个topic用逗号隔开。配置的topic需要预先在kafka中创建好。</td>
+						          			</tr>
+						          			<tr>
+						          				<td>separator</td>
+						          				<td>统一接口才使用的配置默认是\u0001</td>
+						          			</tr>
+						          			<tr>
+						          				<td>loggerName</td>
+						          				<td>默认uniteLogger，预留以后可能会采取将多个appKey往一个日志文件打印</td>
+						          			</tr>
+						          		</tbody>
+						          	</table>
+					          	</div>
+					          	<div class="twoFiled">
+					          		<p>二、参数获取：</p>
+					          		<div class="dataBox">
+					          			<span>appKey</span>
+					          			<input type="text" id="appKey" readOnly/>
+					          		</div>
+					          		<div class="dataBox">
+					          			<span>Token</span>					          			
+					            		<input type="text" id="tokenValue" readOnly/>
+					            		<input type="button" id="tokenBtn" value="刷新token"/>
+					          		</div>
+					          	</div>
+					          	<div class="interfaceExplain">
+					          		<p class="title">三、接口说明</p>
+					          		<div class="massAsync type">
+					          			<p class="tip">1、批量异步转发接口</p>
+						          		<table>
+						          			<tbody>
+						          				<tr>
+						          					<td>说明</td>
+						          					<td>发送过来的json数据，会按照指定的分隔符数据分隔数据，后面会跟上服务器收到信息字符串时间戳 年_月_日_时_分_秒 和毫秒数。</br>
+						如{"1":"xxx","2":"ooo",....}会变成xxx\u0001ooo\u00012014-10-12 01:20:59\u00011312344245545……</td>
+						          				</tr>
+						          				<tr>
+						          					<td>请求url</td>
+						          					<td>http://xx/white/dataReceive/jsonChangeAsync</td>
+						          				</tr>
+						          				<tr>
+						          					<td>示例数据</td>
+						          					<td>{//数组数据。"1","2"...表示用separator分隔后的第1列数据，第二列数据...目前支持最长30列</br>"data":[{"1":"xxx","2":"ooo",...},{"1":"xxx","2":"ooo"}]</br>"appKey":"testapp"//系统中申请</br>"accessToken":"token"//系统中申请}</td>
+						          				</tr>
+						          				<tr>
+						          					<td>返回值</td>
+						          					<td>json格式数据 ：</br>{</br>"code"：1，</br>"tip"："ok"</br>}</td>
+						          				</tr>
+						          			</tbody>
+						          		</table>
+					          		</div>
+					          		<div class="signSync type">
+					          			<p class="tip">2、单条同步转发接口</p>
+						          		<table>
+						          			<tbody>
+						          				<tr>
+						          					<td>说明</td>
+						          					<td>发送过来的json数据，会按照指定的分隔符数据分隔数据，后面会跟上服务器收到信息字符串时间戳 年_月_日_时_分_秒 和毫秒数。如{"1":"xxx","2":"ooo",....}会变成xxx\u0001ooo\u00012014-10-12 01:20:59\u00011312344245545……</td>
+						          				</tr>
+						          				<tr>
+						          					<td>请求url</td>
+						          					<td>http://xx/white/dataReceive/jsonChangeSync</td>
+						          				</tr>
+						          				<tr>
+						          					<td>示例数据</td>
+						          					<td>{//数组数据。"1","2"...表示用separator分隔后的第1列数据，第二列数据...目前支持最长30列"data":{"1":"xxx","2":"ooo",...}"appKey":"testapp"//系统中申请"accessToken":"token"//系统中申请}</td>
+						          				</tr>
+						          				<tr>
+						          					<td>返回值</td>
+						          					<td>json格式数据 ：{"code"：1，"tip"："ok"}</td>
+						          				</tr>
+						          			</tbody>
+						          		</table>
+					          		</div>
+					          		<div class="massAsyncOrigin type">
+					          			<p class="tip">3、批量原始数据异步转发接口</p>
+						          		<table>
+						          			<tbody>
+						          				<tr>
+						          					<td>说明</td>
+						          					<td>发送过来的json数据会按其value值发送到kafka</td>
+						          				</tr>
+						          				<tr>
+						          					<td>请求url</td>
+						          					<td>http://xx/white/dataReceive/ jsonOriginAsync</td>
+						          				</tr>
+						          				<tr>
+						          					<td>示例数据</td>
+						          					<td>{"data":["strng1","string2"]//原始数组数据。string1,string2会原样发往kafka"appKey":"testapp"//系统中申请"accessToken":"token"//系统中申请}</td>
+						          				</tr>
+						          				<tr>
+						          					<td>返回值</td>
+						          					<td>json格式数据 ：{"code"：1，"tip"："ok"}</td>
+						          				</tr>
+						          			</tbody>
+						          		</table>
+					          		</div>
+					          		<div class="signSyncOrigin type">
+					          			<p class="tip">4、单条原始数据同步转换接口</p>
+						          		<table>
+						          			<tboyd>
+						          				<tr>
+						          					<td>说明</td>
+						          					<td>发送过来的json数据会按其value值发送到kafka</td>
+						          				</tr>
+						          				<tr>
+						          					<td>请求url</td>
+						          					<td>http://xx/white/dataReceive/ jsonOriginSync</td>
+						          				</tr>
+						          				<tr>
+						          					<td>示例数据</td>
+						          					<td>{"data":"strng1"//原始数组数据。string1,string2会原样发往kafka"appKey":"testapp"//系统中申请"accessToken":"token"//系统中申请}</td>
+						          				</tr>
+						          				<tr>
+						          					<td>返回值</td>
+						          					<td>json格式数据 ：{"code"：1，"tip"："ok"}</td>
+						          				</tr>
+						          			</tboyd>
+						          		</table>
+					          		</div>
+					          	</div>
+					          	<h3 class="codeTesth3">四、单元测试示例代码</h3>
+						        <div class="codeTest">						        	
+						            <p>package wyp.data.transfer.controller;</p>
+						            <p>package wyp.data.transfer.controller;</p>
+						            <p>import java.util.HashMap;</br>import java.util.Map;</p>
+						            <p>import org.junit.Test;</p>
+						            <p>import wyp.data.transfer.common.HttpUtil;</p>
+						            <p>import com.alibaba.fastjson.JSONArray;</br>import com.alibaba.fastjson.JSONObject;</p>
+						            <p>public class DataReceiveControllerTest {</br>&emsp;private String server="http://192.168.100.115:8080";</br>&emsp;@Test</br>&emsp;public void jsonChangeAsync(){</br>&emsp;JSONObject allObj = new JSONObject();</br>&emsp;allObj.put("appKey", "appKeyValue1");</br>&emsp;allObj.put("accessToken", "accessTokenValue1");</br>&emsp;JSONArray dataArray = new JSONArray();</br>&emsp;for(int j = 0;j< 2;j++){</br>&emsp;JSONObject obj = new JSONObject();</br>&emsp;for(int i = 1;i < 31;i++){</br>&emsp;obj.put(i + "", "v" + i);</br>&emsp;}</br>&emsp;dataArray.add(obj);</br>&emsp;}</br>&emsp;allObj.put("data", dataArray);</br>&emsp;String url = server + "/white/dataReceive/jsonChangeAsync";</br>&emsp;Map<String,String> map = new HashMap<String,String>();</br>&emsp;map.put("jsonData", allObj.toJSONString());</br>&emsp;JSONObject result = HttpUtil.postStr(url, map);</br>&emsp;System.out.println(result.toJSONString());</br>&emsp;}</p>
+						            <p>&emsp;@Test</br>&emsp;public void jsonChangeSync(){</br>&emsp;JSONObject allObj = new JSONObject();</br>&emsp;allObj.put("appKey", "appKeyValue1");</br>&emsp;allObj.put("accessToken", "accessTokenValue1");</br>&emsp;JSONObject obj = new JSONObject();</br>&emsp;for (int i = 1; i < 31; i++) {</br>&emsp;obj.put(i + "", "v" + i);</br>&emsp;}</br>&emsp;allObj.put("data", obj);</br>&emsp;String url = server + "/white/dataReceive/jsonChangeSync";</br>&emsp;Map<String, String> map = new HashMap<String, String>();</br>&emsp;map.put("jsonData", allObj.toJSONString());</br>&emsp;JSONObject result = HttpUtil.postStr(url, map);</br>&emsp;System.out.println(result.toJSONString());</br>&emsp;}</p>
+						            <p>&emsp;@Test</br>&emsp;public void jsonOriginAsync(){</br>&emsp;JSONObject allObj = new JSONObject();</br>&emsp;allObj.put("appKey", "appKeyValue1");</br>&emsp;allObj.put("accessToken", "accessTokenValue1");</br>&emsp;JSONArray dataArray = new JSONArray();</br>&emsp;String str = "ssss";</br>&emsp;for(int j = 0;j< 2;j++){</br>&emsp;dataArray.add(str + j);</br>&emsp;}</br>&emsp;allObj.put("data", dataArray);</br>&emsp;String url = server + "/white/dataReceive/jsonOriginAsync";</br>&emsp;Map<String,String> map = new HashMap<String,String>();</br>&emsp;map.put("jsonData", allObj.toJSONString());</br>&emsp;JSONObject result = HttpUtil.postStr(url, map);</br>&emsp;System.out.println(result.toJSONString());</br>&emsp;}</p>
+						            <p>&emsp;@Test</br>&emsp;public void jsonOriginSync(){</br>&emsp;JSONObject allObj = new JSONObject();</br>&emsp;allObj.put("appKey", "appKeyValue1");</br>&emsp;allObj.put("accessToken", "accessTokenValue1");</br>&emsp;String str = "ssss";</br>&emsp;allObj.put("data", str);</br>&emsp;String url = server +  "/white/dataReceive/jsonOriginSync";</br>&emsp;Map<String,String> map = new HashMap<String,String>();</br>&emsp;map.put("jsonData", allObj.toJSONString());</br>&emsp;JSONObject result = HttpUtil.postStr(url, map);</br>&emsp;System.out.println(result.toJSONString());</br>&emsp;}</br>}</p>
+						        </div>						          						          						      
+					        </div>	 
+						</div>
+                    </div>     
+                </div>
+            </div>
+        </div>
+</script>
+<script src="resources/dist/httpInterface/libs.min.js"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/httpInterface/httpInterface.js"></script>
+</body>
+</html>

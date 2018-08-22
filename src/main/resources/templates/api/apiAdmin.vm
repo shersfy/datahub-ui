@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>api admin</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/token/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <style>
+    .vCon{background: #fff; padding: 20px; margin: 20px;}
+    nav a{padding: 5px 10px; line-height: 40px; cursor: pointer;}
+    nav a.cur{background: #7775e9; color: #fff;}
+    .list{line-height: 25px;}
+    .list li:hover{background: #9de9e1}
+    .list a{cursor: pointer;}
+
+    .info p{line-height: 25px; margin-bottom: 10px;}
+    .info p input, .info p select{width:calc(100% - 100px);}
+    .info table input, .info table select{width:100%;}
+    .info table a{cursor: pointer;}
+    .info textarea{width:100%; height: 150px; margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+<div class="vCon">
+    <nav>
+        <a :class="{cur:tabIndex == 0}" @click="tabChange(0)">列表</a>
+        <a :class="{cur:tabIndex == 1}" @click="tabChange(1)">添加/更新</a>
+    </nav>
+    <div class="list" v-show="tabIndex == 0">
+        <ul>
+            <li v-for="(item, index) in list" :key="item.id">
+                <span>{{item.nameZh}}</span>
+                <span>{{item.url}}</span>
+                <a @click="edit(item.id, index)">修改</a>
+                <a @click="del(item.id, index)">删除</a>
+            </li>
+        </ul>
+    </div>
+    <div class="info" v-show="tabIndex == 1">
+        <p>接口中文名：<input type="text" v-model="info.nameZh"></p>
+        <p>接口英文名：<input type="text" v-model="info.nameEn"></p>
+        <p>接口地址：<input type="text" v-model="info.url"></p>
+        <p>请求方式：<select v-model="info.method"><option value="POST">POST</option><option value="GET">GET</option><option value="DELETE">DELETE</option></select></p>
+        <p>返回格式：json</p>
+        <p>顺序位置: <input type="text" v-model="info.position"></p>
+        <p>最小时间间隔(秒): <input type="text" v-model="info.intervals"></p>
+        <p>接口中文说明：<input type="text" v-model="info.noteZh"></p>
+        <p>接口英文说明：<input type="text" v-model="info.noteEn"></p>
+        <h4>参数列表</h4>
+        <table>
+            <thead>
+            <tr>
+                <td>名称</td>
+                <td>类型</td>
+                <td>必填</td>
+                <td>中文说明</td>
+                <td>英文说明</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(param, index) in info.params" v-if="param.type == 1" :key="param.id">
+                <td><input type="text" v-model="param.name"></td>
+                <td><select v-model="param.dataType"><option value="string">string</option><option value="int">int</option><option value="json">json</option><option value="bool">bool</option><option value="file">file</option></select></td>
+                <td><select v-model="param.need"><option value="true">是</option><option value="false">否</option></select></td>
+                <td><input type="text" v-model="param.noteZh"></td>
+                <td><input type="text" v-model="param.noteEn"></td>
+                <td><a @click="infoDel(index)">删除</a></td>
+            </tr>
+            <tr>
+                <td colspan="6"><a @click="infoAdd(1)">增加一行</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <h4>返回参数说明</h4>
+        <table>
+            <thead>
+            <tr>
+                <td>名称</td>
+                <td>类型</td>
+                <td>中文说明</td>
+                <td>英文说明</td>
+                <td>操作</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(param, index) in info.params" v-if="param.type == 2" :key="param.id">
+                    <td><input type="text" v-model="param.name"></td>
+                    <td><select v-model="param.dataType"><option value="string">string</option><option value="int">int</option><option value="json">json</option><option value="bool">bool</option></select></td>
+                    <td><input type="text" v-model="param.noteZh"></td>
+                    <td><input type="text" v-model="param.noteEn"></td>
+                    <td><a @click="infoDel(index)">删除</a></td>
+                </tr>
+                <tr>
+                    <td colspan="6"><a @click="infoAdd(2)">增加一行</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>返回结果示例：</h4>
+        <textarea v-model="info.returnDemo"></textarea>
+        <div class="text-center">
+            <button class="btn btn-cancel" @click="tabIndex = 0">取消</button>
+            <button class="btn btn-item" @click="save">保存</button>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+<script src="resources/dist/token/libs.min.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script>
+var vm = new Vue({
+    el: '.vCon',
+    data: {
+        tabIndex: 0,
+        list: [],
+        info: {
+            params: []
+        }
+    },
+    created: function(){
+        this.getList();
+    },
+    methods: {
+        getList: function(){
+            var _this = this;
+            $.get('env/api/list').then(function(data){
+                _this.list = data.model.data;
+            });
+        },
+        tabChange: function(i){
+            this.tabIndex = i ;
+            if ( i == 1 ){
+                this.info = {params:[{type:1, need:true, name:'token', dataType:'string', noteZh:'访问token码', noteEn:'access token'}, {type:2, need:true, name:'code',dataType:'int', noteZh:'参考状态码说明', noteEn:'reference return codes'},{type:2, need:true, name:'msg',dataType:'string', noteZh:'提示信息', noteEn:'return message'},{type:2, need:true, name:'model'}]};
+            }
+        },
+        edit: function(id, index){
+            var info = this.list[index];
+            this.info = info;
+            this.tabIndex = 1;
+        },
+        del: function(id, index){
+            var _this = this;
+            if ( confirm('删除?') ){
+                $.ajax({
+                    url:'env/api/delete',
+                    type: 'post',
+                    data: {id: id},
+                    contentType: 'application/x-www-form-urlencoded',
+                    success: function (data) {
+                        if (data.code != 200) {
+                            ErrTip(data.i18nMsg.title, data.i18nMsg.detail, data.msg);
+                            return;
+                        }
+                        _this.list.splice(index, 1);
+                        MsgTip('success', '删除成功');
+                    }
+                });
+            }
+        },
+        infoDel: function(index){
+            this.info.params.splice(index,1);
+        },
+        infoAdd: function(type){
+            this.info.params.push({type:type, need:false});
+        },
+        save: function(){
+            var _this = this;
+            this.info.params = JSON.stringify(this.info.params);
+            var keyArr = ['id', 'url', 'position', 'intervals', 'method', 'nameZh', 'nameEn', 'noteZh', 'noteEn', 'returnDemo', 'params'];
+            var data = {} ;
+            keyArr.map(function(v){
+                data[v] = _this.info[v];
+            });
+
+            $.ajax({
+                url:'env/api/save',
+                data: data,
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                success: function(data) {
+                    _this.getList();
+                    _this.tabIndex = 0;
+                    MsgTip('success', '保存完毕');
+                }
+            });
+        }
+    }
+});
+</script>
+</body>
+</html>

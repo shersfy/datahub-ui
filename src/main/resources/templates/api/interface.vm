@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.title.api")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/interface/libs.min.css?v=1508495800507">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/interface/interface.css?v=1521685406193">
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("common.title.openAPI")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.title.api")}</span></h2>
+        <aside class="returnTop">
+            <i class="top"></i>
+            <span>$!{i18n.getProperty("interface.act.toTop")}</span>
+        </aside>
+
+        #if ( $!{lang} == 'zh' )
+            #parse("api/zh.vm")
+        #else
+            #parse("api/en.vm")
+        #end
+    </div>
+</div>
+<script type="text/html" id="template/zh">
+    {{each data as v}}
+    <h3 class="title" name="index{{v.id}}" id="index{{v.id}}">{{v.nameZh}}</h3>
+    <article>
+    <p>接口地址：{{v.url}}</p>
+    <p>返回格式：json</p>
+    <p>请求方式：{{v.method}}</p>
+    <p>接口说明：{{v.noteZh}}</p>
+    <p>请求参数说明：
+    <table>
+    <thead>
+    <tr>
+    <td>名称</td>
+    <td>类型</td>
+    <td>必填</td>
+    <td>说明</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{each v.params as vv}}
+    {{if vv.type == 1}}
+    <tr>
+    <td>{{vv.name}}</td>
+    <td>{{vv.dataType}}</td>
+    <td>{{['否', '是'][+vv.need]}}</td>
+	<td>
+		{{if vv.name == 'dbType' || vv.name == 'model.dbType' || vv.name == 'model[i].dbType'}}<a href="#dbType">{{vv.noteZh}}</a>
+		{{else}}<div title="{{vv.noteZh}}">{{vv.noteZh}}</div>{{/if}}
+	</td>
+    {{/if}}
+    {{/each}}
+    </tr>
+    </tbody>
+    </table>
+    </p>
+    <p>返回参数说明：
+    <table>
+    <thead>
+    <tr>
+    <td>名称</td>
+    <td>类型</td>
+    <td>说明</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{each v.params as vv}}
+    {{if vv.type == 2}}
+    <tr>
+    <td>{{vv.name}}</td>
+    <td>{{vv.dataType}}</td>
+    <td>
+		{{if vv.name == 'code'}}<a href="#code">{{vv.noteZh}}</a>
+		{{else if vv.name == 'dbType' || vv.name == 'model.dbType' || vv.name == 'model[i].dbType'}}<a href="#dbType">{{vv.noteZh}}</a>
+		{{else}}<div title="{{vv.noteZh}}">{{vv.noteZh}}</div>{{/if}}
+	</td>
+    </tr>
+    {{/if}}
+    {{/each}}
+    </tbody>
+    </table>
+    </p>
+    <p>json返回示例：
+    <pre class="json">
+    {{v.returnDemo}}
+    </pre>
+    </p>
+    </article>
+    {{/each}}
+</script>
+<script type="text/html" id="template/en">
+    {{each data as v}}
+    <h3 class="title" name="index{{v.id}}" id="index{{v.id}}">{{v.nameEn}}</h3>
+    <article>
+    <p>interface: {{v.url}}</p>
+    <p>format: json</p>
+    <p>methods: {{v.method}}</p>
+    <p>interface description: {{v.noteEn}}</p>
+    <p>request parameters:
+    <table>
+    <thead>
+    <tr>
+    <td>name</td>
+    <td>type</td>
+    <td>mandatory</td>
+    <td>instructions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{each v.params as vv ii}}
+    {{if vv.type == 1}}
+    <tr>
+    <td>{{vv.name}}</td>
+    <td>{{vv.dataType}}</td>
+    <td>{{['no', 'yes'][+vv.need]}}</td>
+	<td>
+		{{if vv.name == 'dbType' || vv.name == 'model.dbType' || vv.name == 'model[i].dbType'}}<a href="#dbType">{{vv.noteEn}}</a>
+		{{else}}<div title="{{vv.noteEn}}">{{vv.noteEn}}</div>{{/if}}
+	</td>
+    {{/if}}
+    {{/each}}
+    </tr>
+    </tbody>
+    </table>
+    </p>
+    <p>return parameters:
+    <table>
+    <thead>
+    <tr>
+    <td>name</td>
+    <td>type</td>
+    <td>instructions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{each v.params as vv ii}}
+    {{if vv.type == 2}}
+    <tr>
+    <td>{{vv.name}}</td>
+    <td>{{vv.dataType}}</td>
+    <td>
+		{{if vv.name == 'code'}}<a href="#code">{{vv.noteEn}}</a>
+		{{else if vv.name == 'dbType' || vv.name == 'model.dbType' || vv.name == 'model[i].dbType'}}<a href="#dbType">{{vv.noteEn}}</a>
+		{{else}}<div title="{{vv.noteEn}}">{{vv.noteEn}}</div>{{/if}}
+	</td>
+    </tr>
+    {{/if}}
+    {{/each}}
+    </tbody>
+    </table>
+    </p>
+    <p>json return the sample:
+    <pre class="json">
+    {{v.returnDemo}}
+    </pre>
+    </p>
+    </article>
+    {{/each}}
+</script>
+<script src="resources/dist/interface/libs.min.js?v=1508495800507"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/interface/interface.js?v=1522832144028" async></script>
+</body>
+</html>

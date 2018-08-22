@@ -1,0 +1,44 @@
+/*@media screen and (min-width:1680px) and (max-width:1940px){
+	.dbBox .tabName .name{
+		width:150px;
+	}
+	.dbBox .tabName .size{
+		width:120px;
+	}
+	.dbBox .dbName .name{
+		width:180px;
+	}
+}
+@media screen and (min-width:1550px) and (max-width:1680px){
+	.dbBox .tabName .name{
+		width:130px;
+	}
+	.dbBox .tabName .size{
+		width:100px;
+	}
+	.dbBox .dbName .name{
+		width:160px;
+	}
+}
+@media screen and (min-width:1380px) and (max-width:1550px) {
+	.dbBox .tabName .name{
+		width:80px;
+	}
+	.dbBox .tabName .size{
+		width:60px;
+	}
+	.dbBox .dbName .name{
+		width:120px;
+	}
+}
+@media screen and (min-width:1000px) and (max-width:1380px) {
+	.dbBox .tabName .name{
+		width:70px;
+	}
+	.dbBox .tabName .size{
+		width:54px;
+	}
+	.dbBox .dbName .name{
+		width:100px;
+	}
+}*/

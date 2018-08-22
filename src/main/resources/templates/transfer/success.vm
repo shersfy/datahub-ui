@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>$!{i18n.getProperty("index.title.succPage")}</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/newIndex/libs.min.css">		
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/success/success.css">
+	</head>
+
+	<body>
+		#parse("layout/header.vm")
+		#parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+                <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("index.title.succPage")}</span></h2>
+				<div class="upload-conatiner">
+					<div class="upload-tab uploadFile">
+						<div class="line1"><img src="resources/images/success.png"/></div>
+						<!--<p class="line2">任务创建成功</p>-->
+						<p class="line3">$!{i18n.getProperty("index.text.will")} <a href="./">$!{i18n.getProperty("common.title.newTask")}</a> $!{i18n.getProperty("index.text.goto")} <a href="./manage">$!{i18n.getProperty("index.title.taskManage")}</a> $!{i18n.getProperty("index.text.view")}</p>
+					</div>					
+				</div>
+			</div>
+		</div>
+	<script src="resources/dist/newIndex/libs.min.js"></script>
+	<script src="resources/dist/common/common.js?v=1523175610950"></script>
+	</body>
+</html>

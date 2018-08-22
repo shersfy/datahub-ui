@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Amazon S3</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/amazonS3/libs.min.css?v=1507708363510">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link media="screen and (min-width:768px) and (max-width:1550px)" rel="stylesheet" href="resources/dist/amazonS3/amazonView.css?v=1507708363510"/>
+		<link rel="stylesheet" href="resources/dist/amazonS3/amazonS3.css?v=1515642148561">
+	</head>
+	<body class="asideToggle">
+		#parse("layout/header.vm")
+		#parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("s3.title.s3Migrate")}</span></h2>
+				<div class="upload-conatiner">
+					<div class="upload-tab uploadFile">
+						<div class="taskNav">
+							<div class="processCon">  
+								<div class="process clearfix">
+									<div class="item">
+										<div class="item1 itemCon cur">
+											<i class="step">01</i>
+											<span>$!{i18n.getProperty("db.title.configResource")}</span>
+										</div>
+									</div>
+									<div class="item">
+										<div class="item2 itemCon">
+											<i class="step">02</i>
+											<span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+
+						<div class="mapTaskMsg">
+							<div class="oneRow">
+								<p class=" mapTit">$!{i18n.getProperty("client.title.confTask")}</p>
+							</div>
+							<div class="oneRow">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("manage.title.taskName")}</p>
+								<input type="text" class="right" id="dTaskName"  autocomplete="off" maxlength="60" spellcheck="false"/>
+							</div>
+							<div class="oneRow discribleZone">
+								<p class="left">$!{i18n.getProperty("manage.title.taskDesc")}</p>
+								<textarea class="right taskDescribe" maxlength="255" spellcheck="false"></textarea>
+							</div>
+							<div class="oneRow">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("manage.title.inApp")}</p>
+								<select id="userApp" class="right"></select>
+							</div>
+							<div class="oneRow" style="margin-bottom:10px;">
+								<p class=" mapTit">$!{i18n.getProperty("s3.title.configLink")}</p>
+							</div>
+							<div class="oneRow">
+								<p class="">$!{i18n.getProperty("s3.option.key")}</p>
+							</div>
+							<div class="oneRow">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("s3.option.keyId")}</p>
+								<input type="text" class="right accKey"  autocomplete="off" spellcheck="false"/>
+							</div>
+							<div class="oneRow">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("s3.option.accKey")}</p>
+								<input type="password" class="right secKey" autocomplete="off" spellcheck="false"/>
+							</div>
+							<div class="oneRow">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("s3.option.region")}</p>
+								<select id="Regions" class="right">
+									
+								</select>
+							</div>
+							<div class="oneRow" style="height:32px;border-top: 1px solid #f4f4f4;padding-top: 10px;">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("local.title.tarDir")}</p>
+								<p style="line-height:27px;"><span style="padding-left:10px;">HDFS</span></p>
+							</div>
+							<div class="oneRow" style="height:32px;">
+								<p class="left"><span class="redStar">*</span>$!{i18n.getProperty("client.option.selectLink")}</p>
+								<select class="right connId" id="connId"></select>
+							</div>
+						</div>
+						<div class="btnZone">
+							<input type="button" value="$!{i18n.getProperty("client.option.cancel")}" class="CancelBtn" />
+							<input type="button" value="$!{i18n.getProperty("client.option.nextStep")}" class="FileNext" />
+						</div>
+					</div>
+					<div class="upload-tab choiceRoute">
+						<div class="taskNav">
+							<div class="processCon">  
+								<div class="process clearfix">
+									<div class="item">
+										<div class="item1 itemCon">
+											<i class="step">01</i>
+											<span>$!{i18n.getProperty("db.title.configResource")}</span>
+										</div>
+									</div>
+									<div class="item">
+										<div class="item2 itemCon cur">
+											<i class="step">02</i>
+											<span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+										</div>
+									</div>
+								</div> 
+							</div>
+						</div>
+                        <h3 class="tip">
+                            <span>$!{i18n.getProperty("local.title.importConf")}</span>
+                            <i>$!{i18n.getProperty("csv.text.hdfsNote")}</i>
+                        </h3>
+						<select id="uploadSite" style="display:none;">
+							<option value="0">hdfs</option>
+							<option value="1">hive</option>
+						</select>
+						<p style="color:#ff986f;padding-left:24px;font-size:12px;margin-bottom:10px;padding-top:20px;">$!{i18n.getProperty("s3.note.hdfsNote")}</p>
+						<div class="mapRange">
+							<div class="dbCheckZone">
+								<div class="leftZone">
+									<div class="loadingTip">
+										<div class="gifBox">
+											<img src="resources/dist/images/loading.gif" alt="" />
+										</div>
+									</div>
+									<div class="header">
+										<p class="dataTab">$!{i18n.getProperty("db.title.srcData")}</p>
+									</div>
+									<label class="checkAllDb"><input type="checkbox" id="checkAllDb"/>&emsp;&emsp;$!{i18n.getProperty("db.option.allSelt")}</label>
+									<div class="dbZone">
+										
+									</div>
+								</div>
+								<div class="centerZone">
+									<div class="transBtn">
+										<div id="pointRight">
+											<img src="resources/images/pointRight_lost.png" class="lost"/>
+											<img src="resources/images/pointRight_select.png" class="select"/>
+										</div>
+										<div id="pointLeft">
+											<img src="resources/images/pointLeft_lost.png" class="lost"/>
+											<img src="resources/images/pointLeft_select.png" class="select"/>
+										</div>
+									</div>
+								</div>
+								<div class="rightZone">
+									<div class="dbContainer">
+										<div class="tabShow">
+											<table class="headTitle">
+												<thead>
+													<tr>
+														<th>
+															<label class="checkAllLab">
+																<input type="checkbox" class="tabCheckAll" />
+															</label>
+														</th>
+														<th>$!{i18n.getProperty("db.option.srcTbl")}</th>
+														<th>$!{i18n.getProperty("db.option.tarDb")}</th>
+														<th>$!{i18n.getProperty("dump.option.tarTbl")}</th>
+														<th><span class="allConfigure" field="hive"><img src="resources/images/mapData.png" class="mapImg"/><b class="mapTip">$!{i18n.getProperty("dump.title.batchConfig")}</b></span></th>
+													</tr>
+												</thead>
+											</table>
+											<table class="headTitltTwo">
+												<thead>
+													<tr>
+														<th>
+															<label class="checkAllLab">
+																	<input type="checkbox" class="tabCheckAll" />
+																</label>
+														</th>
+														<th>$!{i18n.getProperty("s3.option.selected")}</th>
+														<th colspan="2">$!{i18n.getProperty("local.option.confPath")}</th>
+														<th><span class="allConfigure" field="hdfs"><img src="resources/images/mapData.png" class="mapImg"/><b class="mapTip">$!{i18n.getProperty("dump.title.batchConfig")}</b></span></th>
+													</tr>
+												</thead>
+											</table>
+											<div class="addContentZone">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btnZone">
+							<input type="button" value="$!{i18n.getProperty("client.option.prevStep")}" class="prevBtn" />
+							<input type="button" value="$!{i18n.getProperty("client.option.startImport")}" class="startImport" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="delayTip">
+			<div class="spinBox" style="width:64px;height:64px;margin:0 auto;margin-top:350px;">
+				<img src="resources/dist/images/loading.gif" alt="" />
+			</div>
+		</div>
+		<div class="maskCell"></div>
+		<div class="createTabTip">
+			<p class="headerTip"><span class="createCancel">X</span></p>
+			<div class="newSuccess">
+				<p class="haveTip">$!{i18n.getProperty("dump.note.configOk")}</p>
+				<div class="bottom">
+					<input type="button" value="$!{i18n.getProperty("s3.note.start")}" class="startManage" />
+				</div>
+			</div>
+		</div>
+
+		<div class="hdfsBox">
+			<div class="contentBox hdfsRList">
+				<div class="title mapRouteTit">
+					<p class="routeTitle">HDFS $!{i18n.getProperty("local.option.confPath")}</p>
+					<p class="closeMap hiveCloseMap">X</p>
+				</div>
+				<div class="mathRoute">
+					<div class="import hdfsWrite">
+						<div class="routeChoice">
+							<div class="menuZone">
+								<ul class="allMeun firstM">
+									<li class="startLi">
+										<label class='routeLabel'><input type='checkbox' class='routeChoiceBtn' name='route'/></label>
+										<h3 class="routeStart oneRoute"><img class='turnOn' field="start" src='resources/images/routeOn.png'/><img class='turnOff' field="start" src='resources/images/routeOff.png'/><span class="thisRoute startThis"></span></h3>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="routeShow">
+						<div class="defaultShow">
+							<p>$!{i18n.getProperty("local.title.fileDir")}</p>
+							<input type="text" disabled="true" class="defaultRoute" />
+						</div>
+						<div class="suffixShow">
+							<p>$!{i18n.getProperty("local.title.fileName")}</p>
+							<input type="text" class="suffixRoute" maxlength="60"/>
+						</div>
+					</div>
+				</div>
+				<div class="bottomBtn">
+					<button class="keep btn btn-item">$!{i18n.getProperty("dbManage.option.save")}</button>
+					<button class="cancelKeep btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/html" id="template/amazons3Bucket">
+            <ul class="oneMeun firstUl">
+			{{if data.length==0}}
+                <li>$!{i18n.getProperty("s3.info.resErr")}</li>
+			{{else}}
+			{{each data as v i}}
+                <li class="oneDataLi" field="{{i}}"><p class="oneResult"><img src="resources/images/slideUp.png" class="slideUp"/><img src="resources/images/slideDown.png" class="slideDown"/><span class="aDbName" title="{{v.name}}">{{v.name}}</span></p><!--<label class="checkLabel hasDLabel"></label>--></li>
+			{{/each}}
+			{{/if}}
+            </ul>
+		</script>
+		<script type="text/html" id="template/child">
+            <ul class="oneMeun childUl" field="{{data.field}}">
+				{{if data.value.length < 1}}
+                <li class="noData">$!{i18n.getProperty("db.text.queryNone")}</li>
+				{{else}}
+				{{each data.value as v i}}
+				{{if v.directory}}
+                <li class="oneDataLi" field="{{data.field}}{{i}}"><p class="oneResult" style="padding-left:{{pad}}px"><img src="resources/images/slideUp.png" class="slideUp"/><img src="resources/images/slideDown.png" class="slideDown"/><span class="aDbName" title="{{v.key}}" bucketName="{{v.bucketName}}" path="{{v.path}}">{{v.key}}</span></p></li>
+				{{else}}
+                <li class="oneDataLi oneTabLi" bucket="{{data.bucket}}" field="{{data.field}}{{i}}"><p class="oneResult" style="padding-left:{{pad}}px"><span class="aTabName" title="{{v.name}} {{fileSize(v.size)}}" path="{{v.path}}">{{v.name}}</span><span class="tabSize" size="{{v.size}}">{{fileSize(v.size)}}</span></p></li>
+				{{/if}}
+				{{/each}}
+				{{/if}}
+            </ul>
+		</script>
+		<script type="text/html" id="template/hdfsTr">
+			<table class="newTable hdfsTable">
+				<tbody id="createTab">
+					{{each data as v i}}
+					<tr field="{{v.field}}" class="hdfsTr newTr">
+						<td>
+							<label class="checkOneLab">
+								<input  type="checkbox" class="tabCheckOne tabCheck">
+							</label>
+						</td>
+						<td class="hdfs">
+							<img  src="resources/images/parseDump.png"/>
+							<span class="parseName" title="{{v.fileName}}">{{v.fileName}}</span>
+						</td>
+						<td class="map hdfsMap" bucket="{{v.bucket}}"  key="{{v.path}}" size="{{v.size}}"></td>
+						<td>
+							<span class="oneConfigure">
+								<img  src="resources/images/mapData.png" class="mapImg"/>
+								<b class="mapTip">$!{i18n.getProperty("db.text.config")}</b>
+							</span>
+						</td>
+						</tr>
+					{{/each}}									
+				</tbody>
+			</table>
+		</script>
+		<script type="text/html" id="template/s3Dir">
+			{{each data.value as v i}}
+			<li class="tabName tabCheck" field="{{data.field}}{{i}}">
+				<label class="aLabel">
+					{{if v.file}}
+					<img src="resources/images/parseDump.png" class="fileIcon" />
+					{{else}}
+					<img src="resources/images/parseFile.png" class="fileIcon" />
+					{{/if}}
+					<input type="checkbox" field="{{data.field}}" class="acheck check check{{data.field}}"/>
+					<span class="name" title="{{v.key}}" key="{{v.key}}" size="{{v.size}}">{{v.key}}</span>
+					<span class="size">{{fileSize(v.size)}}</span>
+				</label>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/html" id="template/s3DirCheck">
+			{{each data.value as v i}}
+			<li class="tabName tabCheck tabcheck" field="{{data.field}}{{i}}">
+				<label class="aLabel checkStatus">
+					{{if v.file}}
+					<img src="resources/images/parseDump.png" class="fileIcon" />
+					{{else}}
+					<img src="resources/images/parseFile.png" class="fileIcon" />
+					{{/if}}
+					<input type="checkbox" field="{{data.field}}" class="acheck check check{{data.field}}" checked/>
+					<span class="name" title="{{v.key}}" key="{{v.key}}" size="{{v.size}}">{{v.key}}</span>
+					<span class="size">{{fileSize(v.size)}}</span>
+				</label>
+			</li>
+			{{/each}}
+		</script>
+		<script type="text/html" id="template/hdfsTr">			
+			{{each data as v i}}
+			<tr field="{{v.field}}" class="hdfsTr newTr" dbName="{{v.bucket}}">
+				<td>
+					<label class="checkOneLab">
+						<input  type="checkbox" class="tabCheckOne tabCheck">
+					</label>
+				</td>
+				<td class="hdfs">
+					<img  src="resources/images/parseDump.png"/>
+					<span class="parseName" title="{{v.fileName}}">{{v.fileName}}</span>
+				</td>
+				<td class="map hdfsMap"></td>
+				<td>
+					<span class="oneConfigure">
+						<img  src="resources/images/mapData.png" class="mapImg"/>
+						<b class="mapTip">$!{i18n.getProperty("db.text.config")}</b>
+					</span>
+				</td>
+				</tr>
+			{{/each}}
+		</script>
+		<script src="resources/dist/amazonS3/libs.min.js?v=1507708363510"></script>
+		<script src="resources/dist/common/common.js?v=1523175610950"></script>
+		<script src="resources/dist/amazonS3/amazonS3.js?v=1522654329118"></script>
+	</body>
+</html>

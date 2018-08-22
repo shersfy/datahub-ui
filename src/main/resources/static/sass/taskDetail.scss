@@ -1,0 +1,87 @@
+
+.innerCon{
+    h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+        b{color:#000; font-size: 14px;}
+        a{color:#999;}
+        a:hover{text-decoration: underline;}
+    }
+    .listCon{margin:20px; padding:20px; background: #fff;}
+    .search{color: #000;
+        span{color: #000;}
+        .border-left{border-left: 3px solid #004c6f;padding-left: 10px;padding-right: 10px;font-size: 14px;line-height: 14px;font-weight: normal;}
+        input, select{width:150px; padding-left: 10px;}
+        select{padding-left: 6px;}
+        #taskId{width:204px; padding-left: 10px;}
+        input.Wdate{width:95px;background-position: 75px 4px;font-size:12px;padding-left:4px;}
+        input[type="checkbox"]{width:auto; vertical-align: middle;}
+        .task-result{margin-right: 40px;}
+        .filter{overflow: hidden; margin-top:15px;margin-bottom: 15px;
+            li{float: left;width:33.3%;}
+            label{display: inline-block; width:100px; text-align: right; padding-right: 10px;}
+            label.w75{width:75px;}
+            label.inline{display: inline; padding:0;}
+            .myTask i{
+                display: inline;
+                padding: 8px;
+                margin: 0 5px 0 10px;
+                background: url(../images/taskManage/check.png) center center no-repeat;
+                &.checked{background: url('../images/taskManage/checked.png') center center no-repeat;}
+            }
+        }
+        .search-form{border: 1px solid #e5e5e5;margin-top: 15px;}
+        .act{padding: 20px 0;border-bottom: 1px solid #e5e5e5;
+            button{font-size: 14px;margin-right: 20px;}
+        }
+    }
+    .new-task{color: #fff;background: #3bb064;padding:5px 10px;}
+    .list{ margin-top:15px;
+        table{ 
+            td{
+                a{padding: 5px; cursor: pointer;float: left; border-radius: 50%;}
+                i{width:16px;height: 16px;float: left;line-height: 20px;}
+                span{float: left;line-height: 25px; display: none;}
+            }
+            .edit, .del, .log{
+                i{background-image: url('../images/datahub/content_icon.png')}
+            }
+            .edit{ margin-left: 5px; margin-right: 5px;
+                i{background-position: 0 0;}
+            }
+            .del{
+                i{background-position: -32px 0;}
+            }
+            .log{
+                i{background-position: -16px 0;}
+            }
+            .detail{
+                i { background: url('../images/eye.png') 0 3px no-repeat; }
+            }
+            .enable, .disable{
+                i{background-image: url('../images/clientUpload/tabSprite.png')}
+            }
+            .enable{i{background-position: 0 0}}
+            .disable{i{background-position: 0 -16px;}}
+            .space{width: 62px; cursor:auto;}            
+            tbody a:hover{background: #e5e6e8;}   
+        }
+    }
+}
+
+.global-mask{
+    position: fixed;
+    display: none;
+    left: 0;top:0;right: 0;bottom: 0;
+    background: rgba(0,0,0, .3);
+}
+.global-log{ position: fixed;z-index:22;width: 100%;left: 0;top: 80px;bottom:80px; display: none;
+    .log{width:600px;  max-height: 100%; margin:0 auto; background: #f3f3f3;}
+    h4{font-size: 14px;color: #000;line-height: 50px;padding-left: 35px; height:50px; font-weight:normal;border-bottom:1px solid #e2e2e2;
+        .cancel{float: right;cursor: pointer; width: 23px;height: 23px;line-height:23px;margin-right:18px;text-align: center;background: #f3723f;color: #fff;font-size: 18px;}
+    }
+    .download{text-align: right; padding-right: 20px; line-height: 30px; font-size: 14px;
+        a{color: #198af2;}
+    }
+    .detail{padding: 5px 20px 35px 25px; max-height: 400px; overflow-y: auto; width:100%; overflow-x: hidden;  word-wrap: break-word;  word-break: break-all; background: #f3f3f3;
+        span{color:red;}
+    }
+}

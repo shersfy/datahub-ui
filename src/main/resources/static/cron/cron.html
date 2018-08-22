@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>cron</title>       
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="sweetAlert/sweetalert.css">
+    <link rel="stylesheet" href="cron.css">    
+</head>
+<body>
+    <div class="cronCon">
+        <div class="item-group group-type clearfix">
+            <a href="javascript:;" class="cur">一次性导入</a>
+            <a href="javascript:;">周期性自动导入</a>              
+        </div>
+        <div class="tab">
+            <h4 class="title">执行一次<i class="line"></i></h4>
+            <div class="mt10"><label class="once-type" data-type="0"><i class="radio cur"></i>立即执行</label></div>
+            <div class="mt10 once"><label class="once-type" data-type="1"><i class="radio"></i>定时执行</label></div>
+            <div class="onceDate once">
+                <label>日期<input type="text" class="date Wdate" disabled onclick="WdatePicker({readOnly:true,isShowClear:false,minDate:'%y-%M-%d', onpicked:blurCron})" /></label>
+                <label>时间<input type="text" class="time Wdate" disabled onclick="WdatePicker({readOnly:true, dateFmt:'HH:mm:ss', onpicked:blurCron})" /></label>
+            </div>
+        </div>
+        <div class="tab" style="display: none;">
+            <h4 class="title">周期频率<i class="line"></i></h4>
+            <div class="exec-freq mt20">
+                <label>执行时间<select class="reg-type"><option value="0">每小时</option><option value="1">每天</option><option value="2">每周</option><option value="3">每月</option></select></label>
+                <div class="reg-tab hour cur">
+                    第<input type="text">分钟
+                </div>
+                <div class="reg-tab day">
+                    <input type="text" class="time Wdate" onclick="WdatePicker({readOnly:true, dateFmt:'HH:mm:ss', onpicked:blurCron})" />
+                </div>
+                <div class="reg-tab week">
+                    <label><i class="check" data-val="2"></i>星期一</label>
+                    <label><i class="check" data-val="3"></i>星期二</label>
+                    <label><i class="check" data-val="4"></i>星期三</label>
+                    <label><i class="check" data-val="5"></i>星期四</label>
+                    <label><i class="check" data-val="6"></i>星期五</label>
+                    <label><i class="check" data-val="7"></i>星期六</label>
+                    <label><i class="check" data-val="1"></i>星期日</label>   
+                    <div class="timeCon">&emsp;&emsp;时间<input type="text" class="time Wdate" onclick="WdatePicker({readOnly:true, dateFmt:'HH:mm:ss', onpicked:blurCron})" /></div>                                     
+                </div>
+                <div class="reg-tab month">
+                    <label data-type="0"><i class="radio cur"></i>第<input type="text" class="date">&nbsp;号</label>
+                    <label data-type="1"><i class="radio"></i>每月最后一天</label>                    
+                    <div class="timeCon">&emsp;&emsp;时间<input type="text" class="time Wdate" onclick="WdatePicker({readOnly:true, dateFmt:'HH:mm:ss', onpicked:blurCron})" /></div>                                                         
+                </div>
+            </div>
+            <h4 class="title">生效时间<i class="line"></i></h4>            
+            <div class="date-range">
+                <label>开始时间<input type="text" onclick="WdatePicker({readOnly:true, dateFmt:'yyyy-MM-dd', minDate:'%y-%M-%d', maxDate:'#F{$dp.$D(\'endDate\')}', onpicked:blurCron})" class="date Wdate" id="startDate"></label>
+                <label data-type="0"><i class="radio cur"></i>结束时间<input type="text" onclick="WdatePicker({readOnly:true, dateFmt:'yyyy-MM-dd', minDate:'#F{maxInitDate(\'%y-%M-%d\',$dp.$D(\'startDate\'))}', onpicked:blurCron})" class="date Wdate" id="endDate"></label>
+                <label data-type="1"><i class="radio"></i>无结束时间</label>
+            </div>
+        </div>
+        <div class="item-group group-state">
+            <h4 class="title">摘要<i class="line"></i></h4>
+            <div class="item">
+                <span class="item-name">说明</span> <textarea readonly name="" id="" cols="30" rows="10">默认立即执行</textarea>
+            </div>
+        </div>
+        <div class="btnCon">
+            <button class="btn-item">确定</button>
+            <button class="btn-cancel">取消</button>
+            <input type="hidden" class="param">
+            <button class="hidden reset">重置</button>
+            <button class="hidden hide">关闭日期框</button>
+            <button class="hidden disabled">disabled</button>
+        </div>
+    </div>
+<script src="jquery.min.js"></script>
+<script src="My97DatePicker/WdatePicker.js"></script>
+<script src="sweetAlert/sweetalert.min.js"></script>
+<script>    
+function maxInitDate(today, startDate){
+    if ( startDate ){
+        var y = startDate.y,
+            M = startDate.M > 10 ? startDate.M : '0'+startDate.M,
+            d = startDate.d > 10 ? startDate.d : '0'+startDate.d ;
+        var start = y+'-'+M+'-'+d ;
+        return  today > start ? today : start ;
+    }
+    return today;
+}
+</script>
+<script src="cron.js" async></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("index.title.taskManage")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/manage/libs.min.css?v=1508495800307">        
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/manage/manage.css?v=1514285849979">
+</head>
+<body>
+#parse("layout/header.vm")
+#parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("common.title.migrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("index.title.taskManage")}</span></h2>
+        <div class="listCon">
+            <div class="search">
+                <h3 class="border-left">$!{i18n.getProperty("manage.title.taskSearch")}</h3> 
+                <div class="search-form">
+                  <ul class="filter">
+                    <li><label>$!{i18n.getProperty("manage.title.taskId")}</label><input autocomplete="off" type="text" id="taskId" maxlength="8"></li>
+                    <li><label class="w75">$!{i18n.getProperty("manage.title.taskName")}</label><input autocomplete="off" type="text" id="taskName" maxlength="60"></li>
+                    <li><label>$!{i18n.getProperty("manage.title.taskStatus")}</label><select autocomplete="off" name="" id="taskStatus"><option value="">$!{i18n.getProperty("manage.title.all")}</option><option value="1">$!{i18n.getProperty("manage.title.execing")}</option><option value="2">$!{i18n.getProperty("manage.title.end")}</option><option value="3">$!{i18n.getProperty("manage.title.pause")}</option></select></li>
+                  </ul>
+                  <ul class="filter">
+                    <li><label>$!{i18n.getProperty("manage.title.execTime")}</label><input autocomplete="off" id="startDate" type="text" class="Wdate"> - <input autocomplete="off" type="text" id="endDate" class="Wdate"></li>
+                    <li class="last"><label class="w75">$!{i18n.getProperty("manage.title.owner")}</label><select autocomplete="off" id="taskUser"></select>
+                        <label class="inline myTask"><i data-id="${loginUser.id}" class=""></i>$!{i18n.getProperty("manage.title.myPro")}</label>
+                    </li>
+                    <li>
+                        <label>$!{i18n.getProperty("manage.title.inApp")}</label><select autocomplete="off" id="userApp"><option value=''>$!{i18n.getProperty("manage.title.allPro")}</option></select>
+                    </li>
+                  </ul>
+                </div>
+                <div class="text-center act">
+                    <button class="btn btn-item query">$!{i18n.getProperty("manage.title.search")}</button>
+                    <button class="btn btn-cancel reset">$!{i18n.getProperty("manage.title.reset")}</button>
+                </div>
+            </div>
+            <div class="text-right">
+                <a href="./" class="new-task btn btn-item"><b>+</b>$!{i18n.getProperty("clientM.title.newTask")}</a>
+            </div>
+            <div class="list">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="template/taskTable">
+    <table>
+        <thead>
+            <tr>
+                <td>$!{i18n.getProperty("manage.title.inApp")}</td>
+                <td>$!{i18n.getProperty("manage.title.taskId")}</td>
+                <td>$!{i18n.getProperty("manage.title.taskName")}</td>
+                <td>$!{i18n.getProperty("manage.title.taskDesc")}</td>                
+                <td>$!{i18n.getProperty("manage.title.srcType")}</td>
+                <td>$!{i18n.getProperty("manage.title.cronType")}</td>
+                <td>$!{i18n.getProperty("manage.title.createTime")}</td>
+                <td>$!{i18n.getProperty("manage.title.owner")}</td>
+                <td>$!{i18n.getProperty("manage.title.taskStatus")}</td>
+                <td style="width:150px;min-width:150px;">$!{i18n.getProperty("clientList.option.oper")}</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{if data.length == 0}}
+            <tr>
+                <td colspan="10" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+            </tr>
+            {{else}}
+            {{each data as v i}}
+            <tr>
+                <td title="{{v.projName}}">{{v.projName}}</td>
+                <td>{{v.id}}</td>
+                <td title="{{v.jobName}}">{{v.jobName}}</td>
+                <td title="{{v.note}}">{{v.note}}</td>
+                <td title="{{v.groupName}}">{{v.groupName}}</td>
+                <td title="{{v.periodStr}}">{{v.periodStr}}</td>
+                <td title="{{v.createTime | dateFormat:'yyyy/MM/dd hh:mm:ss'}}">{{v.createTime | dateFormat:'yyyy/MM/dd hh:mm:ss'}}</td>
+                <td title="{{v.userName}}">{{v.userName}}</td>
+                <td>{{['', '$!{i18n.getProperty("manage.title.execing")}', '$!{i18n.getProperty("manage.title.end")}', '$!{i18n.getProperty("manage.title.pause")}'][v.status]}}</td>
+                <td data-id="{{v.id}}">
+                    <a class="del" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("clientList.option.del")}</span></a>
+                    <a class="log" href="./task.detail?jobId={{v.id}}" title="$!{i18n.getProperty("manage.title.runLog")}"><i></i><span>$!{i18n.getProperty("manage.title.runLog")}</span></a>
+                    <a href="task.conf?id={{v.id}}" class="detail" title="$!{i18n.getProperty("common.option.taskDetail")}"><i></i><span>$!{i18n.getProperty("common.option.taskDetail")}</a>
+                    {{if [2,6,7,9,12].indexOf(v.groupNo) > -1 }}
+                    <a class="copy" {{if v.groupNo == 9}}data-href="./hive?id={{v.id}}&copy=1"{{else if v.groupNo == 12}}data-href="./ftp.upload?id={{v.id}}&copy=1"{{else}}data-href="./db?type={{[2,6,7].indexOf(v.groupNo)+1}}&id={{v.id}}&copy=1"{{/if}} title="$!{i18n.getProperty("manage.title.copy")}"><i></i><span>$!{i18n.getProperty("manage.title.copy")}</span></a>
+                    {{/if}}
+                    {{if [2,6,7,9,12].indexOf(v.groupNo) > -1 && v.periodType == 2 && v.status != 2}}
+                    <a class="{{['disable', 'enable'][v.delFlg]}}" title="{{['$!{i18n.getProperty("manage.title.stop")}', '$!{i18n.getProperty("manage.title.enable")}'][v.delFlg]}}"><i></i><span>{{['$!{i18n.getProperty("manage.title.stop")}', '$!{i18n.getProperty("manage.title.enable")}'][v.delFlg]}}</span></a>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+            {{/if}}
+        </tbody>
+    </table>
+    <div class="pager clearfix"></div>
+</script>  
+<script src="resources/dist/manage/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/My97DatePicker/WdatePicker.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/manage/manage.js?v=1511507200961" async></script>
+</body>
+</html>

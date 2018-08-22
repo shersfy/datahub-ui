@@ -1,0 +1,140 @@
+.cFf2{color:#fc5c00;}
+.c075{color:#108002;}
+.c09f{color:#09f;}
+.cRed{color:red;}
+.cBlue{color:blue;}
+.cGray{color:#D9D9D9;}
+.pos{position:relative;z-index:9;}
+
+.search-content{ margin-bottom: 20px; background: #fff; box-shadow: 0 0 8px 0 rgba(0,0,0,.05); }
+.search-title{ position: relative; height: 50px; margin: 0 15px; padding-left: 12px; border-bottom: 1px solid #F4F6F9; line-height: 50px; font-size: 14px; }
+.search-title:after{ content: ''; position: absolute; left: 0; top: 18px; width: 4px; height: 14px; background: #3BB064;}
+
+
+.search-title .add{ position: absolute; right: 10px; top: 0; font-size: 14px; font-weight: normal; color: #286090}
+.search-title .add .glyphicon{ margin-right: 5px;}
+
+.search-title li{ float: left; height: 34px; margin: 6px 5px 0; padding: 0 15px; line-height: 34px; font-size: 14px; color: #777; cursor: pointer; font-weight: normal;}
+.search-title li:hover{ color: #3c3c3c; font-weight: bold;}
+.search-title li.current{ background: #F0F5FB; border-radius: 3px 3px 0 0; color: #3c3c3c; font-weight: bold;}
+
+.search-title .opts{ position: absolute; right: 10px; top: 0;}
+.search-title .opts .btn{ margin-top: 11px;}
+.search-title .opts .btn .iconAdd{
+    display: inline-block;
+    width: 15px;
+    vertical-align: middle;
+    margin-top: -2px;
+    height: 28px;
+    background: url(../images/icons.png) -40px -61px;
+}
+
+
+.search-form:after{content:"."; display:block;clear:both;height:0;visibility:hidden;}
+.search-form{display:inline-block; margin: 15px 0;}
+.search-form .group{ overflow: hidden;}
+.search-form dl{float:left; width: 330px;  padding: 10px 0; height: 28px;}
+.search-form dl.w2{ width: 520px;}
+.search-form dt{float:left; width: 100px; padding-right: 10px; line-height: 28px;text-align:right; color: #445763}
+.search-form dd{float:left; line-height: 28px;}
+.search-form dl.w2 dd{ width: 300px;}
+
+.search-form input[type="radio"],
+.search-form input[type="checkbox"]{position: relative; margin-top: -2px; zoom: 1.2; margin-right: 2px;}
+
+.search-form dd select{ width: 220px;}
+.search-form .i-text{width: 210px;}
+.search-form .i-textarea{ width: 210px; height: 80px; border: 1px solid #bbb;}
+.search-form .i-text-time{width: 210px; background: #fff url(../images/icon_date.png) 196px 5px no-repeat; border: 1px solid #d9e2eb;}
+.search-form .i-text-time.short{width: 93px; background-position: 82px 5px;}
+
+.search-form-login dl{ float: none;}
+.search-form-login .btn{ height: 32px; margin-top: 10px; padding: 0 20px;}
+.search-form dl.search-btn{margin-top: 0; margin-left: 30px; text-align: left;}
+
+.chart-content{ margin-bottom: 20px; border: 1px solid #ccc;}
+
+/* login */
+.wrap.login{ background: #f2f2f2;}
+.loginHeader{ height: 60px; background: #509edc;}
+.loginHeader .con{ width: 1200px; margin: 0 auto;}
+.loginHeader .logo{ float: left; width: 166px; height: 34px; margin-top: 18px; background: url(./logo_login_header.png) no-repeat}
+.loginHeader .nav{ float: right; line-height: 70px;}
+.loginHeader .nav li{ float: left; margin: 0 12px; font-size: 13px;}
+.loginHeader .nav a{ color: #43494a;}
+.loginHeader .nav a:hover{ text-decoration: underline;}
+
+.loginCon{ min-width: 1200px; height: 553px; padding-top: 47px; background: url(./login_bg.jpg) no-repeat center center;}
+.loginCon .logo{ width: 86px; height: 100px; margin: 0 auto; background: url(./logo_login.png);}
+.loginCon .proName{ line-height: 70px; text-align: center; font-size: 24px; color: #fff;}
+
+.loginCon .inputCon{ width: 400px; height: 180px; overflow: hidden; margin: 33px auto 0; }
+.loginCon .inputCon li{ width: 398px; height: 48px; margin-bottom: 32px; background: rgba(255,255,255,.4); border: 1px solid rgba(255,255,255,.4); line-height: 48px;}
+.loginCon .inputCon li .icon{ float: left; width: 35px; height: 22px; margin: 13px 0 0 15px; background: url(./icon_login.png) no-repeat; border-right: 1px solid #fff;}
+.loginCon .inputCon li .iconUser{ background-position: 0 0;}
+.loginCon .inputCon li .iconPwd{ background-position: 0 -22px;}
+.loginCon .inputCon li .i-text{ width: 320px; height: 24px; margin: 12px 0 0 5px; background: none; border: 0; font-size: 14px; box-shadow: none; color: #fff;}
+.loginCon .btn-primary{ display: block; width: 400px; height: 50px; margin: 18px auto 0; border: 0; border-radius: 0;
+    text-align: center; font-size: 22px; font-weight: bold;
+    background-color: #5cc770;
+    background-image: -webkit-linear-gradient(left, #5cc770, #2faa98);
+    background-image: linear-gradient(to right, #5cc770, #2faa98);
+}
+.loginCon .inputCon li .i-text::-moz-placeholder {color: #fff;}
+.loginCon .inputCon li .i-text:-ms-input-placeholder {color: #fff; opacity: 0.9;}
+.loginCon .inputCon li .i-text::-webkit-input-placeholder {color: #fff; opacity: 0.9;}
+.loginCon .btn-primary:hover{opacity: 0.8;}
+.loginFooter{  line-height: 60px; font-size: 13px; color: #787b7d; text-align: center;}
+
+
+.search-btn{ margin: 0 15px; padding: 15px 0; border-top: 1px solid #f4f6f9; text-align: center;}
+.search-total{line-height:34px;padding:0 20px;background:#f9f9f9;overflow:hidden;zoom:1;}
+.one-line-search{height:40px;padding:0 10px;}
+.one-line-search-bg{background:#edf4ff;border-top:#a3c0ef solid 1px;}
+.one-line-search span,.one-line-search a,.one-line-search label{float:left;line-height:40px;padding:0 10px;}
+.one-line-search .i-text{float:left;margin-top:9px;width:110px;}
+.one-line-search .i-text-time{width:80px;}
+.one-line-search .btn{line-height:14px;padding:1px;margin:9px 10px 0;display:inline;}
+.takeoff-text{border:1px #9C9C9C solid;height:20px;padding:1px;width:175px;vertical-align:middle;cursor:pointer;}
+.takeoff-text .user-name{display:-moz-inline-box;-moz-box-align:center;display:inline-block;+display:inline;zoom:1;vertical-align:middle;line-height:20px;padding:0 2px 0 8px;}
+.set-trigger{border:#ccc 1px solid;width:530px;padding:10px;margin:0 0 15px 150px;}
+.set-trigger .trigger-item{padding:5px 0;}
+.trigger-item .i-radio{margin:2px 3px 0 0;vertical-align:middle;}
+.trigger-item .i-text{vertical-align:middle;}
+.trigger-checkbox{padding:5px 0 0 53px;}
+.trigger-checkbox .i-checkbox{margin:0 3px 0 0;vertical-align:middle;}
+.trigger-checkbox label{vertical-align:middle;line-height:22px;display:inline-block;width:40px;}
+.double-th th{border-bottom:0 none;font-weight:bold;}
+.work-tree-select{cursor:pointer;display:inline-block;_display:inline;_zoom:1;border:1px solid #9C9C9C;line-height:18px;height:18px;padding:0 20px 0 8px;background:#fff url(../img/ico.png) no-repeat right 3px;}
+.work-tree{position:absolute;top:0;left:0;border:1px solid #9C9C9C;background:#fff;height:200px;width:180px;overflow:auto;padding:5px;z-index:9;}
+.one-line-search .pos{float:left;margin-top:10px;}
+.one-line-search .pos span{float:none;line-height:auto;padding:0;}
+.tpl-list table{width:100%;border-collapse:collapse;border-spacing:0;text-align:left;table-layout:fixed;}
+html .tpl-list .open tr td{background:#fff;}
+html .tpl-list .open tr.tit td{background:#e8f1ff;border-bottom:#cbdeff solid 1px;}
+.tpl-list .td{padding:5px 10px 5px 20px;}
+.tpl-other{padding:5px 0;line-height:24px;}
+.tpl-other strong{padding-left:20px;}
+.tpl-line{border-top:#dadada dashed 1px;}
+.table-head{background:#f7f7f9;height:40px;border-top:#dadada solid 1px;}
+.table-control{float:left;padding:10px 0 10px 15px;overflow:hidden;zoom:1;}
+.table-control .ico{margin-right:10px;}
+.ico{background:url(../img/ico-u.png) no-repeat 999em 999em;display:inline-block;overflow:hidden;line-height:999em;vertical-align:middle;outline:0 none;}
+.ico-arr-u{background-position:-67px -37px;width:19px;height:19px;}
+.ico-arr-u:hover{background-position:-67px -8px;}
+.ico-arr-d{background-position:-96px -38px;width:19px;height:19px;}
+.ico-arr-d:hover{background-position:-96px -8px;}
+.ico-tbl-l{background-position:-14px -38px;width:17px;height:17px;}
+.ico-tbl-s{background-position:-40px -38px;width:17px;height:17px;}
+.ico-tbl-l:hover,.ico-tbl-l-hover{background-position:-14px -9px;width:17px;height:17px;}
+.ico-tbl-s:hover,.ico-tbl-s-hover{background-position:-40px -9px;width:17px;height:17px;}
+.ico-del{background-position:-154px -35px;width:19px;height:19px;}
+
+
+.tableNoData{ margin: 15px 0; padding-top: 140px; background: url(../images/table_nodata.png) center 0 no-repeat; line-height: 30px; font-size: 14px; text-align: center;}
+
+
+
+
+
+

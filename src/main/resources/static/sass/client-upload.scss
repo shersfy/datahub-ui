@@ -1,0 +1,106 @@
+.btn-item{
+    padding: 0px 10px;
+    line-height: 25px;
+    background: #509edc;
+    color: #fff;
+    display: inline-block;
+    cursor:pointer;
+    min-width: 67px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+.btn-item:hover, .btn-item:focus{background: #5ab2ef;color: #fff;}
+.btn-item.disabled{cursor:not-allowed; background: #ccc;}
+.btn-cancel{
+    padding: 0px 10px;
+    line-height: 25px;
+    background: #fff;
+    min-width: 67px;
+    display: inline-block;
+    cursor:pointer;    
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+.btn-cancel:hover, .btn-cancel:focus{background: #f6f6f6;}
+.btn-go{
+    padding: 0px 10px;
+    line-height: 25px;
+    background: #fff;
+    display: inline-block;
+    cursor:pointer;    
+    text-align: center;
+    color: #5ab2ef;
+    min-width: 67px;
+    border-radius: 3px;
+    border: 1px solid #5ab2ef;
+}
+.btn-go:hover, .btn-go:focus{background: #f6f6f6;color:#5ab2ef;}
+.select2-container .select2-results__option[aria-selected]{white-space: nowrap;}
+
+.innerCon{padding: 20px;
+    h3.title{padding-left: 10px; border-left: 3px solid #5ab2ef; font-size: 14px; line-height: 25px; color:#000; font-weight: normal;}
+    nav.upload-tab{overflow: hidden; padding-bottom: 10px; margin:20px 0;
+        > a{float: left; margin-right: 40px; width: 100px;height: 100px;text-align: center;color:#555;border: 1px solid #ddd; border-radius: 5px;}
+        a.cur{background: #5ab2ef; color: #fff; border-color:#5ab2ef; box-shadow: 5px 5px rgba(132,123,132, 0.3);}
+        i{font-size: 50px; display: block; line-height: 70px;}
+    }
+    .upload-main{
+        input[type="radio"]{width: 17px;height: 17px;vertical-align: bottom;margin-right: 10px;}
+        .nav{margin-bottom: 15px;
+            label{margin-right: 40px;}
+        }
+        .mt10{margin-bottom: 10px;}
+        .app{
+            .infoline{display: inline-block;
+                input{border: 1px solid #ccc; color:#999;padding-left: 5px;margin-left: 5px;}
+                label.label-radio + label.label-radio{margin-left: 20px;}
+            }
+            .infoline + .infoline{margin-left: 30px;}
+        }
+        section.task-tab{padding: 5px 5px 5px 0px;border-bottom: 1px solid #e5e5e5;
+            .task{display: inline-block;background-color: #fff;border-style: solid;border-width: 1px;border-color: #ccc;padding: 5px 15px;position: relative;cursor: pointer;
+                .task-del{
+                    position: absolute;
+                    width: 15px;
+                    font-style: normal;
+                    height: 15px;
+                    top: -1px;
+                    right: -1px;
+                    text-align: center;
+                    background: red;
+                    line-height: 15px;
+                    opacity: 0;
+                    transition: opacity .5s;
+                    -webkit-transition: opacity .5s;
+                }
+            }
+            .task:hover .task-del{opacity: 1;}
+            .task.cur{background-color: #5ab2ef;color: #fff;border-color: #5ab2ef;}
+            .add{display: inline-block;background-color: #00c0ef;border-style: solid;border-width: 1px;border-color: #ccc;padding: 5px 10px;cursor: pointer;color: #fff;}
+        }
+        .section-header{padding-bottom: 15px; border-bottom: 2px solid #eee;margin-top:10px;
+            span.title{font-size: 14px;border-left: 3px solid #000;padding-left: 10px;color: #333;}
+        }
+        section.section-content{padding: 15px 0 15px 38px;}
+        .dest{padding: 20px;border: 1px solid #ccc;margin-top: 20px;
+            .hdfs{
+                a{ margin-left: 20px;}
+            }
+            #tableName{margin-right: 10px;}
+            label.upload-way{margin-right: 40px;}
+            .infoline + .infoline{margin-top: 15px;}
+            .infoline{
+                select{max-width: 400px;}
+                label{min-width: 63px;color: #333;}
+                &:last-child > label{vertical-align: top;line-height: 27px;}
+            }
+            #partitions{display: inline-block;text-align: center;
+                .item + .item{margin-top: 5px;}
+                .item span.select2 {min-width: 200px;}
+                .item span.select2 .select2-selection__rendered{line-height: 25px;}
+            }
+        }
+    }
+}

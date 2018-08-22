@@ -1,0 +1,120 @@
+
+.innerCon{
+    h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+        b{color:#000; font-size: 14px;}
+        a{color:#999;}
+        a:hover{text-decoration: underline;}
+    }
+    .upload-main{overflow: hidden; margin: 20px;padding:20px;background:#fff;
+        h3{font-size: 16px;}
+        .configTask{ border-bottom: 2px dotted #eee;
+            li {margin-bottom:20px;
+                span{color:red;}
+                input{padding-left: 10px;}
+                input, select, textarea { width:50%;}
+                input, select { height: 30px;}
+                input,select,textarea{margin-left: 20px;}
+                input, select{width:500px;}
+                textarea{ vertical-align: top; width:500px; height:60px;}
+                .taskName{padding-left:10px;}
+                .taskDes{padding-left:10px;}
+                .leftTitle{
+                    width: 130px;
+                    float: left;
+                    line-height: 27px;
+                    padding-right: 20px;
+                    color: #000;
+                    text-align: right;
+                }
+            }
+            #userApp{padding-left: 10px; margin-left: 20px; }   
+            .select2.select2-container{margin-left: 20px; 
+                span{color:#666;}
+            }        
+        }
+        button.index a{display: block;}            
+        button + button { margin-left: 20px; }
+        h3{font-size: 16px;color: #000; margin-bottom: 20px; padding-bottom: 10px; line-height: 20px;border-bottom: 1px solid #eee;
+            span{border-left: 3px solid #004c6f; display: block; padding-left: 10px;}
+        }        
+        .configFilePath{ margin-top:40px;
+            .select-file{margin:15px 0;
+                .file-btn{float: left;background: #004c6f;line-height: 30px;width:100px; text-align:center;position: relative;}
+                span{color: #999; line-height: 30px; padding-left: 20px; font-size: 12px;}
+                a{color: #fff;}
+            } 
+            .file-list{margin-bottom: 20px;
+                .process-sliderCon{display: inline-block; height:10px; width: calc(100% - 40px);  }
+                .process-slider{background: #004c6f; border-radius: 20px; height: 10px;}
+            }
+            .add-file{position: absolute;width: 100px;height: 30px;left:0;top:0;opacity: 0;cursor: pointer;}
+            .path{
+                input { width:calc(100% - 150px);}
+                button{width:46px; cursor:pointer;font-family:"微软雅黑"; line-height: 24px; margin:6px;}            
+            }   
+        }
+        .upload{margin-top:20px;font-family:"微软雅黑";}
+    }
+    
+    table{
+        td{
+            a{padding: 5px; cursor: pointer;float: left; border-radius: 50%;}
+            i{width:16px;height: 16px;float: left;line-height: 20px;}
+        }
+        td.res{padding-left: 30px;
+            &.ok{background: url('../images/csvUpload/ok.png') 10px no-repeat;}
+        }
+        .edit, .del, .log{
+            i{background-image: url('../images/datahub/content_icon.png')}
+        }
+        .del{
+            i{background-position: -32px 0;}
+        }          
+        tbody a:hover{background: #e5e6e8;}   
+    }
+}
+
+.global-hdfsCon{position: fixed;z-index:51;width: 100%;left: 0;top: 80px; bottom:80px;
+    .configCon{border: 1px solid #ccc; width:500px; margin:0 auto; background: #f3f3f3;max-height: 100%;}
+    .hdfsTab{
+        h4{font-size: 14px;color: #000;line-height: 50px;padding-left: 35px; height:50px; font-weight:normal;   border-bottom:1px solid #e2e2e2;
+            .cancel{float: right;cursor: pointer; width: 23px;height: 23px;line-height:23px;margin-right:18px;text-align: center;background: #f3723f;color: #fff;font-size: 18px;}
+        }
+        .dirDos{overflow-y: auto; min-height: 150px; max-height: 300px; background: #fff; padding: 25px 35px 0;}
+        ul.ul{padding-left:20px;}
+        li{line-height: 25px; overflow: hidden;
+            p{word-break: break-all; word-wrap: break-word;height:25px; border-bottom: 1px solid #eee; overflow: hidden; position: relative; padding-right: 20px;
+                .check{background: url("../../../resources/images/routeLost.png") no-repeat;float: right;width: 17px;height: 17px; position: absolute; right: 0; top:4px;}
+                .check.cur{background-image:url("../../../resources/images/routeCheck.png"); }                
+                .show{background: url("../../../resources/images/routeOff.png") no-repeat; margin-right: 10px; width: 26px; height:13px; display: inline-block; float: left; margin-top: 6px;}
+                .show.in{background-image: url("../../../resources/images/routeOn.png"); }
+                .show.out{display: none;}
+            }
+        }
+        .res{border-top:1px solid #ccc; padding-left: 15px; padding-bottom: 25px; background: #f3f3f3;
+            label{display: inline-block; width:70px; margin-top:10px;}
+            input[type="text"]{width:300px;padding-left:10px;}
+        }
+    }
+    .text-right{background: #e2e2e2; padding-right: 40px; height:50px;
+        .btn-item{margin: 10px;font-family:"微软雅黑"; width:70px}
+        .btn-cancel{margin: 10px;font-family:"微软雅黑"; width:70px;}
+    }         
+}
+
+.CodeMirror-gutters{width:30px;}
+.CodeMirror-sizer{margin-left:31px !important;}
+.global-mask{
+    position: fixed;
+    display: none;
+    left: 0;top:0;right: 0;bottom: 0;
+    background: rgba(0,0,0, .3);
+    z-index:50;
+}
+
+.haveName{
+    color:#f00;
+}
+.redWord{
+    color:#f00;
+}

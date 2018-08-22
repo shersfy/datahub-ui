@@ -1,0 +1,41 @@
+
+.innerCon {
+    background: #edf1f2;
+}
+
+h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;}
+h2.title b{color:#000; font-size: 14px;}
+h2.title a{color:#999;}
+h2.title a:hover{text-decoration: underline;}
+
+.innerCon .upload-conatiner {
+    margin: 20px;
+}
+
+.innerCon .upload-tab {
+    width: 100%;
+    background: #fff;
+    padding: 24px 0 24px 0;
+}
+
+.uploadFile .line1{
+	text-align: center;
+	margin-top: 86px;
+}
+.uploadFile .line2{
+	text-align: center;
+	margin-top: 20px;
+	font-size:20px;
+	color:#767a83;	
+}
+.uploadFile .line3{
+	text-align: center;
+	margin-top: 20px;
+	color:#7f8287;
+	margin-bottom:320px;
+}
+.uploadFile .line3 a{
+	color:#3285fd;	
+}
+
+/*# sourceMappingURL=index.css.map */

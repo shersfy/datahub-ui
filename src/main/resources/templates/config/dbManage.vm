@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.title.resM")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/dbManage/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/tipsy/tipsy.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/dbManage/dbManage.css?v=1511860648315">
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.title.resM")}</span></h2>
+        <nav>
+            <a href="javascript:;" class="cur" data-type="db">$!{i18n.getProperty("dbManage.title.dbLink")}</a>
+            <a href="javascript:;" data-type="hive">$!{i18n.getProperty("dbManage.title.hiveLink")}</a>
+            <a href="javascript:;" data-type="hdfs">$!{i18n.getProperty("dbManage.title.hdfsLink")}</a>
+            <a href="javascript:;" data-type="spark">$!{i18n.getProperty("dbManage.title.sparkLink")}</a>
+            <a href="javascript:;" data-type="ftp">$!{i18n.getProperty("dbManage.title.ftpLink")}</a>
+            <button class="btn btn-item add-link"> + $!{i18n.getProperty("dbManage.title.newRes")}</button>
+        </nav>
+        <div id="db-manage-list" class="db-manage">
+        </div>
+    </div>
+</div>
+<div class="global-dbCon">
+    <div class="db-info clearfix formCon">
+        <h4><span class="title">$!{i18n.getProperty("dbManage.title.resEdit")}</span><span class="cancel">×</span></h4>
+        <div class="tab">
+            <span class="cur">$!{i18n.getProperty("dbManage.title.base")}
+            </span><span>$!{i18n.getProperty("dbManage.title.param")}</span>
+        </div>
+        <div class="globalMainCon">
+            <div class="resource-type columnTop">
+                <div class="mb15">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.belongApp")}</span>
+                    <select autocomplete="off" name="" id="userApp" class="" data-key="pid">
+                        <option value='' disabled>$!{i18n.getProperty("dbManage.title.setApp")}</option>
+                    </select>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.app")}'></i>
+                </div>
+                <div>
+                    <span class="key">$!{i18n.getProperty("dbManage.title.setResType")}</span>
+                    <select autocomplete="off" id="seltType" data-key="seltType">
+                        <option value="db">$!{i18n.getProperty("index.title.db")}</option>
+                        <option value="hdfs">Hdfs</option>
+                        <option value="hive">Hive</option>
+                        <option value="ftp">FTP</option>
+                        <option value="spark">Spark MPP</option>
+                    </select>
+                    <i class="tooltip" title="$!{i18n.getProperty("dbManage.tip.type")}"></i>
+                </div>
+            </div>
+            <ul class="column db toggle">
+                <li>
+                    <span class="key">$!{i18n.getProperty("db.option.selectDbType")}</span>
+                    <select autocomplete="off" data-key="dbType">
+                        <option value="38">MySQL</option>
+                        <option value="4">Oracle</option>
+                        <option value="40">SQL Server</option>
+                        <option value="44">DB2</option>
+                        <option value="24">PostgreSQL</option>
+                        <option value="52">AliMySQL</option>
+                        <option value="53">AliSQLServer</option>
+                        <option value="54">AliPostgreSQL</option>
+                        <option value="56">AwsMySQL</option>
+                        <option value="57">AwsSQLServer</option>
+                        <option value="58">AwsPostgreSQL</option>
+                        <option value="60">AwsOracle</option>
+                    </select>
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.addr")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="host" placeholder="$!{i18n.getProperty("dbManage.enter.host")}" />
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.port")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="port" placeholder="3306"/>
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.dbName")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="dbName" placeholder="$!{i18n.getProperty("dbManage.enter.dbName")}" />
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.userName")}</span>
+                    <input maxlength="255" autocomplete="off" type="text"  data-key="userName" placeholder="$!{i18n.getProperty("dbManage.enter.userName")}" />
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.pwd")}</span>
+                    <input maxlength="255" autocomplete="off" type="password" onfocus="this.type='password'" data-key="password" placeholder="$!{i18n.getProperty("dbManage.enter.password")}" />
+                </li>
+                <li class="url">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.link")}URL</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="url" placeholder="jdbc:mysql://:3306">
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.connName")}</span>
+                    <input maxlength="255" autocomplete="off" type="text"  data-key="connName" placeholder="$!{i18n.getProperty("dbManage.enter.connName")}" />
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.connName")}'></i>
+                </li>
+            </ul>
+            <ul class="column hdfs hidden">
+                <li class="authType">
+                    <span class="key">$!{i18n.getProperty("dbManage.title.authType")}</span><label><i class="radio cur" data-val="1"></i>simple</label><label><i class="radio" data-val="2"></i>kerberos</label>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.authType")}'></i>
+                </li>
+                <li class="upload">
+                    <span class="key">core-site.xml $!{i18n.getProperty("dbManage.option.path")}</span><input maxlength="255" autocomplete="off" type="text" data-key="coreSiteXml" disabled><div class="btn">$!{i18n.getProperty("dbManage.button.upFile")}<input type="file" name="files" class="file coreSiteFile"></div>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.coreSite")}'></i>
+                </li>
+                <li class="upload">
+                    <span class="key">hdfs-site.xml $!{i18n.getProperty("dbManage.option.path")}</span><input maxlength="255" autocomplete="off" type="text" data-key="hdfsSiteXml" disabled><div class="btn">$!{i18n.getProperty("dbManage.button.upFile")}<input type="file" name="files" class="file hdfsSiteFile"></div>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.hdfsSite")}'></i>
+                </li>
+                <li class="kerberos hidden upload">
+                    <span class="key">krb5.conf $!{i18n.getProperty("dbManage.option.path")}</span><input maxlength="255" autocomplete="off" type="text" data-key="krb5Conf" disabled><div class="btn">$!{i18n.getProperty("dbManage.button.upFile")}    <input type="file" name="files" class="file krb5File"></div>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.krb")}'></i>
+                </li>
+                <li class="kerberos hidden upload">
+                    <span class="key">keyTab $!{i18n.getProperty("dbManage.option.fileName")}</span><input maxlength="255" autocomplete="off" type="text" data-key="keytab" disabled><div class="btn">$!{i18n.getProperty("dbManage.button.upFile")}    <input type="file" name="files" class="file keytabFile"></div>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.keytab")}'></i>
+                </li>
+                <li class="kerberos hidden">
+                    <span class="key">$!{i18n.getProperty("dbManage.title.kerberos")}</span><input maxlength="255" autocomplete="off" type="text" data-key="principal" placeholder="$!{i18n.getProperty("dbManage.enter.principal")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.kerberos")}'></i>
+                </li>
+                <li class="normal">
+                    <span class="key">HDFS $!{i18n.getProperty("dbManage.option.userName")}</span><input maxlength="255" autocomplete="off" type="text" data-key="userName" placeholder="$!{i18n.getProperty("dbManage.enter.userName")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.hdfsUser")}'></i>
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.connName")}</span><input maxlength="255" autocomplete="off" type="text" data-key="connName" placeholder="$!{i18n.getProperty("dbManage.enter.hdfsConnName")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.connName")}'></i>
+                </li>
+            </ul>
+            <ul class="column hive hidden">
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.mode")}</span><select autocomplete="off" data-key="mode"><option value="0">$!{i18n.getProperty("dbManage.option.normalMode")}</option><option value="1">$!{i18n.getProperty("dbManage.option.haMode")}</option></select>
+                </li>
+                <li class="mode ha zk">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.zk")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="zkhost" placeholder="$!{i18n.getProperty("dbManage.enter.host")}">
+                    <input maxlength="255" autocomplete="off" type="text" data-key="zkport" placeholder="$!{i18n.getProperty("dbManage.enter.port")}">
+                    <button class="btn btn-item add">$!{i18n.getProperty("dbManage.option.add")}</button>
+                </li>
+                <li class="mode ha">
+                    <span class="key">serviceDisMd</span><select autocomplete="off" data-key="serviceDiscoveryMode"><option value="zooKeeper">zooKeeper</option></select>
+                </li>
+                <li class="mode ha">
+                    <span class="key">ZKNamespaces</span><input type="text" autocomplete="off" data-key="zooKeeperNamespace"></select>
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.title.setHdfsLink")}</span><select autocomplete="off" data-key="hid"></select>
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.bindHdfs")}'></i>
+                </li>
+                <li class="mode">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.addr")}</span><input maxlength="255" autocomplete="off" type="text" data-key="host" placeholder="$!{i18n.getProperty("dbManage.enter.host")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.host")}'></i>
+                </li>
+                <li class="mode">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.port")}</span><input maxlength="255" autocomplete="off" type="text" data-key="port" placeholder="$!{i18n.getProperty("dbManage.enter.port")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.port")}'></i>
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.proxy")}</span><input maxlength="255" autocomplete="off" type="text" data-key="userName" placeholder="$!{i18n.getProperty("dbManage.enter.hiveUserName")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.proxy")}'></i>
+                </li>
+                <li class="hidden">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.pwd")}</span>
+                    <input maxlength="255" autocomplete="off" type="password" onfocus="this.type='password'" data-key="password" placeholder="$!{i18n.getProperty("dbManage.enter.password")}" />
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.link")} URL</span><input maxlength="255" autocomplete="off" type="text" data-key="url">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.url")}'></i>
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.connName")}</span><input maxlength="255" autocomplete="off" type="text" data-key="connName" placeholder="$!{i18n.getProperty("dbManage.enter.hiveConnName")}">
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.connName")}'></i>
+                </li>
+            </ul>
+            <ul class="column ftp hidden">
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.addr")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="host" placeholder="$!{i18n.getProperty("dbManage.enter.host")}" />
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.protocol")}</span>
+                    <select data-key="protocol" autocomplete="off">
+                        <option value="1">FTP - $!{i18n.getProperty("dbManage.option.ftp")}</option>
+                        <option value="2">SFTP-SSH $!{i18n.getProperty("dbManage.option.ftp")}</option>
+                    </select>
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.port")}</span>
+                    <input maxlength="255" autocomplete="off" type="text" data-key="port"  value="21" />
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.userName")}</span>
+                    <input maxlength="255" autocomplete="off" type="text"  data-key="userName" placeholder="$!{i18n.getProperty("dbManage.enter.userName")}" />
+                </li>
+                <li class="">
+                    <span class="key">$!{i18n.getProperty("dbManage.option.pwd")}</span>
+                    <input maxlength="255" autocomplete="off" type="password" onfocus="this.type='password'" data-key="password" placeholder="$!{i18n.getProperty("dbManage.enter.password")}" />
+                </li>
+                <li>
+                    <span class="key">$!{i18n.getProperty("dbManage.option.connName")}</span>
+                    <input maxlength="255" autocomplete="off" type="text"  data-key="connName" placeholder="$!{i18n.getProperty("dbManage.enter.hiveConnName")}" />
+                    <i class="tooltip" title='$!{i18n.getProperty("dbManage.tip.connName")}'></i>
+                </li>
+            </ul>
+
+            <div class="param toggle hidden">
+                <div class="tr thead clearfix">
+                    <div class="paramList">$!{i18n.getProperty("dbManage.title.setParam")}</div>
+                    <div class="key">$!{i18n.getProperty("dbManage.title.nameParam")}</div>
+                    <div class="val">$!{i18n.getProperty("dbManage.title.val")}</div>
+                    <div class="act">$!{i18n.getProperty("clientList.option.oper")}</div>
+                </div>
+            </div>
+            <a href="javascript:;" class="newline hidden">+ $!{i18n.getProperty("dbManage.option.newline")}</a>
+        </div>
+        <div class="text-right">
+            <button class="btn testConnect btn-item">$!{i18n.getProperty("dbManage.title.testConn")}</button>
+            <span class="testRes"></span>
+            <button class="btn btn-item save">$!{i18n.getProperty("client.option.sure")}</button>
+            <button class="btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+        </div>
+    </div>
+</div>
+<div class="global-mask"></div>
+<div id="waitLoading" style="position:fixed;z-index:99 ; display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+    <div style="width: 20%;margin: 20% 40%;text-align: center;background: rgba(0,0,0,.5);color: #fff;padding: 20px;line-height: 30px;border-radius: 10px;">
+        <img src="resources/dist/images/loading.gif">
+        <article></article>
+    </div>
+</div>
+<script type="text/html" id="template/dbList">
+    <table>
+        <thead>
+        <tr>
+            <td>$!{i18n.getProperty("dbManage.option.belongApp")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.dbType")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.connName")}</td>
+            <td>$!{i18n.getProperty("clientList.option.ip")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.port")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.dbName")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.userName")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.link")}url</td>
+            <td>$!{i18n.getProperty("clientList.option.oper")}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{if data.length == 0}}
+        <tr>
+            <td colspan="9" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+        </tr>
+        {{else}}
+        {{each data as v i}}
+        <tr data-val="{{v.val}}" data-id="{{v.id}}" data-password="{{v.password}}" data-connname="{{v.connName}}" data-dbtype="{{v.dbType}}"
+            data-host="{{v.host}}" data-port="{{v.port}}" data-url="{{v.url}}" data-dbname="{{v.dbName}}" data-userName="{{v.userName}}" data-params="{{v.paramsVal}}">
+            <td title="{{v.projName}}">{{v.projName}}</td>
+            <td title="{{if v.dbType == 40}}SQL Server{{else}}{{v.dbTypeObj.code}}{{/if}}">{{if v.dbType == 40}}SQL Server{{else}}{{v.dbTypeObj.code}}{{/if}}</td>
+            <td  title="{{v.connName}}">{{v.connName}}</td>
+            <td title="{{v.host}}">{{v.host}}</td>
+            <td title="{{v.port}}">{{v.port}}</td>
+            <td title="{{v.dbName}}">{{v.dbName}}</td>
+            <td title="{{v.userName}}">{{v.userName}}</td>
+            <td title="{{v.url}}">{{v.url}}</td>
+            <td><a class="edit" title="$!{i18n.getProperty("manage.title.update")}"><i></i><span>$!{i18n.getProperty("manage.title.update")}</span></a><a class="del db" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("clientList.option.del")}</span></a></td>
+        </tr>
+        {{/each}}
+        {{/if}}
+        </tbody>
+    </table>
+    <div class="pager clearfix mt20">
+    </div>
+</script>
+
+<script type="text/html" id="template/hiveList">
+    <table>
+        <thead>
+        <tr>
+            <td>$!{i18n.getProperty("dbManage.option.belongApp")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.connName")}</td>
+            <td>$!{i18n.getProperty("clientList.option.ip")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.port")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.userName")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.link")}url</td>
+            <td>$!{i18n.getProperty("clientList.option.oper")}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{if data.length == 0}}
+        <tr>
+            <td colspan="8" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+        </tr>
+        {{else}}
+        {{each data as v i}}
+        <tr data-val="{{v.val}}" data-id="{{v.id}}" data-password="{{v.password}}" data-connname="{{v.connName}}" data-dbtype="{{v.dbType}}"
+            data-host="{{v.host}}" data-port="{{v.port}}" data-url="{{v.url}}" data-dbname="{{v.dbName}}" data-userName="{{v.userName}}" data-params="{{v.paramsVal}}">
+            <td title="{{v.projName}}">{{v.projName}}</td>
+            <td  title="{{v.connName}}">{{v.connName}}</td>
+            <td title="{{v.host}}">{{v.host}}</td>
+            <td title="{{v.port}}">{{v.port}}</td>
+            <td title="{{v.userName}}">{{v.userName}}</td>
+            <td title="{{v.url}}">{{v.url}}</td>
+            <td><a class="edit" title="$!{i18n.getProperty("manage.title.update")}"><i></i><span>$!{i18n.getProperty("manage.title.update")}</span></a><a class="del hive" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("clientList.option.del")}</span></a></td>
+        </tr>
+        {{/each}}
+        {{/if}}
+        </tbody>
+    </table>
+    <div class="pager clearfix mt20">
+    </div>
+</script>
+
+<script type="text/html" id="template/ftpList">
+    <table>
+        <thead>
+        <tr>
+            <td>$!{i18n.getProperty("dbManage.option.belongApp")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.connName")}</td>
+            <td>$!{i18n.getProperty("clientList.option.ip")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.port")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.protocol")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.userName")}</td>
+            <td>$!{i18n.getProperty("clientList.option.oper")}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{if data.length == 0}}
+        <tr>
+            <td colspan="7" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+        </tr>
+        {{else}}
+        {{each data as v i}}
+        <tr data-val="{{v.val}}" data-id="{{v.id}}">
+            <td title="{{v.projName}}">{{v.projName}}</td>
+            <td  title="{{v.connName}}">{{v.connName}}</td>
+            <td title="{{v.host}}">{{v.host}}</td>
+            <td>{{v.port}}</td>
+            <td>{{['', 'FTP - $!{i18n.getProperty("dbManage.option.ftp")}', 'SFTP-SSH $!{i18n.getProperty("dbManage.option.ftp")}'][v.protocol]}}</td>
+            <td>{{v.userName}}</td>
+            <td><a class="edit" title="$!{i18n.getProperty("manage.title.update")}"><i></i><span>$!{i18n.getProperty("manage.title.update")}</span></a><a class="del ftp" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("clientList.option.del")}</span></a></td>
+        </tr>
+        {{/each}}
+        {{/if}}
+        </tbody>
+    </table>
+    <div class="pager clearfix mt20">
+    </div>
+</script>
+
+<script type="text/html" id="template/hdfsList">
+    <table>
+        <thead>
+        <tr>
+            <td>$!{i18n.getProperty("dbManage.option.belongApp")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.connName")}</td>
+            <td>$!{i18n.getProperty("dbManage.option.userName")}</td>
+            <td>$!{i18n.getProperty("dbManage.title.authType")}</td>
+            <td>$!{i18n.getProperty("clientList.option.oper")}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {{if data.length == 0}}
+        <tr>
+            <td colspan="5" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+        </tr>
+        {{else}}
+        {{each data as v i}}
+        <tr data-val="{{v.val}}" data-id="{{v.id}}" data-params="{{v.paramsVal}}">
+            <td title="{{v.projName}}">{{v.projName}}</td>
+            <td  title="{{v.connName}}">{{v.connName}}</td>
+            <td title="{{v.userName}}">{{v.userName}}</td>
+            <td title="{{['simple', 'kerberos', 'sentry'][v.authType-1]}}">{{['simple', 'kerberos', 'sentry'][v.authType-1]}}</td>
+            <td><a class="edit" title="$!{i18n.getProperty("manage.title.update")}"><i></i><span>$!{i18n.getProperty("manage.title.update")}</span></a><a class="del hdfs" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("clientList.option.del")}</span></a></td>
+        </tr>
+        {{/each}}
+        {{/if}}
+        </tbody>
+    </table>
+    <div class="pager clearfix mt20">
+    </div>
+</script>
+<script type="text/html" id="template/options">
+    {{each data as v i }}
+    <option value="{{v.val}}" {{if v.id == id && id}}selected{{/if}}>{{v.connName}}</option>
+    {{/each}}
+</script>
+<script src="resources/dist/dbManage/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/tipsy/jquery.tipsy.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/dbManage/dbManage.js?v=1522654870977" async></script>
+</body>
+</html>

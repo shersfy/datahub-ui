@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.innerCon{
+//    background:#edf1f2;
+}
+.innerCon h2.title {
+    padding-left: 20px;
+    line-height: 50px;
+    color: #999;
+    font-weight: normal;
+    background: #fff;  
+}
+  .innerCon h2.title span {
+    color: #999; 
+    font-size: 12px;
+    }
+  .innerCon h2.title a {
+    color: #000; }
+  .innerCon h2.title a:hover {
+    text-decoration: underline; }
+.innerCon h2.title b{
+    font-size: 14px;
+    color:#000;
+}
+.innerCon .upload-conatiner {
+    margin:20px;
+}
+.innerCon .upload-tab {
+  width: 100%;
+  background: #fff;
+  padding: 42px 38px 50px 38px; }
+ 
+.upload-tab>p{
+  position:relative;
+  padding-left:14px;
+  margin-bottom:22px;
+  font-size: 13px;
+}
+.upload-tab p:after{
+  content:"";
+  display:block;
+  width:4px;
+  height:12px;
+  position: absolute;
+  top:3px;
+  left:0;
+  background:#014b70;
+}
+.upload-tab .clientDownload{
+  margin-bottom:50px;
+  border:1px solid #edf1f2;
+  padding:15px;
+  overflow:hidden;
+}
+.upload-tab .clientDownload:after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.upload-tab .clientDownload img{
+  float: left;
+  margin-right:56px;
+}
+.upload-tab .clientDownload .downloadMsg{
+  padding-right:10px;
+  margin-right:6px;
+  border-right:1px solid #edf1f2;
+  padding-bottom:12px;
+} 
+.clientDownload .downloadMsg p{
+  font-size:14px;
+  font-weight: bold;
+}
+.clientDownload .downloadMsg .tip{
+ 
+}
+.clientDownload .downloadMsg span{
+  display:block;
+  float: left;
+  font-size:12px;
+  line-height:26px;
+}
+.clientDownload .downloadMsg h5.normal{
+    font-weight:500;
+}
+.upload-tab .clientDownload .btnDownload{
+  display:block;
+  float: left;
+  width:128px;
+  height:36px;
+  background:#014b70;
+  text-align:center;
+  line-height:36px;
+  color:#fff;
+  margin-left:10px;
+}
+.upload-tab .listTip{
+  color:#000;
+  margin-bottom:24px;
+}
+.upload-tab .listTip span{
+  padding-left:4px;
+  font-size:12px;
+  font-weight:normal;
+}
+.upload-tab .client-tab{
+  color:#000!important;
+  border:1px solid #d9d9d9!important;
+  width:100%;
+}
+
+.upload-tab .client-tab thead{
+  background:#efefef;
+}
+.upload-tab .client-tab th{
+    font-size:14px;
+}
+.upload-tab .client-tab th,.upload-tab .client-tab td{
+  padding-left:24px;
+  height:34px;
+  width:287px;
+  border:1px solid #d9d9d9!important;
+  text-align: left;
+}
+
+/*渲染前静态样式*/
+.client-tab td input,i,span{
+  display:inline-block;
+}
+.client-tab td {
+  position:relative;
+  font-size:12px;
+  color:#91949b;
+  overflow: visible;
+}
+#client-tbody tr:hover{
+    background:#fff!important;
+}
+table tbody tr:hover{
+    background-color:transparent!important;
+}
+.client-tab td input{
+  height:100%;
+  border:0;
+  font-family:"微软雅黑";
+  font-size:13px;
+  padding-left: 0;
+}
+.client-tab td .icon{
+  width:16px;
+  height:16px;
+}
+.client-tab td .editIcon{
+  cursor:pointer;
+  position:absolute;
+  right:20px;
+  margin-top:8px;
+  background:url("../../../resources/images/tabSprite.png");
+  background-position: 0 -32px;
+}
+.client-tab td .start{
+  width:7px;
+  height:7px;
+  background:url("../../../resources/images/stateSprite.png");
+  background-position: -5px -36px;
+}
+.client-tab td .stop{
+  width:7px;
+  height:7px;
+  background:url("../../../resources/images/stateSprite.png");
+  background-position: -5px -20px;
+}
+.client-tab td .state{
+  padding-left:7px;
+}
+.client-tab tr td:nth-child(1){
+  position:relative;
+}
+.client-tab tr td:nth-child(1) .point,.tipMsg{
+  position:absolute;
+  right:0;
+  display: none;
+}
+.client-tab tr td:nth-child(1) .point{
+  top:28px;
+  right:22px;
+  width:12px;
+  height:12px;
+  border:1px solid #e5e5e5;
+  background:#fff;
+  transform:rotate(45deg);
+}
+.client-tab tr td:nth-child(4) .tipMsgTask,.pointDel,.tipMsgDel,.pointTask{
+  position:absolute;
+  background:#fff;
+  z-index:999;
+  display: none;
+}
+.client-tab tr td:nth-child(4) .pointTask{
+  display:block;
+  position:absolute;
+  top:28px;
+  width:12px;
+  height:12px;
+  border:1px solid #e5e5e5;
+  background:#fff;
+  transform:rotate(45deg);
+  left:25px;
+  border-color:#e5e5e5 transparent transparent #e5e5e5;
+  display: none;
+}
+.client-tab tr td:nth-child(4) .tipMsgTask{
+  left:0px;
+  width:74px;
+  height:27px;
+  border:1px solid #e5e5e5;
+  border-top:0;
+  top:34px;
+  text-align:center;
+  line-height: 27px;
+  box-shadow:0px 6px 3px #eee;
+}
+.client-tab tr td:nth-child(4) .pointDel{
+  top:28px;
+  width:12px;
+  height:12px;
+  border:1px solid #e5e5e5;
+  background:#fff;
+  transform:rotate(45deg);
+  left: 72px;
+  border-color:#e5e5e5 transparent transparent #e5e5e5;
+} 
+.client-tab tr td:nth-child(4) .tipMsgDel{
+  left: 55px;
+  width:49px;
+  height:27px;
+  border:1px solid #e5e5e5;
+  border-top:0;
+  top:34px;
+  text-align:center;
+  line-height: 27px;
+  box-shadow:0px 6px 3px #eee;
+  color:#15181b;
+}
+
+.client-tab tr td:nth-child(1) .tipMsg{
+  width:60px;
+  height:26px;
+  background:#fff;
+  top:34px;
+  right:-1px;
+  border:1px solid #e5e5e5;
+  border-top:0;
+  text-align:center;
+  font-size:12px;
+  color:#1f242d;
+  line-height: 26px;
+  background:#fff;
+  z-index: 999;
+  box-shadow:0px 6px 3px #eee;
+}
+
+.client-tab .setBtn{
+  cursor:pointer;
+  margin-right:32%;
+  background:url("../../../resources/images/tabSprite.png");
+  background-position:0 -64px;
+  display: block;
+  float: left;
+  margin: 0 auto;
+}
+.client-tab .delBtn{
+  cursor:pointer;
+   background:url("../../../resources/images/tabSprite.png");
+   background-position:0px -48px;
+   display: block;
+   float: left;
+   margin-left:30px;
+}
+.coverTip{
+  width:100%;
+  height:100%;
+  display: none;
+  background-color: Gray;
+  left: 0px;
+  opacity: 0.5;
+  position:fixed;
+  top: 0px;
+  z-index: 999;
+  filter: alpha(opacity=50); /* IE6 */
+  -moz-opacity: 0.5; /* Mozilla */
+  -khtml-opacity: 0.5; /* Safari */
+}
+.tipContent{
+  background-color: #FFF;
+  display: none;
+  margin: -100px 0 0 -100px;
+  position: absolute;
+  z-index: 1001;
+  width: 578px;
+  height: 230px;
+  left: 37%;
+  top: 235px;
+}
+.tipContent .header{
+  width:100%;
+  height:49px;
+  padding-left:35px;
+  background:#f3f3f3;
+  border-bottom: 1px solid #e2e2e2;
+  position:relative;
+}
+.tipContent .header span{
+  padding-right:486px;
+  font-weight: bold;
+  font-size:14px;
+  padding-top:10px;
+}
+.tipContent .header img{
+    position:absolute;
+    top:0;
+    right:18px;
+}
+.tipContent .header img{
+  cursor:pointer;
+}
+.tipContent .delMsg{
+  width:100%;
+  height:150px;
+  background:#f3f3f3;
+}
+.tipContent .delBtnBar{
+  width:100%;
+  height:60px;
+  padding-left:394px;
+  background:#e2e2e2;
+  padding-top:15px;
+}
+.tipContent .delMsg img{
+  display:block;
+  height:139px;
+  float:left;
+}
+.tipContent .delMsg .delWord{
+  padding-left:20px;
+  padding-top:10px;
+  float:left;
+}
+.tipContent .delMsg p{
+  width:400px;
+  padding-top:10px;
+}
+.tipContent h3{
+  width:400px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top:30px;
+}
+.tipContent .delBtnBar input{
+  display:inline-block;
+  width:70px;
+  height:30px;
+  background:#fff;
+  border-radius: 0px;
+  cursor:pointer;
+  font-family: "微软雅黑";
+}
+.tipContent .delBtnBar .delOk{
+  margin-right:20px;
+  background:#014b70;
+  color:#fff;
+  border-radius:0;
+  cursor:pointer;
+  border:0;
+}
+.tipContent .delBtnBar .delOk:hover{
+    background:#014b70!important;
+}
+.tipContent .delBtnBar .delCancel:hover{
+    background:#e3e3e3!important;
+}
+
+aside.aside ul .clientMNav{
+    background: url("../../images/client_check.png") no-repeat!important;
+    background-position: 0 12px!important;
+}
+/*动态样式转换：*/
+
+/*# sourceMappingURL=index.css.map */

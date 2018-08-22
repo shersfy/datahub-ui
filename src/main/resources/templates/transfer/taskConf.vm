@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.option.taskDetail")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/taskConf/libs.min.css?v=1508495800307">    
+    <link rel="stylesheet" href="resources/libs/tipsy/tipsy.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/libs/codeMirror/codemirror.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/taskConf/taskConf.css?v=1510296139644">
+</head>
+<body class="body">
+#parse("layout/header.vm")
+#parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./manage">$!{i18n.getProperty("index.title.taskManage")}</a>&emsp;>&emsp;$!{i18n.getProperty("common.option.taskDetail")}</span></h2>
+        <div class="detailCon">
+            <div id="globalLoadCon" v-show="maskShow" style="position:fixed;z-index:99;display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+                <div style="width:20%;margin:20% 40%;text-align:center;height:80px;line-height:80px;">
+                    <img src="resources/dist/images/loading.gif"></div>
+            </div>
+            <h3 class="border-left">$!{i18n.getProperty("conf.title.basicInfo")}</h3> 
+            <div id="basis" class="flex">
+                <div class="flex-item head">
+                    <span class="key item">$!{i18n.getProperty("conf.option.item")}</span>
+                    <span class="val item">$!{i18n.getProperty("conf.option.info")}</span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.taskName")}</span>
+                    <span class="val item" v-text="jobInfo.jobName"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.taskId")}</span>
+                    <span class="val item"  v-text="jobInfo.id"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.inApp")}</span>
+                    <span class="val item" v-text="jobInfo.pid"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.owner")}</span>
+                    <span class="val item" v-text="jobInfo.userName"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.createTime")}</span>
+                    <span class="val item" v-text="jobInfo.createTime"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("conf.option.import")}</span>
+                    <span class="val item" v-text="jobInfo.cronExpression"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.taskStatus")}</span>
+                    <span class="val item" v-text="['', '$!{i18n.getProperty("manage.title.execing")}', '$!{i18n.getProperty("manage.title.end")}', '$!{i18n.getProperty("manage.title.pause")}'][jobInfo.status]"></span>
+                </div>
+                <div class="flex-item">
+                    <span class="key item">$!{i18n.getProperty("manage.title.taskDesc")}</span>
+                    <span class="val item note" v-text="jobInfo.note"></span>
+                </div>
+            </div>
+            <h3 class="border-left">$!{i18n.getProperty("conf.title.sourceInfo")}</h3>
+            <div id="source" class="flex">
+                <div class="flex-item head">
+                    <span class="key item">$!{i18n.getProperty("conf.option.item")}</span>
+                    <span class="val item">$!{i18n.getProperty("conf.option.info")}</span>
+                </div>
+                <div class="flex-item" v-for="(v,k) in sourceInfo">
+                    <span class="key item" v-text="keyLang[k]"></span>
+                    <span class="val item" v-text="v"></span>
+                </div>
+            </div>
+            <h3 class="border-left">$!{i18n.getProperty("conf.title.tarInfo")}</h3>
+            <div id="target" class="flex">
+                <div class="flex-item head">
+                    <span class="key item">$!{i18n.getProperty("conf.option.item")}</span>
+                    <span class="val item">$!{i18n.getProperty("conf.option.info")}</span>
+                </div>
+                 <div class="flex-item" v-for="(v,k) in targetInfo" v-if="v">
+                    <span class="key item" v-text="keyLang[k]"></span>
+                    <span class="val item" v-text="v"></span>
+                </div> 
+            </div>
+            <h3 class="border-left">$!{i18n.getProperty("conf.title.confDetail")}
+                <a class="link" v-if="[2,6,7].indexOf(jobInfo.groupNo) > -1" :href="'./db?type='+([2,6,7].indexOf(jobInfo.groupNo)+1)+'&id='+jobInfo.id+'&copy=1'">$!{i18n.getProperty("conf.btn.copy")}</a>
+                <a class="link" v-else-if="jobInfo.groupNo == 9" :href="'./hive?id='+jobInfo.id+'&copy=1'">$!{i18n.getProperty("conf.btn.copy")}</a>
+                <a class="link" v-else-if="jobInfo.groupNo == 12" :href="'./ftp.upload?id='+jobInfo.id+'&copy=1'">$!{i18n.getProperty("conf.btn.copy")}</a>
+                <a class="link" :href="'task.detail?jobId='+globalParam.urlObj.id">$!{i18n.getProperty("conf.button.viewLog")}</a>
+            </h3>
+            <div id="detail" class="flex">
+                <div class="flex-item head" :class="detailHeadClass">
+                    <span class="item" v-for="v in detailTitle" v-text="keyLang[v]" :title="keyLang[v]"></span>
+                </div>
+                <div class="infoCon">
+                 <div class="flex-item" v-for="(v,i) in detailInfo" :key="'detail'+i">
+                    <span class="item" v-for="k in detailTitle" rel="tipsy" v-if="['ddl', 'sqlQuery', 'tarPart', 'replacement', 'columnSep', 'hivePartConf'].indexOf(k) == -1" :title="v[k]" v-text="v[k]"></span>
+                     <span class="item" rel="tipsy" v-else-if="k == 'columnSep' || k == 'replacement'" :title="v[k+'Str']" v-html="v[k]"></span>
+                     <span class="item" rel="tipsy" v-else-if="k == 'tarPart'" :title="v[k]" v-html="v[k]"></span>
+                     <span v-cloak class="item sqlQuery" v-else-if="k == 'sqlQuery'" @mouseover.once="srcSql">
+                         <p>{{v[k]}}</p>
+                        <div class="showDdl">
+                            <div class="arrow"></div>
+                            <div class="srcSql" ref="area">
+                                <textarea v-text="v[k]"></textarea>
+                            </div>
+                        </div>
+                    </span>
+                    <span v-cloak class="item ddl" v-else-if="k == 'ddl'" @mouseOut="ddlOut(i)" >
+                        <a @click="getDdl({dbId:v.dbId, catalog:v.catalog, schema:v.schema, tableName:v.tarTblName}, i, $event)">$!{i18n.getProperty("conf.act.viewSql")}</a>
+                        <div class="showDdl" :style="{display:'none', top:y[i]+'px'}" v-show="ddlShow[i]" @mouseOver="ddlOver(i)">
+                            <div class="arrow" v-show="ddlShow[i]" style="display:none"></div>
+                            <div v-if="v.sql" class="content">
+                                <textarea v-text="v.sql"></textarea>
+                            </div>    
+                            <img v-else src="resources/dist/images/loading.gif" class="loadingImg">
+                        </div> 
+                    </span>
+                     <span class="item" v-else-if="k === 'hivePartConf'" @mouseOut="partOut(i)">
+                         <a @click="partOver(i)" v-if="v.isViewPart">$!{i18n.getProperty("conf.act.view")}</a>
+                         <div class="partConf" style="display: none;" v-show="partShow[i]" @mouseOver="partOver(i)">
+                             <h4>$!{i18n.getProperty("conf.title.tarPart")}</h4>
+                             <div class="flex" v-if="!v.hivePartConf.tarColumn">
+                                 <div class="flex-item head">
+                                     <span class="item">$!{i18n.getProperty("db.option.column")}</span>
+                                     <span class="item">$!{i18n.getProperty("dbManage.title.val")}</span>
+                                 </div>
+                                 <div class="flex-item" v-for="(vv,ii) in v.hivePartConf.tarPart">
+                                     <span class="item" v-text="vv.key"></span>
+                                     <span class="item" :title="vv.val" v-text="vv.val"></span>
+                                 </div>
+                             </div>
+                             <div v-else-if="v.hivePartConf.tarColumn">
+                                 <div class="flex">
+                                     <div class="flex-item head">
+                                         <span class="item">$!{i18n.getProperty("db.option.column")}</span>
+                                     </div>
+                                     <div class="flex-item" v-for="(vv,ii) in v.hivePartConf.tarColumn">
+                                         <span class="item" v-text="vv"></span>
+                                     </div>
+                                 </div>
+                                 <p>$!{i18n.getProperty("conf.option.type")}: {{['$!{i18n.getProperty("conf.option.customPart")}', '$!{i18n.getProperty("conf.option.partSynch")}'][+v.useSynchronized]}}</p>
+                                 <div class="flex" v-if="!v.useSynchronized">
+                                     <div class="flex-item head">
+                                         <span class="item">$!{i18n.getProperty("conf.title.srcPart")}</span>
+                                         <span class="item">$!{i18n.getProperty("conf.title.tarPart")}</span>
+                                     </div>
+                                     <div class="flex-item" v-for="(vv, ii) in v.hivePartConf.fromPart">
+                                         <span class="item" :title="vv" v-text="vv"></span>
+                                         <span class="item" :title="v.hivePartConf.tarPart[ii]" v-text="v.hivePartConf.tarPart[ii]"></span>
+                                     </div>
+                                 </div>
+                                 <div v-else-if="v.useSynchronized">
+                                     <div class="flex-item head">
+                                         <span class="item">$!{i18n.getProperty("conf.title.srcPart")}</span>
+                                         <span class="item">$!{i18n.getProperty("conf.title.tarPart")}</span>
+                                     </div>
+                                     <div class="flex-item">
+                                         <div class="item row-flex">
+                                             <span class="item" v-for="(vv,ii) in v.hivePartConf.srcColumn" v-text="vv" :title="vv"></span>
+                                         </div>
+                                         <div class="item row-flex">
+                                             <span class="item" v-for="(vv,ii) in v.hivePartConf.tarColumn" v-text="vv" :title="vv"></span>
+                                         </div>
+                                     </div>
+                                     <p v-for="(vv, ii) in v.hivePartConf.expPart" v-text="vv.name+'='+vv.value"></p>
+                                 </div>
+                                 <p>$!{i18n.getProperty("conf.option.tarExist")}: {{['$!{i18n.getProperty("conf.text.overridePart")}', '$!{i18n.getProperty("conf.text.appendPart")}', "$!{i18n.getProperty("conf.text.ignorePart")}"][+v.tarPartHandleType-1]}}</p>
+                             </div>
+                         </div>
+                     </span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="resources/dist/taskConf/libs.min.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/libs/codeMirror/codemirror.js?v=1508495800307"></script>
+<script src="resources/libs/tipsy/jquery.tipsy.js?v=1508495800307"></script>
+<script src="resources/dist/taskConf/taskConf.js?v=1523253075337" async></script>
+</html>

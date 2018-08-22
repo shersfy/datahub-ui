@@ -1,0 +1,65 @@
+.innerCon{
+  h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+    b{color:#000; font-size: 14px;}
+    a{color:#999;}
+    a:hover{text-decoration: underline;}
+  }
+  [v-cloak]{display: none;}
+  .mt20{margin-top:20px;}
+  .pageTab{display: inline-block; width: 100%;
+    &[v-cloak]{display: none;}
+    button:focus{padding:6px 15px;}
+  }
+  .ivu-menu-horizontal.ivu-menu-light:after{height: 0;}
+  .ivu-select-selection{height: 28px;}
+  .ivu-input-icon{cursor: pointer; height: 28px; line-height: 28px;}
+  .ivu-select-item{min-width: 100%;white-space: nowrap;display: inline-block;}
+  article.main{ margin: 20px; padding:20px; background: #fff;
+    table td {border-left:0; border-top:0; padding-left: 0;}
+    .act button{padding: 2px 5px;}
+    .ivu-tooltip{display: block;
+      .ivu-tooltip-rel{display: block; text-overflow: ellipsis;  overflow: hidden;}
+    }
+    .item{margin-bottom: 20px;}
+    .pager{text-align: right;}
+
+    .edit, .del, .log{background-image: url('../images/datahub/content_icon.png'); width: 16px;height: 16px; float: left;}
+    .edit{background-position: 0 0;}
+    .del{background-position: -32px 0;}
+    .log{background-position: -16px 0;}
+    .enable, .disable{background-image: url('../images/clientUpload/tabSprite.png'); width: 16px;height: 16px; float: left;}
+    .enable{background-position: 0 0}
+    .disable{background-position: 0 -16px;}
+    .act .ivu-tooltip{ float: left; margin-right: 10px;}
+    .s0{color:red;}
+    .s1{color:green;}
+  }
+}
+
+
+.layout{padding-left: 20px; background: #fff;
+  .ivu-menu-horizontal {
+    height: 40px;
+    line-height: 40px;
+  }
+  .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item{
+    border-top: 2px solid transparent;
+    border-bottom: 0;
+  }
+  .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active, .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active:hover{
+    color: #004c6f;
+    border-top: 2px solid #004c6f;
+    border-bottom: 0;
+    background: #edeef0;
+  }
+
+  .ivu-menu-light .ivu-menu-item:hover{color:#000; border-bottom: 0;}
+}
+
+.main > .ivu-row-flex{margin-bottom: 20px;}
+.ivu-page-item-active{ background:#004c6f;}
+table .noData{display: block;  margin: 20px auto 0;}
+.ivu-btn-primary{background-color: #004c6f; border-color:#004c6f;
+  &:hover{background-color:#004c6f; opacity: 0.9; }
+}
+.ivu-input[disabled]{color:#666;}

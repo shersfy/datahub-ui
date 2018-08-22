@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.option.alarmSetting")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/alarmSetting/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/iView/iview.css?v=15085800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/alarmSetting/alarmSetting.css?v=1515133616561">
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <div v-show="listTab" class="pageTab">
+            <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.option.alarmSetting")}</span></h2>
+            <div class="layout" v-cloak>
+                <i-col>
+                    <i-menu mode="horizontal" :active-name="activeName" @on-select="listChange">
+                        <div class="layout-assistant">
+                            <menu-item name="0">$!{i18n.getProperty("rule.title.transRule")}</menu-item>
+                            <menu-item name="1">$!{i18n.getProperty("rule.title.clientRule")}</menu-item>
+                        </div>
+                    </i-menu>
+                </i-col>
+            </div>
+
+            <article class="main trans" v-show="activeName == 0" v-cloak>
+                <Row type="flex" justify="space-between" class="">
+                    <i-col span="8">
+                        <i-button type="primary" class="addRule" @click="addRule">$!{i18n.getProperty("rule.act.newRule")}</i-button>
+                    </i-col>
+                    <i-col>
+                        <i-select style="width:100px" v-model="transType" @on-change="typeChange">
+                            <i-option value="1">$!{i18n.getProperty("manage.title.taskId")}</i-option>
+                            <i-option value="2">$!{i18n.getProperty("manage.title.taskName")}</i-option>
+                        </i-select><i-input  style="width:200px" :maxlength="[8,60][+transType-1]" icon="ios-search" v-model="transWord" @on-click="transSearch" @on-enter="transSearch"></i-input>
+                    </i-col>
+                </Row>
+                <i-table border v-show="transListGot" :no-data-text="noData" :loading="isLoading" :data="transList" :columns="transColumn">
+                </i-table>
+                <Page v-show="transPager.total" :total="transPager.total" :current="transPager.current" size="small" class="pager" @on-change="pagerChange"></Page>
+            </article>
+            <article class="main client" v-show="activeName == 1" v-cloak>
+                <Row type="flex" justify="space-between">
+                    <i-col span="8">
+                        <i-button type="primary" @click="addRule">$!{i18n.getProperty("rule.act.newRule")}</i-button>
+                    </i-col>
+                    <i-col>
+                        <i-select style="width:100px" v-model="clientType" @on-change="clientTypeChange">
+                            <i-option value="2">ALL</i-option>
+                            <i-option value="1">$!{i18n.getProperty("alarm.option.clientStatus")}</i-option>
+                            <i-option value="0">$!{i18n.getProperty("alarm.option.clientTask")}</i-option>
+                        </i-select>
+                    </i-col>
+                </Row>
+                <i-table border v-show="clientListGot" :no-data-text="noData" :loading="isLoading" :data="clientList" :columns="clientColumn">
+                </i-table>
+                <Page v-show="clientPager.total" :total="clientPager.total" :current="clientPager.current" size="small" class="pager" @on-change="pagerChange"></Page>
+            </article>
+        </div>
+        <div v-show="!listTab" v-cloak class="pageTab">
+            <h2 class="title" v-show="!editId"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./alarm.setting">$!{i18n.getProperty("common.option.alarmSetting")}</a>&emsp;>&emsp;$!{i18n.getProperty("rule.title.newRule")}</span></h2>
+            <h2 class="title" v-show="editId"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./alarm.setting">$!{i18n.getProperty("common.option.alarmSetting")}</a>&emsp;>&emsp;$!{i18n.getProperty("rule.title.editRule")}</span></h2>
+            <article class="main rule" v-cloak>
+                <Row class="item" v-show="activeName == 1">
+                    <i-col span="4">
+                        $!{i18n.getProperty("rule.option.ruleType")}
+                    </i-col>
+                    <i-col span="12">
+                        <radio-group v-model="alarmType" @on-change="alarmTypeChange">
+                            <Radio label="1">$!{i18n.getProperty("alarm.option.clientStatus")}</Radio>
+                            <Radio label="0">$!{i18n.getProperty("alarm.option.clientTask")}</Radio>
+                        </radio-group>
+                    </i-col>
+                </Row>
+                <Row class="item" v-show="activeName == 1">
+                    <i-col span="4">
+                        $!{i18n.getProperty("dump.text.client")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-select v-model="clientId" @on-change="clientChange" placeholder="$!{i18n.getProperty("rule.option.tipSelect")}">
+                            <i-option disabled value="-1">$!{i18n.getProperty("rule.option.tipSelect")}</i-option>
+                            <i-option v-for="item in clientArr" :value="item.id" :key="item.id">{{item.clientName}}</i-option>
+                        </i-select>
+                    </i-col>
+                </Row>
+                <Row class="item" v-show="alarmType != 1 || activeName != 1">
+                    <i-col span="4">
+                        $!{i18n.getProperty("manage.title.inApp")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-select filterable v-model="pid" @on-change="pidChange">
+                            <i-option v-for="item in projectList" :value="''+item.id" :key="item.id">{{item.name}}</i-option>
+                        </i-select>
+                    </i-col>
+                </Row>
+                <Row class="item" v-show="alarmType != 1 || activeName != 1">
+                    <i-col span="4">
+                        $!{i18n.getProperty("manage.title.taskId")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-select filterable v-model="curJob" :disabled="curJob > 0" @on-change="jobChange" placeholder="$!{i18n.getProperty("rule.option.tipSelect")}">
+                            <i-option disabled value="-1">$!{i18n.getProperty("rule.option.tipSelect")}</i-option>
+                            <i-option v-for="item in currentJobObj" :key="item.id" :value="item.id" v-if="editId > 0 || item.status != 2">{{item.id}}</i-option>
+                        </i-select>
+                    </i-col>
+                </Row>
+                <Row class="item" v-show="alarmType != 1 || activeName != 1">
+                    <i-col span="4">
+                        $!{i18n.getProperty("common.option.taskDetail")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-input disabled type="textarea" :value="jobDetail"></i-input>
+                    </i-col>
+                </Row>
+                <Row class="item">
+                    <i-col span="4">
+                        $!{i18n.getProperty("rule.option.ruleSetting")}
+                    </i-col>
+                    <i-col span="12">
+                        <Row v-show="alarmType != 1 || activeName != 1">
+                            <i-col span="6">
+                                <i-select v-model="alarmRule">
+                                    <i-option value="0">$!{i18n.getProperty("rule.type.taskFail")}</i-option>
+                                </i-select>
+                            </i-col>
+                            <i-col span="17" offset="1">
+                                $!{i18n.getProperty("rule.text.persist")}<i-input style="width:100px;padding: 0 10px;" v-model="jobCycle" @on-change="getAlarmDesc" @on-blur="alarmCycleFix"></i-input>$!{i18n.getProperty("rule.text.cycle")}&nbsp;
+                                <i-select style="width:150px;"  v-model="alarmCycle" @on-change="getAlarmDesc">
+                                    <i-option value="0">$!{i18n.getProperty("rule.option.alarmNolimit")}</i-option>
+                                    <i-option value="1">$!{i18n.getProperty("rule.option.alarmPerhour")}</i-option>
+                                    <i-option value="3">$!{i18n.getProperty("rule.option.alarmPer3hour")}</i-option>
+                                    <i-option value="24">$!{i18n.getProperty("rule.option.alarmPerday")}</i-option>
+                                </i-select>
+                            </i-col>
+                        </Row>
+                        <Row v-show="alarmType == 1 && activeName == 1">
+                            <i-col span="6">
+                                <i-select v-model="alarmRule">
+                                    <i-option value="2">$!{i18n.getProperty("rule.option.clientOffline")}</i-option>
+                                </i-select>
+                            </i-col>
+                            <i-col span="18">
+                                <i-select style="width:200px;" v-model="alarmCycle" @on-change="getAlarmDesc">
+                                    <i-option value="0">$!{i18n.getProperty("rule.option.alarmNolimit")}</i-option>
+                                    <i-option value="1">$!{i18n.getProperty("rule.option.alarmPerhour")}</i-option>
+                                    <i-option value="3">$!{i18n.getProperty("rule.option.alarmPer3hour")}</i-option>
+                                    <i-option value="24">$!{i18n.getProperty("rule.option.alarmPerday")}</i-option>
+                                </i-select>
+                            </i-col>
+                        </Row>
+                    </i-col>
+                </Row>
+                <Row class="item">
+                    <i-col span="4">
+                        $!{i18n.getProperty("rule.option.alarmContent")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-input type="textarea" v-model="alarmTemplate" :maxlength="255"></i-input>
+                    </i-col>
+                </Row>
+                <Row class="item">
+                    <i-col span="4">
+                        $!{i18n.getProperty("rule.option.alarmUser")}
+                    </i-col>
+                    <i-col span="12">
+                        <i-select value="0">
+                            <i-option value="0">$!{i18n.getProperty("rule.option.sms")}</i-option>
+                        </i-select>
+                    </i-col>
+                </Row>
+                <Row class="item">
+                    <i-col span="4">
+                        &nbsp;
+                    </i-col>
+                    <i-col span="12">
+                        <i-input type="textarea" v-model="notifyUser" placeholder="$!{i18n.getProperty("rule.text.notifyUser")}"></i-input>
+                    </i-col>
+                </Row>
+                <Row type="flex" justify="center">
+                    <i-col span="3">
+                        <i-button type="ghost" @click="addRuleCancel">$!{i18n.getProperty("client.option.cancel")}</i-button>
+                    </i-col>
+                    <i-col span="3">
+                        <i-button type="primary" @click="saveRule">$!{i18n.getProperty("db.text.confirm")}</i-button>
+                    </i-col>
+                </Row>
+            </article>
+        </div>
+    </div>
+    <div id="waitLoading" v-show="loading" style="position:fixed;z-index:99 ; display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+        <div style="width: 20%;margin: 20% 40%;text-align: center;background: rgba(0,0,0,.5);color: #fff;padding: 20px;line-height: 30px;border-radius: 10px;">
+            <img src="resources/dist/images/loading.gif">
+            <article></article>
+        </div>
+    </div>
+</div>
+
+<script src="resources/dist/alarmSetting/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/iView/iview.min.js?v=15084958007"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/alarmSetting/alarmSetting.js?v=1522656495882" async></script>
+</body>
+</html>

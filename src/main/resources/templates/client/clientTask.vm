@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+    <title>$!{i18n.getProperty("client.title.clientTask")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/clientTask/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/codeMirror/codemirror.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/tipsy/tipsy.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/clientTask/clientTask.css?v=1522656209494">
+</head>
+
+<body class="asideToggle">
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("common.title.migrate")}</b>&emsp;>&emsp;<a href="./online.client" class="first">$!{i18n.getProperty("clientList.title.clientUp")}</a>&emsp;>&emsp;<a class="runToPre">$!{i18n.getProperty("index.title.taskManage")}</a>&emsp;>&emsp;<span></span></h2>
+        <div class="upload-conatiner">
+            <div class="upload-tab mapData">
+                <div class="taskNav">
+                    <div class="processCon">
+                        <div class="process clearfix">
+                            <div class="item">
+                                <div class="item1 itemCon cur">
+                                    <i class="step">01</i>
+                                    <span>$!{i18n.getProperty("client.title.confSrc")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item2 itemCon">
+                                    <i class="step">02</i>
+                                    <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item3 itemCon">
+                                    <i class="step">03</i>
+                                    <span>$!{i18n.getProperty("db.title.importRule")}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="configTask">
+                    <h3><span>$!{i18n.getProperty("db.title.sourceInfo")}</span></h3>
+                    <ul>
+                        <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("manage.title.taskName")}</span><input autocomplete="off" type="text" id="taskName" maxlength="60" autocomplete="off"></li>
+                        <li class="desLi"><span class="leftTitle">$!{i18n.getProperty("manage.title.taskDesc")}</span><textarea autocomplete="off" name="" class="tastDes" cols="30" rows="10" maxlength="255"></textarea></li>
+                        <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.srcPath")}</span>
+                            <input autocomplete="off" type="text" id="fileRouteMsg" placeholder="$!{i18n.getProperty("client.title.inputSrcPath")}" maxlength="255" autocomplete="off">
+                            <label class="bCheckType">$!{i18n.getProperty("client.title.isUpdir")}</label>
+                        </li>
+                        <li class="fileFilterType"><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.fileFilter")}</span>
+                            <i class="radio cur" data-val="0">$!{i18n.getProperty("client.option.filterNone")}</i>
+                            <i class="radio" data-val="1">$!{i18n.getProperty("client.title.filterFile")}</i><i class="tooltip" title='$!{i18n.getProperty("client.note.filterTip")}'></i>
+                        </li>
+                        <li class="filter"><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.filterType")}</span>
+                            <select class="right" id="fileTypeChoice"  autocomplete="off">
+                                <option value="0">$!{i18n.getProperty("client.title.upType")}</option>
+                                <option value="1">$!{i18n.getProperty("client.title.noUpType")}</option>
+                            </select>
+                        </li>
+                        <li class="filter"><span class="leftTitle">$!{i18n.getProperty("client.option.selectType")}</span>
+                            <select class="multipleSelect" multiple="multiple"  autocomplete="off">
+                            </select>
+                        </li>
+                        <li class="filter"><span class="leftTitle">$!{i18n.getProperty("client.title.otherType")}</span>
+                            <input type="text" class="addFileFilter"  autocomplete="off"/><i class="tooltip" title='$!{i18n.getProperty("client.note.filterNote")}'></i>
+                        </li>
+                        <li class="choiceTypeTip"><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.transSetting")}</span>
+                            <div class="line"><i class="radio" data-val="1">$!{i18n.getProperty("client.option.addSuff")}
+                                <input type="text" disabled maxlength="15" id="suffixContent" autocomplete="off">
+                            </i></div>
+                            <div class="line"><i class="radio" data-val="2">$!{i18n.getProperty("client.option.upedMove")}
+                                <input type="text" disabled maxlength="255" id="moveSite" autocomplete="off">
+                            </i></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dataMapMsg">
+                    <div class="oneRow btnOneRow">
+                        <div class="btnZone">
+                            <input type="button" value="$!{i18n.getProperty("client.option.cancel")}" class="cancel"/>
+                            <input type="button" value="$!{i18n.getProperty("client.option.nextStep")}" class="dataNextStep"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="upload-tab mapRoute">
+                <div class="taskNav">
+                    <div class="processCon">
+                        <div class="process clearfix">
+                            <div class="item">
+                                <div class="item1 itemCon">
+                                    <i class="step">01</i>
+                                    <span>$!{i18n.getProperty("client.title.confSrc")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item2 itemCon cur">
+                                    <i class="step">02</i>
+                                    <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item3 itemCon">
+                                    <i class="step">03</i>
+                                    <span>$!{i18n.getProperty("db.title.importRule")}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapRouteMsg">
+                    <h3><span>$!{i18n.getProperty("dump.title.importPath")}</span></h3>
+
+                    <div class="oneRow">
+                        <p class="left">$!{i18n.getProperty("manage.title.inApp")}</p>
+                        <select class="right" id='userApp' autocomplete="off">
+                        </select>
+                    </div>
+                    <div class="oneRow">
+                        <p class="left">$!{i18n.getProperty("local.title.tarDir")}</p>
+                        <select class="right fileRouteChoice" autocomplete="off">
+                            <option value="1">hdfs</option>
+                            <option value="2">hive</option>
+                            <option value="3">Spark MPP</option>
+                        </select>
+                    </div>
+                    <div class="oneRow">
+                        <p class="left">$!{i18n.getProperty("client.option.selectLink")}</p>
+                        <select class="connId right" name="" id="" autocomplete="off"></select>
+                    </div>
+                    <div class="oneRow hdfsChoice">
+                        <p class='left'>$!{i18n.getProperty("client.option.tarDir")}</p>
+                        <input class="right desDirHdfs" readonly="true" autocomplete="off"/>
+                    </div>
+                    <div class="oneRow dbChoice">
+                        <p class='left'>$!{i18n.getProperty("client.option.tarDb")}</p>
+                        <select class="right dbName" id="dbName" autocomplete="off">
+
+                        </select>
+                    </div>
+                    <div class="oneRow dataTab">
+                        <p class="left">$!{i18n.getProperty("client.option.tarTbl")}</p>
+                        <select class="right" id="tableName" autocomplete="off">
+
+                        </select>
+                    </div>
+                    <div class="oneRow dataLink partitionZone">
+                        <p class="left">$!{i18n.getProperty("client.option.part")}</p>
+                        <div class="right" id="partitions">
+                        </div>
+                    </div>
+                    <div class="oneRow formatType" style="display: none;">
+                        <p class="left">$!{i18n.getProperty("db.option.tableType")}</p>
+                        <select class="right tableType" autocomplete="off" disabled>
+                            <option value="0">text</option>
+                            <option value="1">orc</option>
+                            <option value="2">parquet</option>
+                            <option value="3">rcfile</option>
+                            <option value="4">sequencefile</option>
+                        </select>
+                    </div>
+                    <div class="new-sql">
+                        <h5 class="title">
+                            $!{i18n.getProperty("local.option.tarSql")}
+                        </h5>
+                        <textarea name="" id="" cols="30" rows="10" disabled></textarea>
+                    </div>
+                    <div class="oneRow colSepRow">
+                        <p class="left">$!{i18n.getProperty("client.option.srcColumnSep")}</p>
+                        <div class="right">
+                            <ul class="replacementCon columnSep">
+                                <li title="\t" data-val="\t" class="val">$!{i18n.getProperty("local.option.tab")}
+                                </li><ul class="list">
+                                <li class="item" title="\t" data-val="\t">$!{i18n.getProperty("local.option.tab")}</li>
+                                <li class="item" title=";" data-val=";">$!{i18n.getProperty("local.option.semicolon")}</li>
+                                <li class="item" title="," data-val=",">$!{i18n.getProperty("local.option.comma")}</li>
+                                <li class="item" title=" " data-val=" ">$!{i18n.getProperty("local.option.space")}</li>
+                                <li class="input"><input type="text" maxlength="10" class="inputReplacement" placeholder="$!{i18n.getProperty("db.text.customize")}"><button>$!{i18n.getProperty("db.text.confirm")}</button></li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <i class="tooltip" title='$!{i18n.getProperty("client.text.columnTip")}'></i>
+                    </div>
+##                    <div class="oneRow sameNameZone">
+##                        <p class="left">$!{i18n.getProperty("common.title.setting")}</p>
+##                        <div class="right sameName">
+##                            <label class="coverLabel radioNo">
+##                                <input type="radio" name="sameName" class="coverBtn"  autocomplete="off">&emsp;&emsp;$!{i18n.getProperty("client.option.override")}
+##                            </label>
+##                            <label class="addLabel radioOk">
+##                                <input type="radio" name="sameName" class="addBtn" checked autocomplete="off">&emsp;&emsp;$!{i18n.getProperty("client.option.append")}
+##                            </label>
+##                        </div>
+##                    </div>
+                    <div class="oneRow btnOneRow">
+                        <div class="btnZone">
+                            <input type="button" value="$!{i18n.getProperty("client.option.prevStep")}" class="mapRoutePreStep"/>
+                            <input type="button" value="$!{i18n.getProperty("client.option.nextStep")}" class="mapRouteNextStep"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="upload-tab importRule">
+                <div class="taskNav">
+                    <div class="processCon">
+                        <div class="process clearfix">
+                            <div class="item">
+                                <div class="item1 itemCon">
+                                    <i class="step">01</i>
+                                    <span>$!{i18n.getProperty("client.title.confSrc")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item2 itemCon">
+                                    <i class="step">02</i>
+                                    <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item3 itemCon cur">
+                                    <i class="step">03</i>
+                                    <span>$!{i18n.getProperty("db.title.importRule")}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3><span>$!{i18n.getProperty("db.title.importRule")}</span></h3>
+                <div class="ruleZone">
+                    #parse("cron/cron.vm")
+                    <div class="btnCon">
+                        <button class="btn btn-cancel lastPreStep">$!{i18n.getProperty("client.option.prevStep")}</button>
+                        <button class="btn btn-item startImport">$!{i18n.getProperty("client.option.startImport")}</button>
+                        <input type="hidden">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="delayTip">
+    <div class="spinBox" style="width:64px;height:64px;margin:0 auto;margin-top:350px;">
+        <img src="resources/dist/images/loading.gif" alt="" />
+    </div>
+</div>
+<div class="maskCell"></div>
+<div class="contentBox">
+    <div class="centerTip">
+        <div class="success">
+            <img  src="resources/images/taskSuccess.png"/>
+            <span></span>
+        </div>
+    </div>
+    <div class="skipTip">
+        $!{i18n.getProperty("index.text.will")}<a href="./client.taskm" class="clientM"> $!{i18n.getProperty("index.title.newTask")}</a>, $!{i18n.getProperty("index.text.goto")} <a class="goToClient">$!{i18n.getProperty("clientM.title.clientTaskM")}</a> $!{i18n.getProperty("index.text.view")}?
+    </div>
+</div>
+<div class="hdfsRouteBox">
+    <div class="title mapRouteTit"><p class="routeTitle">HDFS $!{i18n.getProperty("local.option.confPath")}</p><p class="closeMap hiveCloseMap">X</p></div>
+    <div class="mathRoute">
+        <div class="import hdfsWrite">
+            <div class="routeChoice">
+                <div class="menuZone">
+                    <ul class="allMeun">
+                        <li class="startLi">
+                            <label class='routeLabel'><input type='checkbox' class='routeChoiceBtn' autocomplete="off"/></label>
+                            <h5 class="routeStart oneRoute">
+                                <img class='turnOn' field="start" src='resources/images/routeOn.png'/>
+                                <img class='turnOff' field="start" src='resources/images/routeOff.png'/>
+                                <span class="thisRoute startThis"></span>
+                            </h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="routeShow">
+            <div class="defaultShow">
+                <p>$!{i18n.getProperty("dbManage.option.path")}: </p>
+                <input type="text" disabled="true" class="defaultRoute"  autocomplete="off"/>
+            </div>
+        </div>
+    </div>
+    <div class="bakBtnZ">
+        <button class="bakRouteOk btn btn-item">$!{i18n.getProperty("client.option.sure")}</button>
+    </div>
+</div>
+<script src="resources/dist/clientTask/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/codeMirror/codemirror.js?v=1508495800307"></script>
+<script src="resources/libs/tipsy/jquery.tipsy.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/libs/My97DatePicker/WdatePicker.js?v=1508495800307"></script>
+<script src="resources/cron/cron.js?v=1508495800307"></script>
+<script src="resources/dist/clientTask/clientTask.js?v=1523428097265"></script>
+</body>
+</html>

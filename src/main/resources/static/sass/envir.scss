@@ -1,0 +1,352 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.mainCon {
+    margin-left: 239px;
+}
+
+.innerCon {
+//    background: #edf1f2;
+}
+
+h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+    b{color:#000; font-size: 14px;}
+    a{color:#999;}
+    a:hover{text-decoration: underline;}
+}
+
+nav{ background: #fff; padding-left: 20px;
+  a{line-height: 35px; color:#666; padding:0 15px; text-align: center; display: inline-block;font-size: 14px;}
+  a.cur{color:#004c6f; border-top:2px solid #004c6f; background: #edeef0;}
+  .add-link{font-size: 13px; width:120px;float: right;margin-right: 40px;}
+}
+
+
+.innerCon .upload-conatiner {
+    margin: 20px;
+}
+
+.innerCon .upload-tab {
+    width: 100%;
+    background: #fff;
+    padding: 24px;
+    min-height:600px;
+}
+
+.upload-tab .header{
+    border-bottom: 1px solid #e3e8ec;
+    overflow: hidden;
+    padding-bottom: 10px;
+    background:#fff;
+    height:37px;
+}
+.upload-tab .header p{
+    font-weight:bold;
+    float:left;
+    position:relative;
+    padding-left: 14px;
+    font-size:15px;
+}
+.upload-tab .header p:after{
+    content:"";
+    display:block;
+    width:4px;
+    height:12px;
+    position:absolute;
+    background: #014b70;
+    top: 5px;
+    left: 0px;
+}
+
+.editBtn{
+    display:block;
+    width: 89px;
+    height: 26px;
+    text-align:center;
+    line-height:26px;
+    color:#36393e;
+    float:right;
+    background: #e7e8ed;
+    cursor:pointer;
+    position:relative;
+    font-size:13px;
+    border:1px solid #dadfe2;
+    padding-left:3px;
+}
+.setUpData{
+    padding-top: 30px;
+}
+.setUpData .setB{
+    overflow: hidden;
+    padding-top: 10px;
+}
+.setUpData .setB a:hover{
+    background: #4791E9;
+}
+
+.upload-tab .personMsg{
+    padding-top:30px;
+}
+.upload-tab .personMsg .row{
+    margin-bottom:26px;
+    overflow:hidden;
+}
+.upload-tab .personMsg .row.all{
+    border-bottom: 1px solid #e3e8ec;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+}
+.personMsg .row .left{
+    float: left;
+    margin-right: 20px;
+    width: 130px;
+    line-height: 36px;
+    text-align: right;
+    font-weight: bold;
+}
+.personMsg .row .right{
+    display: block;
+    float: left;
+    width: 430px;
+    border-color: #dce3e9;
+    height: 36px;
+    padding-left: 10px;
+}
+.personMsg .row .right.role{
+    line-height:36px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+.personMsg .row .right.projects{
+    height:36px;
+    border-color: #dce3e9;
+}
+.select2-container--default .select2-selection--single{
+    height: 36px;
+    border-color: #dce3e9;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top:5px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    height: 100%;
+    line-height: 34px;
+}
+.upload-tab .setUpData .row{
+    overflow:hidden;
+    margin-bottom:26px;
+    display:none;
+}
+.upload-tab .setUpData .row.hive{
+    display:none;
+}
+.setUpData .row.hUrl .show{
+    font-size:12px;
+}
+.setUpData .row.hive .hiveUrl{
+    display:none;
+}
+.setUpData .row.hive .hiveUser{
+    display:none;
+}
+.displayNone{
+    display:none!important;
+}
+
+.upload-tab .setUpData .sentry{
+    display:none;
+}
+.upload-tab .setUpData .simple{
+    display:none;
+}
+.setUpData .row .left{
+    float:left;
+    margin-right:20px;
+    width: 160px;
+    line-height:36px;
+    text-align:right;
+    font-weight:bold;
+    font-family: "微软雅黑";
+    color:#888;
+}
+.setUpData .row .right{
+    display:block;
+    float:left;
+    width: 430px;
+    border-color:#dce3e9;
+    height:36px;
+    padding-left:10px;
+    font-family: "微软雅黑";
+}
+.setUpData .row span.right{
+    padding-left:0;
+}
+.setUpData .row .right.show{
+    line-height:36px;
+    color:#999;
+    width:430px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.setUpData .row .hiveConn{
+    line-height:36px;
+    color:#999;
+    max-width:800px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.setUpData .sepLine{
+    height: 1px;
+    width: 800px;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 30px;
+    display:none;
+}
+.row .right.keepData{
+    width: 100px;
+    height: 30px;
+    background: #014b70;
+    border:0;
+    margin-right:10px;
+    text-align: center;
+    cursor:pointer;
+    padding:0;
+    color:#fff;
+    font-family: "微软雅黑";
+}
+.row .right.keepData:hover{
+    background: #014b5d!important;
+}
+.row .right.cancelSet{
+    width: 100px;
+    height: 30px;
+    background: #f6f6f6;
+    text-align: center;
+    cursor:pointer;
+    padding:0;
+    font-family: "微软雅黑";
+}
+.row .right.cancelSet:hover{
+    background: #ddd;
+}
+.setUpData .row.btnZone{
+    display:none;
+}
+.delayTip{
+    display:none;
+}
+.setUpData .row .conName{
+    line-height:36px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    padding-left:0;
+    color:#999;
+}
+.greWord{
+    color:#888;
+}
+.delayTip{
+    display:none;
+    width:100%;
+    height:100%;
+    background-color:rgba(255,255,255,0.3);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1100;
+}
+.errorBack{
+    background:#ffe7e7;
+}
+
+.smsConfig{ display: none;
+  .example{ float: right; line-height: 30px; margin-right: 30px; cursor: pointer; color: #014B5D; }
+  .exampleCon{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.3);
+
+   .setUpData { padding-top:0;
+      width: 800px;
+      margin: 200px auto;
+      background: #fff;
+      padding-bottom: 30px;
+    }
+    h4{font-size: 14px;color: #000;line-height: 50px;padding-left: 35px; height:50px;  font-weight:normal; border-bottom: 1px solid #ccc;
+      .close{float: right;cursor: pointer; width: 23px;height: 23px;line-height:23px;margin-right:18px;text-align: center;background: #f3723f;color: #fff;font-size: 18px;}
+    }
+  }
+
+  .setUpData .row{display: block;
+    .left i{color: red; font-style: normal;}
+    .editB{display: none;}
+    .params{height: auto;}
+    .addParam{margin-top:10px; padding:5px 10px; cursor: pointer; display: inline-block;}
+    input[disabled]{cursor: default; background: #fff;}
+    .testConnect{background: #014b70; border: 0;cursor: pointer; margin-right: 10px;  color: #fff;  height: 30px;  width: 100px;}
+  }
+
+  .flex{
+    .flex-item:not(.head) .item{padding-left: 0;}
+    input{width: 100%; border: 0;}
+  }
+  .btnZone.row{display: none;}
+}
+
+.streamSets { display: none;
+  .setUpData .row { display: block;
+    .editB{display: none;}
+    .left i{color: red; font-style: normal;}
+  }
+  .btnZone.row{display: none;}
+}
+.globalCon{position: fixed; top: 0;width: 100%;left: 0;height: 100%; background: rgba(0,0,0,.3); display: none;
+  .testPhone{
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 300px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eee;
+    .cancel{float: right;cursor: pointer;width: 23px;height: 23px;line-height: 23px; margin-right: 18px; text-align: center; background: #f3723f; color: #fff; font-size: 18px;}
+    label{display: block;margin: 20px;}
+    button{margin: 0 20px 20px 0; float: right;}
+  }
+}
+
+
+.tooltip{ background: url('../../images/zs.png'); width:15px; height: 15px; display: inline-block; margin: 10px; }
+
+.tipsy-inner{word-break: break-all; word-wrap: break-word;}
+
+.flex{ display: flex; flex-flow: column nowrap;
+  .flex-item { display: flex;
+    &.head{
+      .item{background: #f9f9f9;}
+    }
+    &:not(.head):hover{ .item{background: #f6f6f6;}}
+    .item{flex: 1 0  auto; padding-left: 15px; height: 30px;line-height: 30px;text-overflow: ellipsis; overflow: hidden; width:100px;}
+    .item { border: 1px solid #ccc;}
+    .item + .item { border-left:0; }
+    .add{background: url('../../../resources/images/tj.png') 8px 8px no-repeat; cursor: pointer; float: left; width: 29px; height: 30px;}
+    .del{background: url('../../../resources/images/sc.png') 8px 8px no-repeat; cursor: pointer; float: left; width: 29px; height: 30px;}
+  }
+  .item.row-flex{display: flex;padding:0;}
+  .flex-item + .flex-item{ .item{border-top:0;} }
+}

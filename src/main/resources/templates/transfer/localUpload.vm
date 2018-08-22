@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("local.title.localMigrate")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/localUpload/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/localUpload/localUpload.css?v=1515133617027">
+</head>
+<body class="asideToggle">
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("local.title.localMigrate")}</span></h2>
+        <div class="upload-main">
+            <div class="configTask">
+                <ul>
+                    <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("manage.title.taskName")}</span><input type="text" class="taskName" maxlength="60"></li>
+                    <li class="desLi"><span class="leftTitle"><span style="visibility: hidden;">*</span>$!{i18n.getProperty("manage.title.taskDesc")}</span><textarea name="" class="taskDes" cols="30" rows="10" maxlength="255"></textarea></li>
+                    <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("manage.title.inApp")}</span><select id="userApp"></select></li>
+                    <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("local.title.tarDir")}</span><input type="text" value="HDFS" readonly/><select name="" id="" style="display:none"><option value="1">HDFS</option><!--<option value="2">HIVE</option>--></select></li>
+                    <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.selectLink")}</span><select class="connId" autocomplete="off"></select></li>
+                </ul>
+            </div>
+            <div class="configFilePath">
+                <h3><span>$!{i18n.getProperty("local.title.tarPath")}</span></h3>
+                <div class="select-file">
+                    <div class="file-btn">
+                        <a>$!{i18n.getProperty("local.option.addFile")}</a>
+                        <input autocomplete="off" type="file" id="fileupload" name="files" class="add-file" multiple>
+                    </div>
+                    <span>$!{i18n.getProperty("local.note.limit500")}</span>
+                </div>
+                <div class="file-list">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td width="10%">$!{i18n.getProperty("local.title.fileName")}</td>
+                            <td>$!{i18n.getProperty("local.option.fileSize")}</td>
+                            <td width="20%">$!{i18n.getProperty("local.option.up")}</td>
+                            <td style="width: 140px; min-width: 140px;">$!{i18n.getProperty("local.option.parse")}</td>
+                            <td width="45%">$!{i18n.getProperty("dbManage.option.path")}</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="trNoData">
+                            <td colspan="5" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-cancel index"><a href="./" onclick="return false;">$!{i18n.getProperty("client.option.cancel")}</a></button>
+                    <button class="btn btn-item upload">$!{i18n.getProperty("client.option.startImport")}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="global-hdfsCon" style="display: none;">
+    <div class="configCon">
+        <div class="hdfsTab">
+            <h4><span class="title">HDFS $!{i18n.getProperty("local.option.confPath")}</span><span class="cancel">×</span></h4>
+            <div class="dirDos">
+                <ul class="ul">
+                </ul>
+            </div>
+            <div class="res">
+                <label>$!{i18n.getProperty("local.title.fileDir")}</label><input autocomplete="off" type="text" class="selectedDir" disabled> <br>
+                <label>$!{i18n.getProperty("local.title.fileName")}</label><input autocomplete="off" type="text" class="fileName" maxlength="60">
+            </div>
+        </div>
+        <div class="text-right">
+            <button class="btn btn-item">$!{i18n.getProperty("dbManage.option.save")}</button>
+            <button class="btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+        </div>
+    </div>
+</div>
+
+<div class="global-mask"></div>
+<script type="text/html" id="template/hdfsDir">
+    {{each dir as v i}}
+    <li data-base="{{v}}"><p title="{{v.slice(len)}}"><i class="show"></i>{{v.slice(len)}}<i class="check"></i></p><ul class="ul"></ul></li>
+    {{/each}}
+</script>
+<script src="resources/dist/localUpload/libs.min.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/localUpload/localUpload.js?v=1522656142253" async></script>
+</body>
+</html>

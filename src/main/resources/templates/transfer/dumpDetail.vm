@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+		<title>$!{i18n.getProperty("dump.title.verSearch")}</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/dumpDetail/libs.min.css">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/dumpDetail/dumpDetail.css">
+	</head>
+
+	<body>
+		#parse("layout/header.vm")
+		#parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("dump.title.verSearch")}</span></h2>
+				<div class="upload-conatiner">
+					<div class="verDetail">
+						<p class="tip">$!{i18n.getProperty("dump.verInfo")}</p>
+						<table>
+							<thead>
+								<tr>
+									<th class="versionNum">$!{i18n.getProperty("dump.option.verNum")}</th>
+									<th>$!{i18n.getProperty("dump.option.verNewTime")}</th>
+									<th>$!{i18n.getProperty("dump.option.tarType")}</th>
+									<th>$!{i18n.getProperty("dump.option.fileNum")}</th>
+									<th>$!{i18n.getProperty("dump.option.fileSize")}</th>
+								</tr>
+							</thead>
+							<tbody id="versionTb">
+								
+							</tbody>
+						</table>
+					</div>
+					<p class="tip">$!{i18n.getProperty("dump.title.verTbls")}</p>
+					<div class="versionData">
+						<div class="leftData">
+							<p class="title">$!{i18n.getProperty("importedTbls")}</p>
+							<div class="versionDb">
+								
+							</div>
+						</div>
+						<div class="rightData">
+							<p class="title"><span id="aDumpTask"></span>$!{i18n.getProperty("dump.text.info")}</p>
+							<div class="importDetail">
+								<div class="topTip">
+									<p>$!{i18n.getProperty("local.title.tarDir")}: <span class="siteImport"></span></p>
+									<p style="margin-top:6px;">$!{i18n.getProperty("dump.option.bakAddr")}: <span class="bakSite"></span></p>
+								</div>
+								<div class="topTip">
+									<p class="only">$!{i18n.getProperty("dump.option.show100")}</p>
+								</div>
+								<div class="someRecord">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="resources/dist/dumpDetail/libs.min.js"></script>
+		<script src="resources/i18n/message_lang.js"></script>
+		<script src="resources/dist/common/common.js?v=1523175610950"></script>
+		<script src="resources/dist/dumpDetail/dumpDetail.js"></script>
+	</body>
+
+</html>

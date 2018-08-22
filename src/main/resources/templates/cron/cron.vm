@@ -1,0 +1,77 @@
+
+<link rel="stylesheet" href="resources/cron/cron.css">   
+    <div class="cronCon">
+        <div class="item-group group-type clearfix">
+            <a href="javascript:;" class="cur">$!{i18n.getProperty("cron.title.once")}</a>
+            <a href="javascript:;">$!{i18n.getProperty("cron.title.cycle")}</a>              
+        </div>
+        <div class="tab">
+            <h4 class="title">$!{i18n.getProperty("client.option.once")}<i class="line"></i></h4>
+            <div class="mt10"><label class="once-type" data-type="0"><i class="radio cur"></i>$!{i18n.getProperty("clientM.option.immedi")}</label></div>
+            <div class="mt10 once"><label class="once-type" data-type="1"><i class="radio"></i>$!{i18n.getProperty("client.option.timing")}</label></div>
+            <div class="onceDate once">
+                <label>$!{i18n.getProperty("client.option.date")}<input type="text" class="date Wdate" disabled /></label>
+                <label>$!{i18n.getProperty("client.option.time")}<input type="text" class="time Wdate" disabled /></label>
+            </div>
+        </div>
+        <div class="tab" style="display: none;">
+            <h4 class="title">$!{i18n.getProperty("client.option.cycle")}<i class="line"></i></h4>
+            <div class="exec-freq mt20">
+                <label>$!{i18n.getProperty("client.option.execTime")}<select class="reg-type"><option value="0">$!{i18n.getProperty("client.option.perHour")}</option><option value="1">$!{i18n.getProperty("client.option.perDay")}</option><option value="2">$!{i18n.getProperty("client.option.perWeek")}</option><option value="3">$!{i18n.getProperty("client.option.perMonth")}</option></select></label>
+                <div class="reg-tab hour cur">
+                    $!{i18n.getProperty("client.text.first")}<input type="text">$!{i18n.getProperty("client.option.minNum")}
+                </div>
+                <div class="reg-tab day">
+                    <input type="text" class="time Wdate" />
+                </div>
+                <div class="reg-tab week">
+                    <label><i class="check" data-val="2"></i>$!{i18n.getProperty("client.option.Mon")}</label>
+                    <label><i class="check" data-val="3"></i>$!{i18n.getProperty("client.option.Tue")}</label>
+                    <label><i class="check" data-val="4"></i>$!{i18n.getProperty("client.option.wed")}</label>
+                    <label><i class="check" data-val="5"></i>$!{i18n.getProperty("client.option.thu")}</label>
+                    <label><i class="check" data-val="6"></i>$!{i18n.getProperty("client.option.fri")}</label>
+                    <label><i class="check" data-val="7"></i>$!{i18n.getProperty("client.option.sat")}</label>
+                    <label><i class="check" data-val="1"></i>$!{i18n.getProperty("client.option.sun")}</label>   
+                    <div class="timeCon">&emsp;&emsp;$!{i18n.getProperty("client.option.time")}<input type="text" class="time Wdate" /></div>                                     
+                </div>
+                <div class="reg-tab month">
+                    <label data-type="0"><i class="radio cur"></i>$!{i18n.getProperty("client.text.first")}<input type="text" class="date">&nbsp;$!{i18n.getProperty("client.option.dayNum")}</label>
+                    <label data-type="1"><i class="radio"></i>$!{i18n.getProperty("client.option.lastDay")}</label>                    
+                    <div class="timeCon">&emsp;&emsp;$!{i18n.getProperty("client.option.time")}<input type="text" class="time Wdate" /></div>                                                         
+                </div>
+            </div>
+            <h4 class="title">$!{i18n.getProperty("client.option.effectTime")}<i class="line"></i></h4>            
+            <div class="date-range">
+                <label>$!{i18n.getProperty("manage.title.startTime")}<input type="text" class="date Wdate" id="startDate"></label>
+                <label data-type="0"><i class="radio cur"></i>$!{i18n.getProperty("manage.title.endTime")}<input type="text" class="date Wdate" id="endDate"></label>
+                <label data-type="1"><i class="radio"></i>$!{i18n.getProperty("client.option.Endless")}</label>
+            </div>
+        </div>
+        <div class="item-group group-state">
+            <h4 class="title">$!{i18n.getProperty("client.option.summary")}<i class="line"></i></h4>
+            <div class="item">
+                <span class="item-name">$!{i18n.getProperty("client.option.note")}</span> <textarea readonly name="" id="" cols="30" rows="10">$!{i18n.getProperty("clientM.option.immedi")}</textarea>
+            </div>
+        </div>
+        <div class="btnCon">
+            <button class="btn-item">$!{i18n.getProperty("client.option.sure")}</button>
+            <button class="btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+            <input type="hidden" class="param">
+            <button class="hidden reset">$!{i18n.getProperty("manage.title.reset")}</button>
+            <button class="hidden hide">$!{i18n.getProperty("cron.option.closeCal")}</button>
+            <button class="hidden disabled">disabled</button>
+        </div>
+    </div>
+<script>    
+function maxInitDate(today, startDate){
+    if ( startDate ){
+        var y = startDate.y,
+            M = startDate.M > 10 ? startDate.M : '0'+startDate.M,
+            d = startDate.d > 10 ? startDate.d : '0'+startDate.d ;
+        var start = y+'-'+M+'-'+d ;
+        return  today > start ? today : start ;
+    }
+    return today;
+}
+</script>
+

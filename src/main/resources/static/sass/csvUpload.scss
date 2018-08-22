@@ -1,0 +1,288 @@
+.innerCon{
+    h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+        b{color:#000; font-size: 14px;}
+        a{color:#999;}
+        a:hover{text-decoration: underline;}
+    }
+    .upload-main{overflow: hidden; margin: 20px;background:#fff;
+        .processCon{margin: 20px 0;border-bottom: 1px solid #eee;}
+        .process{ text-align: center;
+            .item{float: left; font-size: 15px; width: 50%;line-height: 40px;
+                .itemCon{display: inline-block;
+                    &.cur{border-bottom: 2px solid #004c6f; margin-bottom: -2px;
+                        .step{background: #004c6f;}
+                        span{color:#004c6f;}
+                    }
+                }
+            }
+            .step{
+                border-radius: 50%;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                line-height: 25px;  
+                color:#fff;
+                font-style: normal;
+                background: #ccc; 
+                color:#fff;
+            }  
+        }
+        .stepCon{width: 200%;
+            > .item{width: 50%; float: left; background: #fff; padding:20px;}
+                input{padding-left:10px;}
+            input.path, input.filename{width: 50%; max-width: 500px;}
+            .btn-item, .btn-cancel{width:100px;}
+            button.index a{display: block;}            
+            button + button { margin-left: 20px; }
+        }
+        h3{font-size: 16px;}
+        .configTask{ border-bottom: 2px dotted #eee;
+            li {margin-bottom:20px;
+                span{color:red;}
+                input, select, textarea { width:50%;}
+                input, select { height: 30px;}
+                input,select,textarea{margin-left: 20px;}
+                input,select{width:500px;}
+                textarea{ vertical-align: top; width:500px; height:60px;}
+                #userApp{padding-left: 10px; margin-left: 20px;}   
+                .select2.select2-container{margin-left: 20px; 
+                }      
+                .leftTitle{
+                    width: 130px;
+                    float: left;
+                    line-height: 27px;
+                    padding-right: 20px;
+                    color: #000;
+                    text-align: right;
+                }
+            }
+        }
+        .configFilePath{ margin-top:20px;
+            .select-file{margin:15px 0;
+                .file-btn{float: left;background: #004c6f;line-height: 30px;width:100px; text-align:center;position: relative;}
+                span{color: #999; line-height: 30px; padding-left: 20px; font-size: 12px;}
+                a{color: #fff;}
+            } 
+            .file-list{margin-bottom: 20px;
+                .process-sliderCon{display: inline-block; height:10px; width: calc(100% - 40px);  }
+                .process-slider{background: #004c6f; border-radius: 20px; height: 10px;}
+            }
+            .add-file{position: absolute;width: 100px;height: 30px;left:0;top:0;opacity: 0;cursor: pointer;}
+            .path{
+                button{height:27px; width:40px; margin-left: 15px; cursor:pointer;}
+            }   
+        }
+        .upload{margin-top:20px;}
+      .item.item2{ padding-top:0;
+        h3.tip{font-size: 16px;color: #000; padding-bottom: 10px; line-height: 20px;
+          span{border-left: 3px solid #004c6f; display: block; padding-left: 10px;}
+          i {font-size: 12px;font-weight: normal;font-style: normal; padding-left:10px;}
+        }
+      }
+
+      .sourceCon{float: left; width:300px; height:500px;
+            h3{line-height: 30px; font-weight: normal;}
+             .file-icon{background:url("../images/csvUpload/excel.png") no-repeat;display: inline-block; width:16px; height:16px; vertical-align: text-top; margin:0 10px;}
+             .tbl-icon{background:url("../../images/parseDump.png") no-repeat;display: inline-block; width:16px; height:16px; vertical-align: text-top; margin:0 10px;}
+            ul{ height:470px; overflow-y: auto; background: #fcffff; border: 1px solid #e9e9e9; padding:20px;
+                li{line-height: 30px; cursor: pointer; margin: 0 -20px;padding-left: 20px; word-wrap: break-word; word-break: break-all;
+                    &:not(.fileTitle):hover{background: #f9f9f9;}
+                    &.cur:hover{background: #eff2f2;}
+                    &.fileTitle{cursor:default;}
+                }
+                li.fileTitle:not(:first-child){margin-top:10px;}
+                li.cur{ background: #eff2f2; color:#000;}
+                li.error{color: red;}
+            }
+        }
+        .targetCon{height:500px; margin-left:300px;
+            .hdfsCon{ padding:20px; background: #fcffff; border: 1px solid #e9e9e9; border-left: 0; height: 470px;
+                > div { margin-bottom: 20px;}
+                span{display: inline-block; width:80px; text-align:right; margin-right:10px;}
+                .btn-item{line-height: 25px; height:27px; border-color:#1889f2; width:50px; vertical-align: top;}
+            }
+            h3{line-height: 30px; font-weight: normal;}
+              strong {
+                font-weight: normal;
+                line-height: 28px;
+                cursor: pointer;
+                display: inline-block;
+                padding: 0 10px;
+                img {
+                  vertical-align: middle;
+                }
+
+                .tip {
+                  position: absolute;
+                  display: none;
+                  color: #333;
+                  font-size: 12px;
+                  background: #fff;
+                  max-width: 400px;
+                  padding: 10px;
+                  line-height: 20px;
+                  z-index: 22;
+                  margin-left: -100px;
+                  -webkit-user-select: none;
+                  user-select: none;
+                  word-wrap: break-word;
+                  word-break: break-all;
+                  border: 1px solid #eee;
+                  box-shadow: 0 2px 5px #eee;
+                }
+              }
+            .hiveCon{ height:470px; overflow-y: auto; padding:20px; background: #fcffff; border: 1px solid #e9e9e9; border-left: 0;
+                .hive{ padding-left:20px;
+                    input{padding-left:10px;}
+                    input[type="radio"]{width: 17px;height: 17px;vertical-align: bottom;margin-right: 10px; padding: 0;}
+                    .infoline.first{padding-top: 20px;}
+                    #tableName{margin-right: 10px;}
+                    label.upload-way + .upload-way{margin-left: 40px;}
+                    .infoline + .infoline{margin-top: 15px;}
+                    .infoline{
+                        select, input{width: 300px;}
+                        >label{min-width: 60px;color: #333;float: left; line-height: 27px; width: 60px;}
+                        &:last-child > label{vertical-align: top;line-height: 27px;}
+                    }
+                    #partitions{display: inline-block;
+                        .item + .item{margin-top: 5px;}
+                        .item label{padding: 0 10px;}
+                        .item input.filedName{width:120px;}
+                        .item .filedVal {width:150px;}
+                        .item span.select2 .select2-selection__rendered{line-height: 25px;}
+                    }
+                }
+                .lineNum{width:50px;}
+                .lineNumCon{padding-left: 80px;margin: 10px 0;}
+                .new-sql{ padding-left: 20px; padding-right:20px;
+                    h5{line-height: 30px; font-size: 14px; position: relative;}
+                    textarea{width:100%;}           
+                    .disabled{background: #ddd;} 
+                }
+            }
+        }
+    }
+
+    table{
+       td{
+         a{padding: 5px; cursor: pointer;float: left; border-radius: 50%;}
+         i{width:16px;height: 16px;float: left;line-height: 20px;}
+       }
+       td.res{padding-left: 30px;
+         &.ok{background: url('../images/csvUpload/ok.png') 10px no-repeat;}
+       }
+       .edit, .del, .log{
+         i{background-image: url('../images/datahub/content_icon.png')}
+       }
+       .del{
+         i{background-position: -32px 0;}
+       }
+       tbody a:hover{background: #e5e6e8;}
+     }
+}
+
+.global-hdfsCon{position: fixed;z-index:51;width: 100%;left: 0;top: 80px; bottom:80px;
+    .configCon{border: 1px solid #ccc; width:500px; margin:0 auto; background: #f3f3f3;max-height: 100%;}
+    .hdfsTab{
+        h4{font-size: 14px;color: #000;line-height: 50px;padding-left: 35px; height:50px; font-weight:normal;   border-bottom:1px solid #e2e2e2;
+            .cancel{float: right;cursor: pointer; width: 23px;height: 23px;line-height:23px;margin-right:18px;text-align: center;background: #f3723f;color: #fff;font-size: 18px;}
+        }
+        .dirDos{overflow-y: auto; min-height: 150px; max-height: 300px; background: #fff; padding: 25px 35px 0;}
+        ul.ul{padding-left:20px;}
+        li{line-height: 25px; overflow: hidden;
+            p{word-break: break-all; word-wrap: break-word;height:25px; border-bottom: 1px solid #eee; overflow: hidden; position: relative; padding-right: 20px;
+                .check{background: url("../../../resources/images/routeLost.png") no-repeat;float: right;width: 17px;height: 17px; position: absolute; right: 0; top:4px;}
+                .check.cur{background-image:url("../../../resources/images/routeCheck.png"); }                
+                .show{background: url("../../../resources/images/routeOff.png") no-repeat; margin-right: 10px; width: 26px; height:13px; display: inline-block; float: left; margin-top: 6px;}
+                .show.in{background-image: url("../../../resources/images/routeOn.png"); }
+                .show.out{display: none;}
+            }
+        }
+        .res{border-top:1px solid #ccc; padding-left: 35px; padding-bottom: 25px; background: #f3f3f3;
+            label{display: inline-block; width:70px; margin-top:10px;}
+            input[type="text"]{width:300px;padding-left:10px;}
+        }
+    }
+    .text-right{background: #e2e2e2; padding-right: 40px; height:50px;
+        .btn-item{margin: 10px; width:70px}
+        .btn-cancel{margin: 10px; width:70px;}
+    }             
+}
+
+.replacementCon{ display: inline-block; width:250px; line-height: 25px;border: 1px solid #ddd;background: #fff; position: relative; vertical-align: middle;
+  .list{display: none; background: #fff; position: absolute; border:1px solid #ddd; width:250px;z-index:2;
+    .item{padding-left: 10px;}
+    .input{border-top:1px solid #ddd;;padding-top: 5px;padding-bottom: 5px;}
+    .inputReplacement{width:180px;height: 25px;margin: 0;}
+    label{margin:0;}
+    .item.cur{background: #e5e5e5;}
+    .item:hover{ background: #198af2; color: #fff; cursor: pointer;}
+    button{min-width: 40px;height: 25px;line-height: 23px;cursor: pointer;background: #004c6f;color: #fff; padding:0 5px;}
+  }
+  .val{padding-left: 10px;overflow: hidden; height: 25px;  margin-right: 20px;  text-overflow: ellipsis; cursor: pointer;}
+  .val:after{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 4px 5px;
+    border-bottom:none;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #333;
+    right: 5px;
+    top: 10px;
+  }
+  &.show .val:after{
+    border-top: none;
+    border-bottom: 4px solid #333;
+  }
+  &.show .list{display: block;}
+}
+
+.hidden{display: none;}
+.radio{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url("../../images/newRadioNo.png") no-repeat;
+    margin-right: 10px;
+    vertical-align: middle;
+    &.cur{    background-image: url('../../images/newRadioOk.png')}
+}
+
+h3 .cancel{
+    float: right;
+    cursor: pointer;
+    width: 24px;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 20px;
+    text-align: center;
+    background: #f3723f;
+    color: #fff;
+    font-size: 18px;
+}
+.global-columnSep{position: fixed;z-index:51;width: 100%;left: 0;top: 0;height: 100%; padding-top:200px;
+    .columnCon{border: 1px solid #ccc; width:500px; margin:0 auto; background: #f3f3f3;}
+    h3{ line-height: 30px; border-bottom: 1px solid #ddd; padding-left:20px;
+
+    }
+    .main{padding:10px 20px;
+      > .item { line-height: 27px; margin-bottom: 10px;
+        .option {display: inline-block;  width: 100px;  }
+        .radio{vertical-align: sub;}
+        label + label { margin-left: 100px;}
+      }
+    }
+    .footer{line-height: 40px; background: #e2e2e2;padding-right: 20px;}
+}
+.CodeMirror{height:200px; border: 1px solid #eee;}
+.CodeMirror-gutters{width:30px;}
+.CodeMirror-sizer{margin-left:31px !important;}
+.global-mask{
+    position: fixed;
+    display: none;
+    left: 0;top:0;right: 0;bottom: 0;
+    background: rgba(0,0,0, .3);
+    z-index:50;
+}

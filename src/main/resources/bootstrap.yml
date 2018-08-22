@@ -1,0 +1,40 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: datahub-ui
+  main:
+    banner-mode: 'off'
+#  thymeleaf
+  thymeleaf:
+    enabled: true
+    enable-spring-el-compiler: false
+    cache: false
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    check-template: true
+    check-template-location: true
+    reactive:
+      max-chunk-size: 0
+
+# eureka server
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    enabled: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    root: debug
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'

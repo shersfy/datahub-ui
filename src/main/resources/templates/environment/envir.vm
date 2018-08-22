@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>$!{i18n.getProperty("common.title.envir")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/envir/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/tipsy/tipsy.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/envir/envir.css?v=1523180310512">
+</head>
+
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.title.envir")}</span></h2>
+        <nav>
+            <a href="javascript:;" class="tab cur" data-type="envir">$!{i18n.getProperty("envir.tab.envir")}</a>
+            <a href="javascript:;" class="tab" data-type="sms">$!{i18n.getProperty("envir.tab.sms")}</a>
+            <a href="javascript:;" class="tab" data-type="streamsets">$!{i18n.getProperty("envir.tab.streamEntry")}</a>
+        </nav>
+        <div class="upload-conatiner">
+            <div class="upload-tab uploadFile">
+                <div class="header">
+                    <a class="editBtn"><img src="resources/images/edit.png"/> $!{i18n.getProperty("common.title.edit")}</a>
+                </div>
+                <div class="setUpData">
+                    <div class="row all">
+                        <p class="left">$!{i18n.getProperty("dbManage.title.authType")}：</p>
+                        <select class="right linkType editB">
+                            <option value="2">kerberos</option>
+                            <option value="3">sentry</option>
+                            <option value="1">simple</option>
+                        </select>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.sentry")}'></i>
+                    </div>
+                    <div class="row kerberos data core">
+                        <p class="left">core-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/core-site.xml" />
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.coreSite")}'></i>
+                    </div>
+                    <div class="row kerberos data url">
+                        <p class="left">hdfs-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/hdfs-site.xml" />
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hdfsSite")}'></i>
+                    </div>
+                    <div class="row kerberos data krb5Path">
+                        <p class="left">krb5.conf $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/krb5.conf"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.krb5Path")}'></i>
+                    </div>
+                    <div class="row kerberos data keytabPath">
+                        <p class="left">keytab $!{i18n.getProperty("dbManage.option.fileName")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/security/keytabs/datahub.keytab"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.keytabPath")}'></i>
+                    </div>
+                    <div class="row kerberos data port">
+                        <p class="left">$!{i18n.getProperty("dbManage.title.kerberos")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="datahub@LEAP.COM"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.kerberos")}'></i>
+                    </div>
+                    <div class="row sentry data core">
+                        <p class="left">core-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/core-site.xml"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.coreSite")}'></i>
+                    </div>
+                    <div class="row sentry data url">
+                        <p class="left">hdfs-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/hdfs-site.xml"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hdfsSite")}'></i>
+                    </div>
+                    <div class="row simple data core">
+                        <p class="left">core-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/core-site.xml"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.coreSite")}'></i>
+                    </div>
+                    <div class="row simple data url">
+                        <p class="left">hdfs-site.xml $!{i18n.getProperty("dbManage.option.path")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="/etc/hadoop/conf/hdfs-site.xml"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hdfsSite")}'></i>
+                    </div>
+                    <div class="row simple data userName">
+                        <p class="left">HDFS $!{i18n.getProperty("dbManage.option.userName")}：</p>
+                        <input class="right editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" />
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hdfsSite")}'></i>
+                    </div>
+                    <div class="row data connName">
+                        <p class="left">HDFS $!{i18n.getProperty("dbManage.option.connName")}：</p>
+                        <span class="right conName"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hdfsName")}'></i>
+                    </div>
+                    <p class="sepLine"></p>
+                    <div class="row hive hUrl">
+                        <p class="left">Hive $!{i18n.getProperty("dbManage.option.link")}URL：</p>
+                        <input class="right hiveUrl editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hid")}'></i>
+                    </div>
+                    <div class="row hive hUser">
+                        <p class="left">Hive $!{i18n.getProperty("dbManage.option.proxy")}：</p>
+                        <input class="right hiveUser editB" readonly="true" spellcheck="false" maxlength="255" autocomplete="off" value="hive"/>
+                        <span class="show right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.proxy")}'></i>
+                    </div>
+                    <div class="row  hivePwd">
+                        <p class="left">$!{i18n.getProperty("dbManage.option.pwd")}：</p>
+                        <input class="right hiveUser pwd editB" type="password" readonly="true" spellcheck="false" maxlength="255" autocomplete="off"/>
+                        <span class="show right"></span>
+                    </div>
+                    <div class="row hive hconn">
+                        <p class="left">Hive $!{i18n.getProperty("dbManage.option.connName")}：</p>
+                        <span class="hiveConn row right"></span>
+                        <i class="tooltip" title='$!{i18n.getProperty("envir.tip.hiveName")}'></i>
+                    </div>
+                    <div class="row btnZone">
+                        <p class="left" style="visibility: hidden;">btn</p>
+                        <input class="right keepData" type="button" value="$!{i18n.getProperty("dbManage.option.save")}">
+                        <input class="right cancelSet" type="button" value="$!{i18n.getProperty("client.option.cancel")}">
+                    </div>
+                </div>
+            </div>
+            <div class="upload-tab smsConfig">
+                <div class="header">
+                    <a class="editBtn"><img src="resources/images/edit.png"/> $!{i18n.getProperty("common.title.edit")}</a>
+                    <a class="example">$!{i18n.getProperty("envir.text.case")}</a>
+                </div>
+                <div class="content setUpData">
+                    <div class="row">
+                        <p class="left"><i>*</i>URL：</p>
+                        <input class="right editB" type="text" data-key="url" maxlength="255" autocomplete="off">
+                        <span class="show right"></span>
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.phoneNumberKey")}：</p>
+                        <input class="right editB" maxlength="255" autocomplete="off" data-key="phoneNumberKey" />
+                        <span class="show right"></span>
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.contentKey")}：</p>
+                        <input class="right editB" maxlength="255" autocomplete="off" data-key="contentKey" />
+                        <span class="show right"></span>
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.params")}：</p>
+                        <span class="right params">
+                            <div class="flex">
+
+                            </div>
+                            <a class="addParam">+ $!{i18n.getProperty("envir.option.addParam")}</a>
+                        </span>
+                    </div>
+                    <div class="row btnZone">
+                        <p class="left" style="visibility: hidden;">btn</p>
+                        <input class="right testConnect" type="button" value="$!{i18n.getProperty("envir.act.test")}">
+                        <input class="right keepData" type="button" value="$!{i18n.getProperty("dbManage.option.save")}">
+                        <input class="right cancelSet" type="button" value="$!{i18n.getProperty("client.option.cancel")}">
+                    </div>
+                </div>
+                <div class="exampleCon">
+                <div class="setUpData">
+                    <div class="row">
+                        <h4>$!{i18n.getProperty("envir.text.case")}<span class="close">×</span></h4>
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>URL：</p>
+                        <input class="right" type="text"  disabled maxlength="255" value="http://hprpt2.eucp.b2m.cn:8080/sdkproxy/sendsms.action">
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.phoneNumberKey")}：</p>
+                        <input class="right" disabled maxlength="255" value="phone" autocomplete="off" />
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.contentKey")}：</p>
+                        <input class="right" disabled maxlength="255" value="message" autocomplete="off" />
+                    </div>
+                    <div class="row">
+                        <p class="left"><i>*</i>$!{i18n.getProperty("envir.option.params")}：</p>
+                        <span class="right params">
+                            <div class="flex">
+                                <div class="head flex-item"><span class="item">key</span><span class="item">值</span></div>
+                                <div class="flex-item">
+                                    <span class="item"><input type="text" value="password"></span><span class="item"><input type="text" value="166450"></span>
+                                </div>
+                                <div class="flex-item">
+                                    <span class="item"><input type="text" value="cdkey"></span>
+                                    <span class="item"><input type="text" value="8SDK-EMY-6699-RISPR"></span>
+                                </div>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="upload-tab streamSets">
+                <div class="header">
+                    <a class="editBtn"><img src="resources/images/edit.png"/> $!{i18n.getProperty("common.title.edit")}</a>
+                </div>
+                <div class="setUpData">
+                    <div class="row">
+                        <p class="left"><i>*</i>URL：</p>
+                        <input class="right editB" maxlength="255" autocomplete="off"  />
+                        <span class="show right"></span>
+                    </div>
+                    <div class="row btnZone">
+                        <p class="left" style="visibility: hidden;">btn</p>
+                        <input class="right keepData" type="button" value="$!{i18n.getProperty("dbManage.option.save")}">
+                        <input class="right cancelSet" type="button" value="$!{i18n.getProperty("client.option.cancel")}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="delayTip">
+    <div class="spinBox" style="width:64px;height:64px;margin:0 auto;margin-top:350px;">
+        <img src="resources/dist/images/loading.gif" alt="" />
+    </div>
+</div>
+<div class="globalCon">
+<div class="testPhone">
+    <span class="cancel">×</span>
+    <label>$!{i18n.getProperty("envir.text.enterPhone")}: <input type="text"></label>
+    <button class="btn btn-item">$!{i18n.getProperty("db.text.confirm")}</button>
+</div>
+</div>
+<div class="maskCell"></div>
+<script src="resources/dist/amazonS3/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/tipsy/jquery.tipsy.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/envir/envir.js?v=1523179838624"></script>
+</body>
+
+</html>

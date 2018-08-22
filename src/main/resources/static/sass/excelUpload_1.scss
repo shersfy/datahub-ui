@@ -1,0 +1,1313 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.mainCon {
+    margin-left: 260px;
+}
+
+.innerCon {
+    background: #edf1f2;
+}
+
+.innerCon h2.title {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 48px;
+    color: #999;
+    font-weight: 400;
+    background: #fff;
+}
+
+.innerCon h2.title span {
+    color: #000;
+}
+
+.innerCon h2.title a {
+    color:#4791fe;
+}
+.innerCon h2.title a:nth-child(4){
+    color:#999;
+}
+.innerCon h2.title a:nth-child(4):hover{
+    text-decoration: none;
+}
+.innerCon h2.title a:hover {
+    text-decoration: underline;
+}
+
+.innerCon .upload-conatiner {
+    margin: 20px;
+}
+
+.innerCon .upload-tab {
+    width: 100%;
+    background: #fff;
+    padding: 24px 0 24px 0;
+}
+
+.upload-tab>p {
+    position: relative;
+    padding-left: 6px;
+    margin-bottom: 22px;
+}
+
+/*.upload-tab p:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    background: #019cff;
+}*/
+
+.upload-tab .clientDownload {
+    margin-bottom: 50px;
+    border: 1px solid #edf1f2;
+    padding: 15px;
+}
+
+.upload-tab .clientDownload:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.upload-tab .clientDownload img {
+    float: left;
+    margin-right: 56px;
+}
+
+.upload-tab .client-tab {
+    font-size: 13px;
+    color: #000!important;
+    border: 1px solid #d9d9d9!important;
+    position: relative;
+}
+
+.upload-tab .client-tab thead {
+    background: #efefef;
+}
+
+.upload-tab .client-tab .topTip {
+    width: 100%;
+}
+
+.upload-tab .client-tab tr {
+    height: 34px;
+}
+
+.upload-tab .client-tab input {
+    border: none;
+}
+
+.upload-tab .client-tab th:nth-child(1) {
+    text-align: center;
+    width: 42px;
+}
+
+.upload-tab .client-tab th:nth-child(2) {
+    width: 176px;
+    padding-left: 18px;
+}
+
+.client-tab th:nth-child(3) {
+    width: 209px;
+    padding-left: 24px;
+}
+
+.client-tab th:nth-child(4) {
+    padding-left: 24px;
+    width: 230px;
+}
+
+.client-tab th:nth-child(5) {
+    width: 246px;
+    padding-left: 24px;
+}
+
+.client-tab th:nth-child(6) {
+    width: 246px;
+    text-align: center;
+}
+
+.upload-tab .client-tab .newmanage {
+    text-align: left!important;
+    padding-left: 14px;
+}
+
+.client-tab .newmanage img {
+    margin-right: 6px;
+}
+
+.upload-tab .taskNav {
+    margin-bottom:20px;
+    border-bottom:1px solid #f4f4f4;
+    width: 100%;
+    padding: 0 24px 24px 24px;
+}
+
+.upload-tab .taskNav .SelfnavBar {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #dbf1e9;
+    background: #f6fff6;
+}
+
+.taskNav .SelfnavBar .stepOne {
+    width: 192px;
+    height: 100%;
+    display: inline-block;
+    border-right: 0;
+    position: relative;
+    z-index: 10;
+    overflow-y: hidden;
+    background: #f6fff6;
+}
+
+.taskNav .SelfnavBar .stepOne .span {
+    display: block;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #c4e9cc;
+    border-bottom: 0;
+    border-left: 0;
+    border-color: #c4e9cc #c4e9cc transparent transparent;
+    background: #ebf9ee;
+    position: absolute;
+    z-index: 3;
+    right: 7px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.taskNav .SelfnavBar .stepOne h1 {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 90%;
+    background: #ebf9ee;
+    line-height: 32px;
+    text-align: center;
+    padding-left: 14%;
+}
+
+.SelfnavBar .stepOne h1 .icon {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #40b268;
+    line-height: 14px;
+    float: left;
+    margin-top: 9px;
+    margin-right: 4px;
+    font-size: 12px;
+    color: #fff
+}
+
+.SelfnavBar .stepOne h1 .word {
+    float: left;
+    color: #46b86e;
+}
+
+.taskNav .SelfnavBar .stepTwo {
+    width:192px;
+    height: 100%;
+    display: inline-block;
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+    overflow-y: hidden;
+    background: #f6fff6;
+}
+.redStar{
+    color:#f00;
+    line-height:27px;
+}
+.taskNav .SelfnavBar .stepTwo .span {
+    display: block;
+    width: 33px;
+    height: 33px;
+    border: 1px solid #c4e9cc;
+    border-bottom: 0;
+    border-left: 0;
+    border-color: #e6f7eb #e6f7eb transparent transparent;
+    background: #f6fff6;
+    position: absolute;
+    z-index: 3;
+    right: 7px;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.taskNav .SelfnavBar .stepTwo h1 {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 90%;
+    background: #f6fff6;
+    line-height: 32px;
+    text-align: center;
+    padding-left: 14%;
+}
+
+.SelfnavBar .stepTwo h1 .icon {
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ceebdd;
+    line-height: 14px;
+    float: left;
+    margin-top: 9px;
+    margin-right: 4px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.SelfnavBar .stepTwo h1 .word {
+    float: left;
+    color: #ceebdd;
+}
+
+.taskNav .SelfnavBar .stepSpace {
+    width: 56%;
+    height: 100%;
+    display: inline-block;
+    border: 1px solid #dbf1e9;
+    border-left: 0;
+    background: #f6fff6;
+}
+
+.mapTaskMsg .oneRow {
+    width: 100%;
+    height: 27px;
+    margin-bottom: 20px;
+    padding-left: 24px;
+    overflow:hidden;
+}
+
+.mapTaskMsg .oneRow .left {
+    float: left;
+    width: 8%;
+    height: 27px;
+    line-height: 27px;
+    border-radius: 0;
+    color:#2f2f2f;
+}
+
+.mapTaskMsg .oneRow .right {
+    width: 410px;
+    float: left;
+    border-radius: 0;
+    padding-left: 14px;
+}
+
+.mapTaskMsg .discribleZone {
+    padding-bottom: 24px;
+    height: 80px;
+    overflow:hidden;
+}
+
+.mapTaskMsg .oneRow .tipOnly {
+    width: auto;
+}
+
+.dumpbtn {
+    background: #3bb064;
+    width:100%;
+    height: 30px;
+    margin-bottom: 12px;
+    line-height:30px;
+    cursor:pointer;
+    text-align:center;
+    margin-top:10px;
+}
+
+.dumpbtn .addBtn {
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    position:relative;
+}
+.dumpbtn .addBtn .addTip{
+    display: block;
+    position: absolute;
+    color: #898989;
+    top: 0px;
+    left:120px;
+    width:600px;
+    
+}
+.dumpbtn #fileupload {
+    height:100%;
+    width:100%;
+    position:relative;
+    cursor: pointer;
+    outline: medium none;
+    -webkit-filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    left: 0px;
+    top: -30px;
+    border: 0;
+}
+
+.aRow{
+    width:100%;
+    height:27px;
+    padding-left:24px;
+    margin-top:10px;
+}
+.aRow .left{
+    width:8%;
+    float:left;
+    height:27px;
+    line-height:27px;
+    margin-right:10px;
+    color:#2f2f2f;
+    min-width:90px;
+}
+.aRow .right{
+    width:173px;
+    height:27px;
+    float:left;
+    border-radius:0;
+    padding-left:8px;
+}
+.uploadFile .tipOnly{
+    font-size:15px;
+    font-weight:bold;
+    width:auto;
+}
+.btnZone{
+    width:230px;
+    margin:0 auto;
+    margin-top:30px;
+    overflow:hidden;
+}
+.btnZone .CancelBtn{
+    display:block;
+    float:left;
+    width:100px;
+    height:30px;
+    margin-right:20px;
+}
+.btnZone .FileNext{
+    display:block;
+    float:left;
+    width:100px;
+    height:30px;
+    background:#1889f2;
+    color:#fff;
+}
+.btnZone .prevBtn{
+    display:block;
+    float:left;
+    width:100px;
+    height:30px;
+    margin-right:20px;
+}
+.btnZone .startImport{
+    display:block;
+    float:left;
+    width:100px;
+    height:30px;
+    background:#1889f2;
+    color:#fff;
+}
+.fileuploadZone{
+    width: 100%;
+    padding-top: 70px;
+    border-top: 1px solid #f4f4f4;
+    padding-bottom:100px;
+}
+.fileuploadZone .centerCon{
+    width:765px;
+    height:100px;
+    margin:0 auto;
+}
+.fileuploadZone .centerCon .lZone{
+    float:left;
+    width:72px;
+    height:120px;
+    text-align: center;
+    margin-right:16px;
+}
+.fileuploadZone .centerCon .rZone{
+    float:left;
+}
+.centerCon .rZone p{
+    line-height:27px;
+    color:#9b9b9b;
+}
+#choiceRouteStepOne{
+    background:#ebf9ee;
+}
+#choiceRouteStepOne h1{
+    background:#f6fff6;
+}
+#choiceRouteStepOne .span{
+    background:#f6fff6;
+}
+#choiceRouteStepTwo h1{
+    background:#ebf9ee;
+}
+#choiceRouteStepTwo .icon{
+    background:#40b268;
+}
+#choiceRouteStepTwo .word{
+    color:#46b86e;
+}
+#choiceRouteStepTwo .span{
+    background:#ebf9ee;
+    border:1px solid #c4e9cc;
+    border-color:#c4e9cc #c4e9cc transparent transparent;
+}
+.mapRange{
+    width:100%;
+    padding:0 24px;
+}
+.mapTarget{
+    width:100%;
+    height:543px;
+    border:1px solid #d9d9d9;
+}
+.mapTarget .sourceMsg{
+    width:26%;
+    height:100%;
+    float:left;
+}
+.mapTarget .sourceMsg .sContent{
+    overflow:hidden;
+    width:100%;
+    background:#f7f7f7;
+    height:506px;
+    border-right:1px solid #d9d9d9;
+}
+.sourceMsg .sContent .oneMsg{
+    overflow:hidden;
+    height:36px;
+    cursor:pointer;
+}
+
+.sContent .oneMsg .index{
+    display:block;
+    width:10%;
+    float:left;
+    line-height:36px;
+    text-align: center;
+    background:#ededed;
+}
+.sContent .oneMsg .fileMsg{
+    width: 90%;
+    height:100%;
+    float:left;
+    line-height:36px;
+    overflow:hidden;
+}
+.oneMsg .fileMsg .fileName{
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 200px;
+    background: url("./normalTab.png") no-repeat;
+    background-position: 10px 10px!important;
+    padding-left:30px;
+}
+.oneHover{
+    color: #fff;
+    background: #3385ff!important;
+}
+.hoverTab{
+    background: url("./hoverTab.png") no-repeat!important;
+}
+.clickStyle{
+    background:#ededed;
+}
+.mapTarget .sourceMsg .tit{
+    height:35px;
+    background:#ededed;
+    border-right:1px solid #d9d9d9;
+    border-bottom:1px solid #d9d9d9;
+    padding-left:20px;
+    line-height:35px;
+    font-weight:bold;
+}
+.mapTarget .targetMap{
+    width:74%;
+    height: 100%;
+    float:left;
+    background: #f3f3f3;
+}
+.mapTarget .targetMap .hdfsMap{
+    width:58%;
+    min-width:400px;
+    padding: 20px 0 0 20px;
+}
+.mapTarget .targetMap .hiveMap{
+    width:100%;
+    padding: 20px 20px 0 20px;
+    display:none;
+}
+.targetMap .hiveMap .hiveData{
+    width:58%;
+    min-width:400px;
+}
+.hiveMap .ddlZone{
+    width: 100%;
+    height:190px;
+    margin-top:10px;
+    background:#fff;
+    overflow:auto;
+}
+.hiveMap .ddlZone .oneSql{
+    display: block;
+    float: left;
+    width: 100%;
+    border: 0px;
+    padding-left: 36px;
+    height: 30px;
+}
+.hiveMap .ddlZone .index{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    margin-left: -100%;
+}
+.targetMap .thisRow{
+    overflow:hidden;
+    height:auto;
+    width:100%;
+    margin-bottom:20px;
+}
+.targetMap .part{
+    margin-bottom:10px;
+}
+.targetMap .thisRow .left{
+    float:left;
+    width:23%;
+    min-width:92px;
+    line-height:27px;
+    text-align:right;
+    padding-right:10px;
+}
+.targetMap .freshSql{
+    font-style: normal;
+    color:#2fb64f;
+    cursor:pointer;
+}
+.targetMap .thisRow .right{
+    display:block;
+    border-radius:0;
+    float:left;
+    width:77%;
+    overflow:hidden;
+    min-width:280px;
+}
+.thisRow .right .hdfsRoCheck{
+    display: block;
+    float:left;
+    width:80%;
+    min-width:240px;
+    border-radius:0;
+    border-right:0;
+    padding-left:10px;
+}
+.thisRow .right .rowNum{
+    width: 24px;
+    height: 16px;
+    border-radius: 0;
+}
+.thisRow .rowTip{
+    overflow:hidden;
+    
+}
+.thisRow .rowTip .rowNumBtn,.rowNum{
+    display:block;
+    float:left;
+    line-height:16px;
+    text-align: center;
+}
+.thisRow .rowTip .rowNum{
+    margin-top:2px;
+}
+.thisRow .rowTip p{
+    float:left;
+}
+.thisRow .right span{
+    display:block;
+    float:left;
+    cursor:pointer;
+    width:20%;
+    height:27px;
+    text-align:center;
+    line-height:27px;
+    background:#3285ff;
+    color:#fff;
+    min-width:40px;
+}
+.thisRow #fileName{
+    padding-left:10px;
+}
+.mapTarget .targetMap .tit{
+    height:35px;
+    background:#ededed;
+    padding-left:20px;
+    line-height:35px;
+    border-bottom:1px solid #d9d9d9;
+    font-weight:bold;
+}
+.maskCell{
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:20;
+}
+.delayTip{
+    display:none;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:30;
+}
+.contentBox{
+    width:530px;
+    min-height:157px;
+    position:absolute;
+    z-index:22;
+    left:31%;
+    top:300px;
+    background:#f3f3f3;
+}
+.contentBox .header{
+    width:100%;
+    height: 8%;
+    line-height: 48px;
+    padding-left:7%;
+    background:#f3f3f3;
+    overflow:hidden;
+    padding-bottom:4px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom:10px;
+}
+.contentBox .header .tabMsg{
+    float:left;
+}
+.contentBox .header .closeMap{
+    float:right;
+    margin-right: 36px;
+    width: 22px;
+    height: 24px;
+    background: #f26746;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    cursor:pointer;
+}
+.contentBox .mathRoute{
+    width:456px;
+    margin:0 auto;
+    position:relative;
+    background:#f3f3f3;
+}
+.contentBox .mathRoute .routeChoice{
+    width:100%;
+    height:400px;
+    overflow-y:auto;
+    padding-left:4px;
+}
+.contentBox .import{
+    margin-top:10px;
+    width:420px;
+    height:40px;
+    margin:0 auto;
+}
+.contentBox .part{
+    display:none!important;
+}
+.contentBox .hdfsWrite{
+    width:100%;
+    margin:0 auto;
+    margin-top:10px;
+    margin-bottom:20px;
+    height:auto;
+}
+.contentBox .import p{
+    float:left;
+    line-height:27px;
+    margin-right:5%;
+}
+.contentBox .hdfsWrite .routeTip{
+    line-height: 27px;
+}
+.contentBox .import select{
+    width:80%;
+    float:left;
+    border-radius:0;
+}
+.contentBox #partitions{
+    width:70%;
+    float:right;
+    border:1px solid #ccc;
+    border-radius:0;
+}
+.contentBox .import .hdfsRoute{
+    width:70%;
+    float:right;
+    border-radius:0;
+    padding-left:4px;
+}
+.contentBox .title{
+    padding: 0 6px 4px 0px; 
+    line-height:30px;
+    background:#f3f3f3;
+    color:#626262;
+    font-size:15px;
+    overflow:hidden;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    color:#000;
+    margin-top:10px;
+}
+.contentBox .title .routeTitle{
+    float:left;
+    color:#000;
+}
+.contentBox .title .closeMap{
+    float:right;
+    margin-right: 30px;
+    width: 22px;
+    height: 24px;
+    background: #f26746;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    cursor:pointer;
+}
+.contentBox .title .hiveCloseMap{
+    margin-right:0px!important;
+}
+.contentBox .fieldMap{
+    width:86%;
+    position:relative;
+    margin:0 auto;
+    background: #f3f3f3;
+}
+.contentBox .fieldMap .sqlTip{
+    width:100%;
+    margin:0 auto;
+    color: #f12121;
+}
+.contentBox .fieldMap .sqlSentence{
+    width:100%;
+    border:1px solid #d7d7d7;
+    overflow-y:scroll;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    height:250px;
+    background:#fff;
+}
+.sqlSentence .oneLineSql{
+    
+}
+.sqlSentence .oneLineSql .lineIndex{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: #f0f0f0;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    margin-left:-100%;
+}
+.sqlSentence .oneLineSql .sqlWrite{
+    display: block;
+    float: left;
+    width: 100%;
+    border: 0px;
+    padding-left:36px;
+    height:30px;
+}
+.contentBox .bottomBtn{
+    width:100%;
+    height:48px;
+    background:#eee;
+    position:relative;
+    bottom:0;
+}
+.contentBox .bakBtnZ{
+    width:100%;
+    height:48px;
+    background:#eee;
+    position:relative;
+    bottom:0;
+}
+.contentBox .bakBtnZ .bakRouteOk{
+    height:80%;
+    width:120px;
+    position:absolute;
+    right:10px;
+    top:12%;
+    background: #368cdf;
+    color: #fff;
+}
+.contentBox .bottomBtn .keep{
+    height:80%;
+    width:120px;
+    position:absolute;
+    right:10px;
+    top:12%;
+    background: #368cdf;
+    color: #fff;
+}
+.contentBox .bottomBtn .cancelKeep{
+    height:80%;
+    width:120px;
+    position:absolute;
+    right:140px;
+    top:12%;
+    background:#fff;
+}
+.mathRoute .routeShow{
+    padding:20px 0px 10px 0px;
+    background:#f3f3f3;
+    border-top:1px solid #e2e2e2;
+}
+.mathRoute .routeShow .defaultShow{
+    width:100%;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+.mathRoute .routeShow .suffixShow{
+    width:100%;
+    overflow:hidden;
+}
+.routeShow .defaultShow p{
+    float:left;
+    width:13%;
+    min-width:60.5px!important;
+    line-height:27px;
+}
+.routeShow .defaultShow input{
+    display:block;
+    float:left;
+    width:85%;
+    border-radius:0;
+    padding-left:12px;
+}
+.routeShow .suffixShow p{
+    float:left;
+    width:13%;
+    min-width:60.5px!important;
+}
+.routeShow .suffixShow input{
+    display:block;
+    float:left;
+    width:85%;
+    border-radius:0;
+    padding-left:12px;
+}
+.upload-tab .dumpCopyZone{
+    width:100%;
+    height:auto;
+    margin-top:20px;
+    overflow:hidden;
+}
+.upload-tab .copyTip p,.copyYes,.copyNo{
+    float:left;
+}
+.upload-tab .copyTip{
+    overflow:hidden;
+    margin-bottom:8px;
+}
+.upload-tab .copyTip p{
+    margin-right:10px;
+}
+.upload-tab .copyTip .copyYes input,.copyNo input{
+    display:none;
+}
+.upload-tab .copyTip .copyYes,.copyNo{
+    display:block;
+    width:40px;
+    height:20px;
+    text-align: center;
+    border:1px solid #ddd;
+    cursor:pointer;
+}
+.upload-tab .copyTip .copyYes{
+    border-right:0;
+}
+.dumpCopyOk{
+    background:#71e2e2;
+    color:#fff;
+}
+.dumpCopyNo{
+    background:#cd3974;
+    color:#fff;
+}
+.dumpCopyWrite{
+    line-height:27px;
+}
+.upload-tab .dumpCopyZone .copyMsg{
+    margin-bottom:6px;
+    color:#888;
+}
+.dumpCopyWrite .tip{
+    color:#888;
+    padding-left:8px;
+}
+
+.upSiteTip {
+    width:100%!important;
+    padding-top:4px;
+}
+.uploadSiteMap{
+    border-top: 1px solid #e2e2e2;
+    padding-top:10px;
+}
+
+.maskCell{
+    display:none;
+}
+.contentBox{
+    display:none;
+}
+
+.upload-conatiner .choiceRoute{
+    display:none;
+}
+.bottomZone {
+    padding-left:24px;
+    width:100%;
+    margin-top:20px;
+}
+.bottomZone .copyTipMsg{
+    overflow:hidden;
+}
+.bottomZone .copyTipMsg .copyCheck,.tip{
+    float:left;
+    line-height:40px;
+}
+.bottomZone .copyTipMsg .copyCheck{
+    color:#0a0a0a;
+    padding-left: 30px;
+    background-position: 0px 12px!important;
+}
+.copyNoCheck{
+    background:url("../../images/copyOff.png") no-repeat;
+}
+.copyOk{
+    background:url("../../images/copyOn.png") no-repeat!important;
+}
+.copyTipMsg .copyCheck .copyNameBtn{
+    width:26px;
+    height:16px;
+    display:none;
+}
+.bottomZone .copyTipMsg .tip{
+    color:#9c9c9c;
+}
+.bottomZone .copyWrite .name{
+    color:#0a0a0a;
+}
+.bottomZone .copyWrite .nameTip{
+    color:#9c9c9c;
+}
+.bottomZone .copyWrite #copyName{
+    width:252px;
+    height:28px;
+    border:1px solid #e2e2e2;
+    border-radius:0;
+    padding-left:8px;
+}
+.dumpBtnZone{
+    width:100%;
+    height:58px;
+    margin-top:18px;
+    padding-top:24px;
+    border-top:1px solid #e7e7e7;
+}
+.dumpBtnZone .center{
+    width:230px;
+    height:32px;
+    margin:0 auto;
+}
+.dumpBtnZone input[type="button"]{
+    display:inline-block;
+    width:101px;
+    height:30px;
+}
+.dumpBtnZone .dumpPreStep{
+    border:1px solid #e7e7e7;
+    background:#f6f6f6;
+    color:#838282;
+    margin-right:18px;
+}
+.dumpBtnZone .startImport{
+    background:#1889f2;
+    border:1px solid #1889f2;
+    color:#fff;
+}
+.menuZone {
+    width:100%;
+    height:100%;
+    overflow:auto;
+    overflow-x:hidden;
+    background:#fff;
+    font-family: "Arial";
+    font-size: 14px;
+    font-weight: 100;
+}
+/*.menuZone .allMeun{
+    border-bottom:1px solid #eee;
+}*/
+.menuZone .allMeun .startLi{
+    padding-left:4px;
+}
+.menuZone .allMeun li{
+    line-height:34px;
+}
+.menuZone .allMeun .startThis{
+    padding-left:10px;
+}
+.menuZone .allMeun .newRoute{
+    line-height:26px;
+    position:relative;
+}
+.allMeun .newRoute .routeLabel{
+    background:url("../../../resources/images/routeLost.png") no-repeat;
+    z-index:10;
+}
+.rCheckIcon{
+    background:url("../../../resources/images/routeCheck.png") no-repeat!important;
+}
+.allMeun .newRoute .turnOn,.turnOff{
+    padding-bottom: 4px; 
+    cursor:pointer;
+    display: block;
+    float: left;
+    margin-top:5px;
+}
+.newRoute .routeLabel{
+    width:17px;
+    height: 17px;
+    position:absolute;
+    right:6px;
+    background:#f00;
+    top:5px;
+    cursor:pointer;
+}
+.newRoute .routeLabel input[type="checkbox"]{
+    display:none;
+}
+.allMeun .startLi .turnOn{
+    display:none;
+}
+.allMeun .newRoute .turnOn{
+    display:none;
+}
+.newRoute .oneRoute .thisRoute{
+    font-family:cursive;
+    display: block;
+    width: 330px;
+    height: 26px;
+    overflow: hidden;
+    padding-left:6px;
+}
+.allMeun .newRoute .oneRoute{
+    width:auto;
+    height:auto;
+    border-bottom:1px solid #e2e2e2;
+    position:relative;
+    overflow:hidden;
+}
+.clsBorder{
+    border-bottom:0;
+}
+.clsPadding{
+    padding-top:0px!important;
+}
+.parseTipTwo .parseOk{
+    padding-left:5px;
+}
+.parseTipTwo .parseIcon{
+    padding-bottom:2px;
+}
+.parsfailTip{
+    color:#f00;
+}
+.createTabTip{
+    display:none;
+    width:38%;
+    min-height:157px;
+    position:fixed;
+    z-index:22;
+    left:31%;
+    top:100px;
+    background:#f3f3f3;
+}
+.createTabTip .headerTip{
+    position: relative;
+    height: 30px;
+}
+.createTabTip .headerTip .createCancel{
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: #f00;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    right: 20px;
+    cursor: pointer;
+}
+.createTabTip .tipCon{
+    padding: 10px;
+}
+.createTabTip .tipCon p{
+    margin-top:10px;
+}
+.createTabTip .tipCon table{
+    width:100%;
+}
+.createTabTip .tipCon table th{
+    background:#efefef;
+    text-align:center;
+}
+.createTabTip .tipCon td{
+    text-align:center;
+}
+.createTabTip .tipCon .tabBox{
+    overflow-y:auto;
+    min-height:180px;
+    max-height:180px;
+}
+.tipCon .tabBox .msgTab th{
+    border:1px solid #e2e2e2;
+}
+.tipCon .tabBox .msgTab td{
+    background:#fff;
+    border:1px solid #e2e2e2;
+}
+.createTabTip .bBtnZone{
+    margin-bottom: 20px;
+    overflow:hidden;
+}
+.createTabTip .bBtnZone input{
+    float:right;
+    margin-right:20px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+.createTabTip .bBtnZone .cancelnewTab{
+    background:#fff;
+}
+.createTabTip .bBtnZone .nextNewTab{
+    background:#1889f2;
+    color:#fff;
+}
+.createTabTip .newSuccess p{
+    text-align: center;
+    font-size: 16px;
+    color: #1889f2;
+    margin-top:30px;
+}
+.createTabTip .newSuccess input{
+    display: block;
+    width: 100px;
+    height: 30px;
+    margin-top: 30px;
+    float: right;
+    margin-right: 20px;
+    background:#fff;
+}
+
+aside.aside ul .taskMNav{
+    color: #fff!important;
+    background: url("../../images/task_check.png") no-repeat!important;
+    background-position: 0 12px!important;
+}
+.taskFinished{
+    width: 38%;
+    min-height: 230px;
+    position: absolute;
+    z-index: 22;
+    left: 31%;
+    top: 300px;
+    background: #f3f3f3;
+    display: none;
+}
+.taskFinished .header,.centerTip{
+    height: 50px;
+    background: #f3f3f3;
+}
+.taskFinished .header .delSIcon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: #f26746;
+    text-align: center;
+    line-height: 22px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+    margin-right: 12px;
+}
+.taskFinished .centerTip{
+    text-align:center;
+}
+.taskFinished .centerTip img{
+    margin-bottom: 2px;
+}
+.taskFinished .centerTip span{
+    font-size: 17px;
+}
+.taskFinished .skipTip{
+    height: 80px;
+    background: #f3f3f3;
+    text-align: center;
+}
+.select2-selection--single{
+    border-radius:0!important;
+    border: 1px solid #ccc!important;
+}
+.sameHdfs{
+    color:#f00;
+}
+/*# sourceMappingURL=index.css.map */

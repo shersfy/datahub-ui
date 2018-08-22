@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+    <title>$!{i18n.getProperty("dump.title.dumpMigrate")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/dumpTask/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/codeMirror/codemirror.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/dumpTask/dumpTask.css?v=1515133617024">
+</head>
+<body class="asideToggle">
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("dump.title.dumpMigrate")}</span></h2>
+        <div class="upload-conatiner">
+            <div class="upload-tab uploadFile">
+                <div class="taskNav">
+                    <div class="processCon">
+                        <div class="process clearfix">
+                            <div class="item">
+                                <div class="item1 itemCon cur">
+                                    <i class="step">01</i>
+                                    <span>$!{i18n.getProperty("db.title.configResource")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item2 itemCon">
+                                    <i class="step">02</i>
+                                    <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapTaskMsg">
+                    <div class="oneRow">
+                        <p class="left"><span class="redStar">*</span>$!{i18n.getProperty("manage.title.taskName")}</p>
+                        <input autocomplete="off" type="text" class="right" id="dTaskName" spellcheck="false" maxlength="60"/>
+                    </div>
+                    <div class="oneRow discribleZone">
+                        <p class="left">$!{i18n.getProperty("manage.title.taskDesc")}</p>
+                        <textarea class="right taskDescribe" spellcheck="false" maxlength="255"></textarea>
+                    </div>
+                    <div class="oneRow">
+                        <p class="left"><span class="redStar">*</span>$!{i18n.getProperty("manage.title.inApp")}</p>
+                        <select autocomplete="off" id="userApp" class="right"></select>
+                    </div>
+                    <div class="oneRow">
+                        <p class="left"><span class="redStar">*</span>$!{i18n.getProperty("local.title.tarDir")}</p>
+                        <select autocomplete="off" id="uploadSite" class="right type">
+                            <option value="1">HDFS</option>
+                            <option value="2">HIVE</option>
+                            <option value="3">Spark MPP</option>
+                        </select>
+                    </div>
+                    <div class="oneRow">
+                        <p class="left"><span class="redStar">*</span>$!{i18n.getProperty("client.option.selectLink")}</p>
+                        <select autocomplete="off" class="right connId" id="connId"></select>
+                    </div>
+                    <div class="dumpbtn">
+                        <div class="addBtn">$!{i18n.getProperty("local.option.addFile")}</div>
+                        <input type="file" value="" id="fileupload" name="file" multiple/>
+                    </div>
+                    <span class="addTip">$!{i18n.getProperty("dump.note.dumpNote")}</span>
+                </div>
+                <div class="dumpFileTable">
+                    <table class="fileMsgTable" id="fileMsgTable">
+                        <thead>
+                        <tr>
+                            <td class="fileNameTh" width="30%">$!{i18n.getProperty("local.title.fileName")}</td>
+                            <td class="cth" width="10%">$!{i18n.getProperty("local.option.fileSize")}</td>
+                            <td class="cth" width="30%">$!{i18n.getProperty("local.option.up")}</td>
+                            <td class="cth">$!{i18n.getProperty("local.option.parse")}</td>
+                            <td class="cth">$!{i18n.getProperty("clientList.option.oper")}</td>
+                        </tr>
+                        </thead>
+                        <tbody id="fileuploadTbody">
+                        <tr id="noData">
+                            <td colspan="5"><img src="resources/dist/images/noData.png" />$!{i18n.getProperty("manage.title.noData")}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-center btnZone">
+                    <button class="btn btn-cancel dumpCancelBtn"><a href="./" onclick="return false;">$!{i18n.getProperty("client.option.cancel")}</a></button>
+                    <button class="btn btn-item dumpFileNext">$!{i18n.getProperty("client.option.nextStep")}</button>
+                </div>
+
+##                <div class="btnZone">
+##                    <input autocomplete="off" type="button" value="$!{i18n.getProperty("client.option.cancel")}" class="dumpCancelBtn" />
+##                    <input autocomplete="off" type="button" value="$!{i18n.getProperty("client.option.nextStep")}" class="dumpFileNext" />
+##                </div>
+            </div>
+            <div class="upload-tab choiceRoute">
+                <div class="taskNav">
+                    <div class="processCon">
+                        <div class="process clearfix">
+                            <div class="item">
+                                <div class="item1 itemCon">
+                                    <i class="step">01</i>
+                                    <span>$!{i18n.getProperty("db.title.configResource")}</span>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="item2 itemCon cur">
+                                    <i class="step">02</i>
+                                    <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="tip">
+                    <span>$!{i18n.getProperty("local.title.importConf")}</span>
+                    <i></i>
+                </h3>
+                <div class="setupRoute">
+                    <div class="routeMsg">
+                        <div class="dbCheckZone">
+                            <div class="leftZone">
+                                <div class="header">
+                                    <p class="dataTab">$!{i18n.getProperty("db.title.srcData")}</p>
+                                </div>
+                                <label class="checkAllDb"><input autocomplete="off" type="checkbox" id="checkAllDb"/>&emsp;&emsp;$!{i18n.getProperty("db.option.allSelt")}</label>
+                                <div class="dbZone">
+                                </div>
+                            </div>
+                            <div class="centerZone">
+                                <div class="transBtn">
+                                    <div id="pointRight">
+                                        <img src="resources/images/pointRight_lost.png" class="lost"/>
+                                        <img src="resources/images/pointRight_select.png" class="select"/>
+                                    </div>
+                                    <div id="pointLeft">
+                                        <img src="resources/images/pointLeft_lost.png" class="lost"/>
+                                        <img src="resources/images/pointLeft_select.png" class="select"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightZone">
+                                <div class="dbContainer">
+                                    <div class="tabShow">
+                                        <table class="headTitle">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="checkAllLab">
+                                                        <input autocomplete="off" type="checkbox" class="tabCheckAll" />
+                                                    </label>
+                                                </th>
+                                                <th>$!{i18n.getProperty("db.option.srcTbl")}</th>
+                                                <th>$!{i18n.getProperty("db.option.tarDb")}</th>
+                                                <th>$!{i18n.getProperty("dump.option.tarTbl")}</th>
+                                                <th><span class="allConfigure" field="hive"><img src="resources/images/mapData.png" class="mapImg"/><b class="mapTip">$!{i18n.getProperty("dump.title.batchConfig")}</b></span></th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <table class="headTitltTwo">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="checkAllLab">
+                                                        <input autocomplete="off" type="checkbox" class="tabCheckAll" />
+                                                    </label>
+                                                </th>
+                                                <th>$!{i18n.getProperty("db.option.srcTbl")}</th>
+                                                <th colspan="2">$!{i18n.getProperty("local.option.confPath")}</th>
+                                                <th><span class="allConfigure" field="hdfs"><img src="resources/images/mapData.png" class="mapImg"/><b class="mapTip">$!{i18n.getProperty("dump.title.batchConfig")}</b></span></th>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                        <div class="addContentZone">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottomZone" style="display:none">
+                            <div class="copyTipMsg">
+                                <label class="copyCheck copyNoCheck">
+                                    <input autocomplete="off" type="checkbox" class="copyNameBtn" checked>$!{i18n.getProperty("dump.option.isBak")}
+                                </label>
+                                <p class="tip">&emsp;($!{i18n.getProperty("dump.note.dumpBakNote")})</p>
+                            </div>
+                            <p class="copyWrite">
+                                <span class="name">$!{i18n.getProperty("dump.option.bakAddr")}: </span>
+                                <input autocomplete="off" type="text" placeholder="$!{i18n.getProperty("dump.option.bakPath")}" id="copyName" readonly="true"/>&emsp;<span class="nameTip" disabled="true">$!{i18n.getProperty("dump.option.bakPath")}</span></p>
+                        </div>
+                        <div class="dumpBtnZone">
+                            <div class="center">
+                                <button class="dumpPreStep btn btn-cancel">$!{i18n.getProperty("client.option.prevStep")}</button>
+                                <button class="startImport btn btn-cancel">$!{i18n.getProperty("client.option.startImport")}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="globalLoadCon">
+    <div class="spinBox" style="width:64px;height:64px;margin:0 auto;margin-top:200px;">
+        <img src="resources/dist/images/loading.gif" alt="" />
+    </div>
+</div>
+<div class="maskCell"></div>
+<div class="createTabTip">
+    <p class="headerTip"><span class="createCancel">X</span></p>
+    <div class="tipCon">
+        <p class="title">$!{i18n.getProperty("dump.option.tip")}: </p>
+        <p class="content">$!{i18n.getProperty("dump.text.importAct")}<span class="newTabNum"></span>$!{i18n.getProperty("dump.text.newTblNote")}</p>
+        <p>$!{i18n.getProperty("dump.text.newTblList")}</p>
+        <div class="tabBox">
+            <table class="msgTab">
+                <thead>
+                <tr>
+                    <th>$!{i18n.getProperty("dump.option.sourceDb")}</th>
+                    <th>$!{i18n.getProperty("db.option.srcTbl")}</th>
+                    <th>$!{i18n.getProperty("db.option.tarDb")}</th>
+                    <th>$!{i18n.getProperty("dump.option.tarTbl")}</th>
+                </tr>
+                </thead>
+                <tbody class="newTabMsgList">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bBtnZone">
+        <input autocomplete="off" type="button" value="$!{i18n.getProperty("dump.note.nextStep")}" class="nextNewTab" />
+        <input autocomplete="off" type="button" value="$!{i18n.getProperty("dump.note.cancel")}" class="cancelnewTab" />
+    </div>
+    <div class="newFail">
+        <p class="tip-msg" style="text-align:center;"></p>
+    </div>
+    <div class="newSuccess">
+        <p class="successTip">$!{i18n.getProperty("dump.note.tblsNew")}</p>
+        <p class="haveTip">$!{i18n.getProperty("dump.note.configOk")}</p>
+        <p class="failList"></p>
+        <div><input autocomplete="off" type="button" value="$!{i18n.getProperty("s3.note.start")}" class="startManage" /></div>
+    </div>
+</div>
+
+<div class="ddlLoading">
+    <div class="spinBox" style="width:64px;height:64px;margin:0 auto;margin-top:350px;margin-left:215px;">
+        <img src="resources/dist/images/loading.gif" alt="" />
+    </div>
+</div>
+<div class="contentBox">
+    <div class="mathRoute hiveH">
+        <div class="header routeMapHeader"><p class="batchTitle" style="display:none">$!{i18n.getProperty("dump.title.batchConfig")}</p><p class="tabMsg">$!{i18n.getProperty("db.option.srcTbl")}<span id="STableName"></span> $!{i18n.getProperty("dump.text.import")}</p><p class="closeMap">X</p></div>
+        <div class="dbTabPart">
+            <div class="import hiveWrite db">
+                <p>$!{i18n.getProperty("local.option.db")} </p>
+                <select autocomplete="off" class="dbChoice" id="dbName">
+                </select>
+            </div>
+            <div class="import hiveWrite tab">
+                <p>$!{i18n.getProperty("local.option.tbl")} </p>
+                <select autocomplete="off" class="tabChoice" id="tableName" onkeydown="Select.del(this,event)" onkeypress="Select.write(this,event)">
+                </select>
+            </div>
+            <div class="import hiveWrite part" id="part">
+                <p>$!{i18n.getProperty("local.option.part")} </p>
+                <div class="partition"></div>
+            </div>
+            <div class="import hiveWrite formatType">
+                <p>$!{i18n.getProperty("db.option.tableType")} </p>
+                <select autocomplete="off" class="tableType" disabled>
+                    <option value="0">text</option>
+                    <option value="1">orc</option>
+                    <option value="2">parquet</option>
+                    <option value="3">rcfile</option>
+                    <option value="4">sequencefile</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="mathRoute hdfsH">
+        <div class="title mapRouteTit"><p class="batchTitle" style="display:none">$!{i18n.getProperty("dump.title.batchConfig")}</p><p class="routeTitle">HDFS $!{i18n.getProperty("local.option.confPath")}</p><p class="closeMap hiveCloseMap">X</p></div>
+        <div class="import hdfsWrite">
+            <div class="routeChoice">
+                <div class="menuZone">
+                    <ul class="allMeun firstM">
+                        <li class="startLi">
+                            <label class='routeLabel'><input autocomplete="off" type='checkbox' class='routeChoiceBtn' name='route'/></label>
+                            <h3 class="routeStart oneRoute">
+                                <img class='turnOn' field="start" src='resources/images/routeOn.png'/>
+                                <img class='turnOff' field="start" src='resources/images/routeOff.png'/>
+                                <span class="thisRoute startThis"></span>
+                            </h3>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="routeShow">
+            <div class="defaultShow">
+                <p>$!{i18n.getProperty("local.title.fileDir")}</p>
+                <input type="text" disabled="true" class="defaultRoute"/>
+            </div>
+            <div class="suffixShow">
+                <p>$!{i18n.getProperty("local.title.fileName")}</p>
+                <input type="text" class="suffixRoute" maxlength="60"/>
+            </div>
+        </div>
+    </div>
+    <div class="fieldMap">
+        <h5 class="title sql">
+            $!{i18n.getProperty("dump.text.tarSql")}
+            <strong>
+                <img src="resources/images/zs.png" />
+                <div class="tip">
+                    <b>$!{i18n.getProperty("db.text.state")}:</b>
+                    <div>$!{i18n.getProperty("local.note.newTblNote")}</div>
+                </div>
+            </strong>
+        </h5>
+				<textarea class="sqlSentence">
+
+				</textarea>
+    </div>
+    <div class="bottomBtn">
+        <button class="keep btn btn-item">$!{i18n.getProperty("dbManage.option.save")}</button>
+        <button class="cancelKeep btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+    </div>
+    <div class="bakBtnZ" style="display:none">
+        <button class="bakRouteOk">$!{i18n.getProperty("client.option.sure")}</button>
+        <button class="cancelKeep">$!{i18n.getProperty("client.option.cancel")}</button>
+    </div>
+</div>
+<div id="waitLoading" style="position:fixed;z-index:99 ; display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+    <div style="width: 20%;margin: 20% 40%;text-align: center;background: rgba(0,0,0,.5);color: #fff;padding: 20px;line-height: 30px;border-radius: 10px;">
+        <img src="resources/dist/images/loading.gif">
+        <article></article>
+    </div>
+</div>
+<script src="resources/dist/dumpTask/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/codeMirror/codemirror.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/dumpTask/dumpTask.js?v=1522658040167"></script>
+</body>
+</html>

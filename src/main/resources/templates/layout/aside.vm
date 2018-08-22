@@ -1,0 +1,49 @@
+<div class="left-Box" id="LeftBox">
+	<ul class="T-first">
+		<li class="I-item #if(${ptag} != 'token' && ${ptag} != 'interface') act #end"><a href="./"><i class="icons icon_01"></i><span>$!{i18n.getProperty("common.title.dataMigrate")}</span></a></li>
+        <li class="I-item entry"><a href="javascript:;"><i class="icons icon_03"></i><span>$!{i18n.getProperty("common.title.pipeline")}</span></a></li>
+        <li class="I-item #if(${ptag} == 'token' || ${ptag} == 'interface') act #end"><a href="./token"><i class="icons icon_02"></i><span>$!{i18n.getProperty("common.tab.openAPI")}</span></a></li>
+	</ul>
+	<ul class="T-second #if(${ptag} != 'token' && ${ptag} != 'interface') cur #end"
+        #if(${ptag} == 'transfer' || ${ptag} == 'clientTask') style="display:none;" #end>
+		<li class="item-group">
+			<ul>
+				<li class="title">$!{i18n.getProperty("common.title.migrateM")}</li>
+				<li class="item #if(${ptag} == 'index' || ${ptag} == 'transfer' || ${ptag} == 'success') cur #end item0"><a href="./">$!{i18n.getProperty("common.title.newTask")}</a></li>
+				<li class="item item1 #if(${ptag} == 'manage') cur #end"><a href="./manage">$!{i18n.getProperty("index.title.taskManage")}</a></li>
+				<li class="item item2 #if(${ptag} == 'clientTaskM'||${ptag} =='clientTask'||${ptag} =='client')cur #end"><a href="./online.client">$!{i18n.getProperty("clientM.title.clientM")}</a></li>
+			</ul>
+		</li>
+		<li class="item-group">
+			<ul>
+				<li class="title">$!{i18n.getProperty("common.title.migrateEg")}</li>
+				<li class="item item3 #if(${ptag} == 'taskDetail')cur #end"><a href="./task.detail">$!{i18n.getProperty("common.title.runLog")}</a></li>
+				<li class="item item4 dev"><a>补跑实例</a></li>				
+			</ul>
+		</li>
+##        <li class="item-group">
+##            <ul>
+##                <li class="title">$!{i18n.getProperty("common.title.alarmService")}</li>
+##                <li class="item item8 #if(${ptag} == 'alarmRecord' )cur #end"><a href="./alarm.record">$!{i18n.getProperty("common.option.alarmRecord")}</a></li>
+##                <li class="item item9 #if(${ptag} == 'alarmSetting' )cur #end"><a href="./alarm.setting">$!{i18n.getProperty("common.option.alarmSetting")}</a></li>
+##            </ul>
+##        </li>
+		<li class="item-group">
+			<ul>
+				<li class="title">$!{i18n.getProperty("common.title.setting")}</li>
+				<li class="item item5 #if(${ptag} == 'dbManage' )cur #end"><a href="./db.manage">$!{i18n.getProperty("common.title.resM")}</a></li>
+				<li class="item item7 #if(${ptag} == 'envir' )cur #end" data-type="${loginUser.roles[0].type}" #if( ${loginUser.roleList[0].type} != 1 ) style="display: none;" #end><a href="./envir">$!{i18n.getProperty("common.title.envir")}</a></li>
+			</ul>
+		</li>
+	</ul>
+    <ul class="T-second #if(${ptag} == 'token' || ${ptag} == 'interface') cur #end">
+        <li class="item-group">
+            <ul>
+                <li class="title">$!{i18n.getProperty("common.title.openAPI")}</li>
+                <li class="item #if(${ptag} == 'token') cur #end item0"><a href="./token">$!{i18n.getProperty("common.title.token")}</a></li>
+                <li class="item item1 #if(${ptag} == 'interface') cur #end"><a href="./interface">$!{i18n.getProperty("common.title.api")}</a></li>
+            </ul>
+        </li>
+    </ul>
+	<div class="toggle-btn" id="toggleBtn"><i class="toggle-btn-left"></i></div>
+</div>

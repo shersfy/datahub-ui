@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+		<title>$!{i18n.getProperty("dump.title.version")}</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/dumpVersion/libs.min.css">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/dumpVersion/dumpVersion.css">
+	</head>
+
+	<body>
+		#parse("layout/header.vm") #parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("dump.title.version")}</span></h2>
+				<div class="versionManage">
+					<div class="upload-container versionBox">
+						<p class="versionTip">$!{i18n.getProperty("dump.title.version=")}</p>
+						<div class="msgSearch">
+							<div class="leftS"><input type="text" placeholder="$!{i18n.getProperty("dump.option.search")}" class="searchInput" /><img src='resources/images/versionSearch.png' class="versionSearchBtn" />
+							</div>
+							<div class="rightS">
+								<span>$!{i18n.getProperty("dump.title.verDate")}: </span>
+								<input type="text" id="startDate" class="Wdate startDate" /> &nbsp;&nbsp;<span class="to">$!{i18n.getProperty("dump.text.to")}</span> &nbsp;&nbsp;
+								<input type="text" id="endDate" class="Wdate endDate" />
+							</div>
+							<a href="./dump" class="newTaskBtn">+$!{i18n.getProperty("clientM.title.newTask")}</a>
+						</div>
+						<div class="versionTabZone">
+							
+						</div>
+					</div>
+				</div>     
+			</div>
+		</div>
+<script type="text/html" id="template/dumpVersionTotal">
+	<table class="versionTotalMsg">
+		<thead>
+			<tr><th>$!{i18n.getProperty("dump.option.verName")}</th><th>$!{i18n.getProperty("local.option.fileSize")}</th><th>$!{i18n.getProperty("dump.tblNum")}</th>
+				<th>$!{i18n.getProperty("dump.option.opDate")}</th><th>$!{i18n.getProperty("dump.upType")}</th><th>$!{i18n.getProperty("dump.option.upUser")}</th><th>$!{i18n.getProperty("clientList.option.oper")}</th></tr>
+		</thead>
+		<tbody>
+			{{if data.length==0}}
+			<tr>
+                <td colspan="8" style="text-align:center;padding:10px 0;font-size:16px;font-family:'微软雅黑';color:#ddd;"><img src="resources/dist/images/noData.png" /></br>$!{i18n.getProperty("manage.title.noData")}</td>
+            </tr>
+            {{else}}
+            {{each data as v i}}
+            <tr>
+          		<td><span title="{{v.version}}">{{v.version}}</span></td>
+          		<td>{{filSize(v.totalSize)}}</td>
+          		<td>{{v.dumpList.length}}</td>
+          		<td>{{v.createTime | dateFormat:'yyyy/MM/dd/ hh:mm:ss'}}</td>
+          		<td>{{if v.appType==1}}$!{i18n.getProperty("dump.text.browser")}{{else if v.appType==2}}$!{i18n.getProperty("dump.text.client")}{{/if}}</td>
+          		<td><span title="{{v.userName}}">{{v.userName}}</span></td>
+          		<td class="operate"><img src="resources/images/detail.png" field="{{v.id}}" class="detailBtn"/></td>
+          	</tr>
+          	{{/each}}
+			{{/if}}
+		</tbody>
+	</table>
+	<div class="pager"></div>
+</script>
+<script src="resources/dist/dumpVersion/libs.min.js"></script>
+<script src="resources/i18n/message_lang.js"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/libs/My97DatePicker/WdatePicker.js"></script>
+<script src="resources/dist/dumpVersion/dumpVersion.js"></script>
+</body>
+</html>

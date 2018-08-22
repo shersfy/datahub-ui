@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.mainCon {
+    margin-left: 260px;
+}
+
+.innerCon {
+    background: #edf1f2;
+}
+
+h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+    b{color:#000; font-size: 14px;}
+    a{color:#999;}
+    a:hover{text-decoration: underline;}
+}
+
+.innerCon .upload-conatiner {
+    margin: 20px;
+    background: #FFF; 
+    padding: 24px;
+}
+.upload-conatiner .verDetail{
+    width: 100%;
+    background: #fff;
+}
+.upload-conatiner .verDetail table{
+    width:100%;
+    margin-bottom:20px;
+}
+.verDetail table th{
+    background:#f9f9f9;
+    color:#1f242d;
+    font-size:13px;
+}
+.verDetail table th{
+    width:20%;
+}
+.verDetail table th,.verDetail table td{
+    text-align:center;
+}
+.verDetail table tr{
+    height:32px;
+}
+.verDetail table th,td{
+    border:1px solid #e8edf1;
+}
+
+.upload-conatiner .versionData{
+    width:100%;
+    overflow:hidden;
+    border: 1px solid #d9d9d9; 
+}
+.upload-conatiner .versionData .leftData{
+    float:left;
+    width:20%;
+    height:530px;
+}
+.upload-conatiner .versionData .rightData{
+    float:left;
+    width:80%;
+    height:530px;
+}
+.versionData .title{
+    height: 36px;
+    background:#fff;
+    padding-left:13px;
+    line-height:36px;
+    border-bottom: 1px solid #d9d9d9;
+    color:#343535;
+    font-weight:bold;
+    font-size:13px;
+}
+.upload-conatiner .tip{
+    color:#262626;
+    margin-bottom:12px;
+    font-weight:bold;
+    font-size:15px;
+    position:relative;
+    padding-left:14px;
+}
+.upload-conatiner .tip:after{
+    content:"";
+    display:block;
+    position:absolute;
+    width:4px;
+    height:15px;
+    background:#004b6f;
+    top: 4px;
+    left: 0;
+}
+.versionData .leftData .versionDb{
+    overflow-y:auto;
+    overflow-y: auto;
+    border-bottom: 1px solid #d9d9d9;
+    height: 482px;
+    border-right: 1px solid #d9d9d9;
+}
+
+.leftData .versionDb .oneMsg{
+    overflow:hidden;
+    height:36px;
+}
+.versionDb .oneMsg .index{
+    float:left;
+    width: 10%;
+    background:#ededed;
+    line-height:36px;
+    text-align:center;
+}
+.versionDb .oneMsg .fileMsg{
+    float:left;
+    padding-left:10px;
+    padding-right:6px;
+    line-height:36px;
+    width:90%;
+}
+
+.oneMsg .fileMsg{
+    overflow:hidden;
+}
+.oneMsg .fileMsg img,.tabName{
+    float:left;
+}
+.oneMsg .fileMsg .tabName{
+    background:url("../../images/normalTab.png") no-repeat;
+    padding-left: 16px;
+    background-position: 0px 10px!important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100px;
+}
+.hoverTab{
+    background:url("../../images/hoverTab.png") no-repeat!important;
+}
+.oneMsg .fileMsg img{
+    margin-top: 10px;
+    margin-right:4px;
+}
+.oneMsg .fileMsg .size{
+    float:right;
+}
+.versionData .rightData .importDetail{
+    padding: 8px;
+}
+.rightData .importDetail .topTip{
+    overflow:hidden;
+}
+.importDetail .topTip p.site{
+    float:left;
+    color:#191a1a;
+}
+.importDetail .topTip p.only{
+    float:right;
+    color:#024a72;
+    padding-bottom:4px;
+}
+.importDetail .topTip p{
+    color:#333333;
+}
+.importDetail .topTip p span{
+    color:#73767b;
+}
+.rightData .importDetail .someRecord{
+    background:#f9f9f9;
+    border:1px solid #d9d9d9;
+    padding:22px;
+    overflow:auto;
+    height:407px;
+}
+
+.importDetail .someRecord .time{
+    padding-right: 10px;
+}
+.importDetail .someRecord span{
+    letter-spacing:1px;
+    color:#707070;
+}
+.oneMsgHover{
+    color:#fff;
+    background:#014b70!important;
+}
+.indexHover{
+    color:#fff;
+    background:#014b70!important;
+}
+.clickStyle{
+    background:#ededed;
+}
+aside.aside ul .taskMNav{
+    color: #fff!important;
+    background: url("../../images/task_check.png") no-repeat!important;
+    background-position: 0 12px!important;
+}

@@ -1,0 +1,583 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.mainCon {
+    margin-left: 260px;
+}
+
+.innerCon {
+//    background: #edf1f2;
+}
+
+.innerCon h2.title {
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 48px;
+    color: #999;
+    font-weight: 400;
+    background: #fff;
+}
+
+.innerCon h2.title span {
+    color: #000;
+}
+
+.innerCon h2.title a {
+    color: #999;
+}
+
+.innerCon h2.title a:hover {
+    text-decoration: underline;
+}
+
+.innerCon .upload-conatiner {
+    margin: 20px;
+}
+
+.innerCon .upload-tab {
+    width: 100%;
+    background: #fff;
+    padding: 24px 0 24px 0;
+}
+
+.upload-tab>p {
+    position: relative;
+    padding-left: 6px;
+    margin-bottom: 22px;
+}
+
+.upload-tab p:after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    background: #019cff;
+}
+
+.upload-tab .clientDownload {
+    margin-bottom: 50px;
+    border: 1px solid #edf1f2;
+    padding: 15px;
+}
+
+.upload-tab .clientDownload:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.upload-tab .clientDownload img {
+    float: left;
+    margin-right: 56px;
+}
+
+.upload-tab .client-tab {
+    font-size: 13px;
+    color: #000!important;
+    border: 1px solid #d9d9d9!important;
+    position: relative;
+}
+
+.upload-tab .client-tab thead {
+    background: #efefef;
+}
+
+.upload-tab .client-tab .topTip {
+    width: 100%;
+}
+
+.upload-tab .client-tab th,
+td {
+    border: 1px solid #d9d9d9!important;
+}
+
+.upload-tab .client-tab tr {
+    height: 34px;
+}
+
+.upload-tab .client-tab input {
+    border: none;
+}
+
+.upload-tab .client-tab th:nth-child(1) {
+    text-align: center;
+    width: 42px;
+}
+
+.upload-tab .client-tab th:nth-child(2) {
+    width: 176px;
+    padding-left: 18px;
+}
+
+.client-tab th:nth-child(3) {
+    width: 209px;
+    padding-left: 24px;
+}
+
+.client-tab th:nth-child(4) {
+    padding-left: 24px;
+    width: 230px;
+}
+
+.client-tab th:nth-child(5) {
+    width: 246px;
+    padding-left: 24px;
+}
+
+.client-tab th:nth-child(6) {
+    width: 246px;
+    text-align: center;
+}
+
+.upload-tab .client-tab .newmanage {
+    text-align: left!important;
+    padding-left: 14px;
+}
+
+.client-tab .newmanage img {
+    margin-right: 6px;
+}
+
+
+/*表格数据静态样式：*/
+
+.client-tab tr td:nth-child(1) {
+    text-align: center;
+}
+
+.client-tab tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4),
+tr td:nth-child(5) {
+    padding-left: 24px;
+}
+
+.client-tab tr td:nth-child(6) {
+    text-align: center;
+}
+
+.client-tab .icon,
+.state {
+    display: inline-block;
+}
+
+.client-tab .state {
+    padding-left: 8px;
+}
+
+.client-tab .stateIcon {
+    margin-bottom: 1px;
+    width: 7px;
+    height: 7px;
+    background: url("../../../../../resources/dist/images/clientUpload/stateSprite.png");
+    background-position: -5px -4px;
+}
+
+.client-tab .btn {
+    padding: 0;
+    border: 0;
+    width: 16px;
+    height: 16px;
+    background: url("../../../../../resources/dist/images/clientUpload/tabSprite.png");
+}
+
+.client-tab .editBtn {
+    margin: 0 34px;
+    background-position: 0 -32px;
+}
+
+.client-tab .delBtn {
+    background-position: 0 -48px;
+}
+
+.upload-tab .taskNav {
+    width: 100%;
+    padding:0 24px 24px 24px;
+}
+
+.upload-conatiner .mapRoute,
+.importRule {
+    /*display: none;*/
+}
+
+.upload-tab .taskNav .navBar{
+    width:100%;
+    height:34px;
+}
+.taskNav .navBar .stepOne{
+    width:15%;
+    height:100%;
+    display:inline-block;
+    border:1px solid #c4e9cc;
+    border-right:0;
+    position:relative;
+    z-index:10;
+    overflow-y:hidden;
+    background:#f6fff6;
+}
+.taskNav .navBar .stepOne .span{
+    display:block;
+    width:33px;
+    height:33px;
+    border:1px solid #c4e9cc;
+    border-bottom:0;
+    border-left:0;
+    border-color:#c4e9cc #c4e9cc transparent transparent;
+    background:#ebf9ee;
+    position:absolute;
+    z-index:3;
+    right:7px;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg);    
+    -moz-transform:rotate(45deg); 
+    -webkit-transform:rotate(45deg);
+    -o-transform:rotate(45deg); 
+}
+.taskNav .navBar .stepOne h1{
+    position:absolute;
+    left:0;
+    height:100%;
+    width:90%;
+    background:#ebf9ee;
+    line-height:32px;
+    text-align:center;
+    padding-left:14%;
+}
+.navBar .stepOne h1 .icon{
+    display:block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#40b268;
+    line-height:14px;
+    float:left;
+    margin-top:9px;
+    margin-right:4px;
+    font-size:12px;
+    color:#fff
+}
+.navBar .stepOne h1 .word{
+    float:left;
+    color:#46b86e;
+}
+.taskNav .navBar .stepTwo{
+    width:16%;
+    height:100%;
+    display:inline-block;
+    border:1px solid #dbf1e9;
+    border-left:0;
+    border-right:0;
+    position:relative;
+    overflow-y:hidden;
+    background:#f6fff6;
+}
+.taskNav .navBar .stepTwo .span{
+    display:block;
+    width:33px;
+    height:33px;
+    border:1px solid #c4e9cc;
+    border-bottom:0;
+    border-left:0;
+    border-color:#e6f7eb #e6f7eb transparent transparent;
+    background:#f6fff6;
+    position:absolute;
+    z-index:3;
+    right:7px;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg);    
+    -moz-transform:rotate(45deg); 
+    -webkit-transform:rotate(45deg);
+    -o-transform:rotate(45deg); 
+}
+.taskNav .navBar .stepTwo h1{
+    position:absolute;
+    left:0;
+    height:100%;
+    width:90%;
+    background:#f6fff6;
+    line-height:32px;
+    text-align:center;
+    padding-left:14%;
+}
+.navBar .stepTwo h1 .icon{
+    display:block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ceebdd;
+    line-height:14px;
+    float:left;
+    margin-top:9px;
+    margin-right:4px;
+    font-size:12px;
+    color:#fff;
+}
+.navBar .stepTwo h1 .word{
+    float:left;
+    color:#ceebdd;
+}
+.taskNav .navBar .stepThree{
+    width:16%;
+    height:100%;
+    display:inline-block;
+    border:1px solid #dbf1e9;
+    border-right:0;
+    border-left:0;
+    position:relative;
+    overflow-y:hidden;
+    background:#f6fff6;
+}
+.taskNav .navBar .stepThree .span{
+    display:block;
+    width:33px;
+    height:33px;
+    border:1px solid #c4e9cc;
+    border-bottom:0;
+    border-left:0;
+    border-color:#e6f7eb #e6f7eb transparent transparent;
+    background:#f6fff6;
+    position:absolute;
+    z-index:3;
+    right:7px;
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg);    
+    -moz-transform:rotate(45deg); 
+    -webkit-transform:rotate(45deg);
+    -o-transform:rotate(45deg); 
+}
+.taskNav .navBar .stepThree h1{
+    position:absolute;
+    left:0;
+    height:100%;
+    width:90%;
+    background:#f6fff6;
+    line-height:32px;
+    text-align:center;
+    padding-left:14%;
+}
+.navBar .stepThree h1 .icon{
+    display:block;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#ceebdd;
+    line-height:14px;
+    float:left;
+    margin-top:9px;
+    margin-right:4px;
+    font-size:12px;
+    color:#fff
+}
+.navBar .stepThree h1 .word{
+    float:left;
+    color:#ceebdd;
+}
+.taskNav .navBar .stepSpace{
+    width:50%;
+    height:100%;
+    display:inline-block;
+    border:1px solid #dbf1e9;
+    border-left:0;
+    background:#f6fff6;
+}
+.dataMapMsg{
+    width:100%;
+}
+.dataMapMsg .oneRow{
+    width:100%;
+    padding-left:24px;
+    overflow:hidden;
+    padding-bottom:20px;
+}
+.dataMapMsg .oneRow .left{
+    float:left;
+    line-height:27px;
+    width:10%;
+    height:27px;
+    color:#2f2f2f
+}
+.dataMapMsg .oneRow .right{
+    float:left;
+    display:block;
+    line-height:27px;
+    width:340px;
+    padding-left:14px;
+    border-radius:0;
+}
+.dataMapMsg .oneRow .tipOnly{
+    padding:0;
+    width:auto;
+}
+.dataMapMsg .oneRow .tipLong{
+    width:90%;
+    height:auto;
+    color:#bdbdbd;
+}
+.dataMapMsg .tipTitle{
+    font-size:15px;
+    font-weight:bold;
+    color:#262626;
+}
+.oneRow .right .multipleSelect{
+    width:100%;
+    border-radius:0;
+}
+.dataMapMsg .oneRow .select2{
+    padding:0;
+}
+.dataMapMsg .oneRow .btnZone{
+    width:230px;
+    margin:0 auto;
+}
+.oneRow .btnZone .cancel{
+    width:100px;
+    height:30px;
+    border:1px solid #e7e7e7;
+    background:#f6f6f6;
+    color:#8c8b8b;
+    margin-right:20px;
+}
+.oneRow .btnZone .dataNextStep{
+    width:100px;
+    height:30px;
+    background:#1889f2;
+    border:1px solid #1889f2;
+    color:#fff;
+}
+#mapRouteStepOne{
+    background:#ebf9ee;
+    border:1px solid #dbf1e9;
+    border-right:0;
+}
+#mapRouteStepOne h1{
+    background:#f6fff6;
+}
+#mapRouteStepOne .span{
+    background:#f6fff6;
+}
+#mapRouteStepTwo .span{
+    background:#ebf9ee;
+    border:1px solid #c4e9cc;
+    border-color:#c4e9cc #c4e9cc transparent transparent;
+}
+#mapRouteStepTwo h1{
+    background:#ebf9ee;
+}
+#mapRouteStepTwo h1 .icon{
+    background:#40b268;
+}
+#mapRouteStepTwo h1 .word{
+    color:#46b86e;
+}
+.mapRouteMsg{
+    width:100%;
+}
+.mapRouteMsg .oneRow{
+    width:100%;
+    padding-left:24px;
+    height:27px;
+    overflow:hidden;
+    margin-bottom:24px;
+}
+.mapRouteMsg .oneRow .left{
+    width:10%;
+    float:left;
+    height:27px;
+    line-height:27px;
+    color:#2f2f2f;
+}
+.mapRouteMsg .oneRow .right{
+    width:340px;
+    float:left;
+    height:27px;
+    border-radius:0;
+}
+.mapRouteMsg .oneRow .tipOnly{
+    height:auto;
+    width:auto;
+}
+.mapRouteMsg .oneRow .sameName p,label{
+    float:left;
+}
+.mapRouteMsg .oneRow .sameName label{
+    margin-left:20px;
+}
+.mapRouteMsg .titleTip{
+    font-size:15px;
+    font-weight:bold;
+}
+.mapRouteMsg .oneRow .btnZone{
+    width:230px;
+    margin:0 auto;
+}
+.mapRouteMsg .oneRow .btnZone input{
+    display:block;
+    float:left;
+    width:100px;
+    height:30px;
+}
+.mapRouteMsg .btnOneRow{
+    height:30px;
+}
+.mapRouteMsg .btnZone .mapRoutePreStep{
+    background:#f6f6f6;
+    border:1px solid #e7e7e7;
+    margin-right:20px;
+}
+.mapRouteMsg .btnZone .mapRouteNextStep{
+    background:#1889f2;
+    border:1px solid #1889f2;
+    color:#fff;
+}
+#importRuleStepOne h1{
+    background:#f6fff6;
+}
+#importRuleStepOne .span{
+    background:#f6fff6;
+}
+#importRuleStepTwo{
+    background:#ebf9ee;
+}
+#importRuleStepTwo .word{
+    color:#46b86e;
+}
+#importRuleStepTwo .icon{
+    background:#40b268;
+}
+#importRuleStepTwo .span{
+    border:1px solid #c4e9cc;
+    border-color:#c4e9cc #c4e9cc transparent transparent;
+}
+#importRuleStepThree h1{
+    background:#ebf9ee;
+}
+#importRuleStepThree .icon{
+    background:#40b268;
+}
+#importRuleStepThree .word{
+    color:#46b86e;
+}
+#importRuleStepThree .span{
+    background:#ebf9ee;
+    border:1px solid #c4e9cc;
+    border-color:#c4e9cc #c4e9cc transparent transparent;
+}
+.upload-conatiner .mapRoute,.importRule{
+    display:none;
+}
+/*# sourceMappingURL=index.css.map */

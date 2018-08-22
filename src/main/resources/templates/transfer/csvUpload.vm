@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("local.title.csvMigrate")}</title> 
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/csvUpload/libs.min.css?v=1508495800307">    
+    <link rel="stylesheet" href="resources/libs/codeMirror/codemirror.css?v=1508495800307">    
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/csvUpload/csvUpload.css?v=1508495800307">
+</head>
+<body class="asideToggle">
+#parse("layout/header.vm")
+#parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;<a href="./">$!{i18n.getProperty("index.title.newTask")}</a>&emsp;>&emsp;$!{i18n.getProperty("local.title.csvMigrate")}</span></h2>
+        <div class="upload-main">
+            <div class="processCon">  
+                <div class="process clearfix">
+                    <div class="item">
+                        <div class="item1 itemCon cur">
+                            <i class="step">01</i>
+                            <span>$!{i18n.getProperty("db.title.configResource")}</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item2 itemCon">
+                            <i class="step">02</i>
+                            <span>$!{i18n.getProperty("client.title.confUpPath")}</span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="stepCon">
+                <div class="item item1">
+                    <div class="configTask">
+                        <ul>
+                            <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("manage.title.taskName")}</span><input type="text" class="taskName" maxlength="60" autocomplete="off"></li>
+                            <li><span class="leftTitle">$!{i18n.getProperty("manage.title.taskDesc")}</span><textarea name="" class="taskDes" cols="30" rows="10" autocomplete="off" maxlength="255"></textarea></li>
+                            <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("manage.title.inApp")}</span><select id="userApp" autocomplete="off"></select></li>
+                            <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("local.title.tarDir")}</span>
+                                <select name="" id="targetType" autocomplete="off"><option value="1">HDFS</option><option value="2">HIVE</option><option value="3">Spark MPP</option></select>
+                            <li><span class="leftTitle"><span>*</span>$!{i18n.getProperty("client.option.selectLink")}</span><select class="connId" autocomplete="off"></select></li>
+                        </ul>
+                    </div>
+                    <div class="configFilePath">
+                        <div class="select-file">
+                            <div class="file-btn">
+                                <a>$!{i18n.getProperty("local.option.addFile")}</a>
+                                <input type="file" id="fileupload" name="files" class="add-file" multiple autocomplete="off">                        
+                            </div>
+                            <span>$!{i18n.getProperty("local.note.limit800")}</span>
+                        </div>
+                        <div class="file-list">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td width="30%">$!{i18n.getProperty("local.title.fileName")}</td>
+                                        <td width="10%">$!{i18n.getProperty("local.option.fileSize")}</td>
+                                        <td width="30%">$!{i18n.getProperty("local.option.up")}</td>
+                                        <td>$!{i18n.getProperty("local.option.parse")}</td>
+                                        <td>$!{i18n.getProperty("clientList.option.oper")}</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="tableNoData"><img src="resources/dist/images/noData.png">$!{i18n.getProperty("manage.title.noData")}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-cancel index"><a href="./" onclick="return false;">$!{i18n.getProperty("client.option.cancel")}</a></button>
+                            <button class="btn btn-item nextStep">$!{i18n.getProperty("client.option.nextStep")}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item item2" style="display:none;">
+                    <h3 class="tip">
+                        <span>$!{i18n.getProperty("local.title.importConf")}</span>
+                        <i></i>
+                    </h3>
+                    <div class="sourceCon">
+                        <h3>$!{i18n.getProperty("local.title.dataSrc")}</h3>
+                        <ul>
+                        </ul>
+                    </div>
+                    <div class="targetCon">
+                        <h3>$!{i18n.getProperty("local.title.importConf")}</h3>
+                        <div class="hdfsCon targetType">
+                            <div><span>$!{i18n.getProperty("local.title.hdfsDir")}</span><input type="text" class="path" disabled autocomplete="off"><button class="btn btn-item hdfs">$!{i18n.getProperty("local.option.scan")}</button></div>
+                            <div><span>$!{i18n.getProperty("local.title.fileName")}</span><input type="text" class="filename" maxlength="60" autocomplete="off"></div>
+                        </div>
+                        <div class="hiveCon targetType" style="display: none;">
+                            <div class="hive">
+                                <div class="infoline first">
+                                    <label for="dbName">$!{i18n.getProperty("local.option.db")}</label><select id="dbName" autocomplete="off"></select>
+                                </div>
+                                <div class="infoline">
+                                    <label for="tableName">$!{i18n.getProperty("local.option.tbl")}</label><select id="tableName" autocomplete="off"></select>
+                                </div>
+                                <div class="infoline last hidden">
+                                    <label>$!{i18n.getProperty("local.option.part")}</label><div id="partitions"></div>
+                                </div>
+                                <div class="infoline">
+                                    <label>$!{i18n.getProperty("db.option.tableType")}</label>
+                                    <select class="tableType" disabled>
+                                        <option value="0">text</option>
+                                        <option value="1">orc</option>
+                                        <option value="2">parquet</option>
+                                        <option value="3">rcfile</option>
+                                        <option value="4">sequencefile</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="lineNumCon">
+                                $!{i18n.getProperty("local.text.from")}<input type="text" class="lineNum" value="1" autocomplete="off" maxlength="8">$!{i18n.getProperty("local.note.saveLineNum")}
+                            </div>
+                            <div class="new-sql">
+                                <h5 class="title">
+                                    $!{i18n.getProperty("local.option.tarSql")}
+                                    <strong>
+                                        <img src="resources/images/zs.png">
+                                        <div class="tip">
+                                            <b>$!{i18n.getProperty("db.text.state")}:</b>
+                                            <div>$!{i18n.getProperty("local.note.newTblNote")}</div>
+                                        </div>
+                                    </strong>
+                                </h5>
+                                <textarea name="" id="" cols="30" rows="10" disabled autocomplete="off"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-cancel prevStep">$!{i18n.getProperty("client.option.prevStep")}</button>
+                        <button class="btn btn-item upload">$!{i18n.getProperty("client.option.startImport")}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="global-hdfsCon" style="display: none;">
+  <div class="configCon">
+    <div class="hdfsTab">
+        <h4><span class="title">HDFS $!{i18n.getProperty("local.option.confPath")}</span><span class="cancel">×</span></h4>      
+        <div class="dirDos">
+            <ul class="ul">
+            </ul>
+        </div>
+        <div class="res">
+            <label>$!{i18n.getProperty("local.title.fileDir")}</label><input type="text" class="selectedDir" autocomplete="off" disabled> <br>
+            <label>$!{i18n.getProperty("local.title.fileName")}</label><input type="text" class="fileName" maxlength="60" autocomplete="off">
+        </div>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-item">$!{i18n.getProperty("dbManage.option.save")}</button>
+        <button class="btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+    </div>
+  </div>
+</div>
+<div class="global-columnSep" style="display:none">
+    <div class="columnCon">
+        <h3>$!{i18n.getProperty("local.title.csvConf")}<span class="cancel">×</span></h3>
+        <div class="main">
+            <div class="item">
+                <span class="option">$!{i18n.getProperty("local.option.columnSep")}</span>
+                <ul class="replacementCon columnSep">
+                    <li data-val="\t" class="val">$!{i18n.getProperty("local.option.tab")}
+                    </li><ul class="list">
+                        <li class="item" data-val="\t">$!{i18n.getProperty("local.option.tab")}</li>
+                        <li class="item" data-val=";">$!{i18n.getProperty("local.option.semicolon")}</li>
+                        <li class="item" data-val=",">$!{i18n.getProperty("local.option.comma")}</li>
+                        <li class="item" data-val=" ">$!{i18n.getProperty("local.option.space")}</li>
+                        <li class="input"><input type="text" maxlength="10" class="inputReplacement" placeholder="$!{i18n.getProperty("db.text.customize")}"><button>$!{i18n.getProperty("db.text.confirm")}</button></li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="item isRemained">
+                <span class="option">$!{i18n.getProperty("local.option.endSet")}</span>
+                <label><i class="radio cur" data-val="0"></i>$!{i18n.getProperty("local.option.stay")}</label>
+                <label><i class="radio" data-val="1"></i>$!{i18n.getProperty("local.option.quit")}</label>
+            </div>
+            <div class="item hidden last">
+                <span class="option">$!{i18n.getProperty("local.option.endChar")}</span>
+                <ul class="replacementCon fieldEnClosed">
+                    <li data-val='"' class="val">"</li>
+                    <ul class="list">
+                        <li class="item" data-val='"'>"</li>
+                        <li class="item" data-val="'">'</li>
+                        <li class="input"><input type="text" maxlength="1" class="inputReplacement" placeholder="$!{i18n.getProperty("db.text.customize")}"><button>$!{i18n.getProperty("db.text.confirm")}</button></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <div class="text-right footer">
+            <button class="btn btn-item">$!{i18n.getProperty("dbManage.option.save")}</button>
+            <button class="btn btn-cancel">$!{i18n.getProperty("client.option.cancel")}</button>
+        </div>
+    </div>
+</div>
+<div class="global-mask"></div>
+<div id="globalLoadCon" style="position:fixed;z-index:99 ; display:none;height:100%;width:100%;top:0;left:0; background:rgba(255,255,255, .3);">
+    <div style="width:20%;margin:20% 40%;text-align:center;height:80px;line-height:80px;">
+        <img src="resources/dist/images/loading.gif"></div>
+</div>
+
+<script type="text/html" id="template/hdfsDir">
+        {{each dir as v i}}
+        <li data-base="{{v}}"><p title="{{v.slice(len)}}"><i class="show"></i>{{v.slice(len)}}<i class="check"></i></p><ul class="ul"></ul></li>
+        {{/each}}
+</script>
+<script type="text/html" id="template/source">
+    <h3>$!{i18n.getProperty("local.title.dataSrc")}</h3>
+    <ul>
+        {{each data as v i}}
+        {{if v.firstTitle && type != 1 && 0}}
+        <li class="fileTitle"><i class="file-icon"></i>{{v.firstTitle}}</li>        
+        {{/if}}
+        <li data-param="{{v.param}}" data-sourceParam="{{v.sourceParam}}"><i class="tbl-icon"></i>{{v.tableName+v.fileType}}</li>
+        {{/each}}
+    </ul>
+</script>
+<script src="resources/dist/csvUpload/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/codeMirror/codemirror.js?v=1508495800307"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/csvUpload/csvUpload.js?v=1522657518088" async></script>
+</body>
+</html>

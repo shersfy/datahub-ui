@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.mainCon {
+    margin-left: 239px;
+}
+.innerCon {
+//    background: #edf1f2;
+}
+.innerCon h2.title {
+    padding-left: 20px;
+    line-height: 50px;
+    color: #999;
+    font-weight: normal;
+    background: #fff;
+}
+.innerCon h2.title span {
+    color: #999;
+    font-size: 12px;
+}
+.innerCon h2.title a {
+    color: #999;
+}
+.innerCon h2.title a {
+    color:#000;
+}
+.innerCon h2.title b{
+    font-size: 14px;
+    color:#000;
+}
+.innerCon h2.title a:nth-child(2){
+    color: #999;
+    font-size:12px;
+}
+
+.innerCon h2.title a:hover {
+    text-decoration: underline;
+}
+.innerCon .upload-conatiner {
+    margin: 20px;
+}
+.innerCon .upload-tab {
+    width: 100%;
+    background: #fff;
+    padding: 42px 38px 50px;
+}
+.taskManageList {
+    width: 100%;
+    padding: 20px;
+    width: 100%;
+    background: #fff;
+    padding: 42px 38px 50px;
+}
+.taskManageList p {
+    color: #000;
+}
+.taskManageList .ctMHeader{
+    overflow:hidden;
+}
+.taskManageList .ctMHeader .ctWatch{
+    float:left;
+    font-size:13px;
+    color:#262626;
+    line-height:32px;
+    font-weight:bold;
+    position:relative;
+    padding-left:14px;
+}
+.ctMHeader .ctWatch:after{
+    content: "";
+    display: block;
+    width: 4px;
+    height: 14px;
+    position: absolute;
+    top: 9px;
+    left: 0;
+    background: #014b70;
+}
+.ctMHeader .ctWatch .serviceSite{
+    padding-right:10px;
+}
+.taskManageList .ctMTitle{
+    width:100%;
+    background:#f9f9f9;
+    border:1px solid #e8edf1;
+    border-bottom:0;
+    overflow:hidden;
+    padding:0 40px 0 20px;
+    border-bottom:1px solid #e8edf1;
+}
+.taskManageList .ctMTitle .taskTit{
+    float:left;
+    line-height:34px;
+}
+.taskManageList .ctMTitle .taskOper{
+    float:right;
+    color:#000;
+    line-height:34px;
+}
+.taskManageList .ctMHeader .newTask{
+    float:right;
+    width:101px;
+    height:32px;
+    color:#fff;
+    background:#014b70;
+    text-align:center;
+    line-height:32px;
+    cursor:pointer;
+}
+.taskManageList .newTask {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.taskManageList .goBackBtn {
+    cursor: pointer;
+}
+.dispatchList {
+    width: 100%;
+}
+.dispatchList .pager i{
+    font-style:normal;
+}
+.dispatchList .oneStripMsg {
+    width: 100%;
+    padding: 13px 20px 16px 20px;
+    border-bottom: 1px solid #e8edf1;
+    border-left: 1px solid #e8edf1;
+    border-right: 1px solid #e8edf1;
+}
+.dispatchList .oneStripMsg .baseMsg {
+    overflow: hidden;
+    line-height:24px;
+}
+.dispatchList .oneStripMsg .baseMsg .type {
+    width: 80px;
+    height: 24px;
+    color: #000;
+    line-height: 24px;
+    font-size: 14px;
+    border-radius:2px;
+    font-weight:bold;
+}
+.dispatchList .oneStripMsg .baseMsg p {
+    float: left;
+    margin-right: 20px;
+}
+.oneStripMsg .taskName{
+    color:#696969;
+  max-width: calc(100% - 250px);
+  overflow: hidden;
+  height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.oneStripMsg .taskName .theName{
+    color: #000;
+    font-weight: bold;
+}
+.oneStripMsg .taskId{
+    color:#000;
+}
+.oneStripMsg .theId{
+    color:#8e8e8e;
+}
+.oneStripMsg .explain{
+    color:#000;
+}
+.oneStripMsg .explainMsg{
+    color:#7b7f88;
+}
+.oneStripMsg .effectDate{
+    color:#000;
+}
+.oneStripMsg .startDate,.endDate{
+    color:#7b7f88;
+}
+.oneStripMsg .creator{
+    color:#000;
+    max-width:450px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.oneStripMsg .name,.email{
+   color:#7b7f88; 
+}
+.oneStripMsg .statusBar{
+    color:#000;
+}
+.oneStripMsg .status{
+    color:#7b7f88; 
+}
+.dispatchList .oneStripMsg .taskExplain {
+    overflow: hidden;
+}
+.dispatchList .taskExplain .explain {
+    float: left;
+    line-height:24px;
+    max-width:500px;
+    overflow:hidden;
+}
+.dispatchList .taskExplain .operation {
+    float: right;
+}
+.dispatchList .operation{
+    a{padding: 5px; cursor: pointer;float: left; border-radius: 50%;}
+    i{width:16px;height: 16px;float: left;line-height: 20px;}
+    span{float: left;line-height: 25px; display: none;}
+    .edit, .del, .log{
+        i{background-image: url('../images/datahub/content_icon.png')}
+    }
+    .edit{ margin-left: 5px; margin-right: 5px;
+        i{background-position: 0 0;}
+    }
+    .del{
+        i{background-position: -32px 0;}
+    }
+    .log{
+        i{background-position: -16px 0;}
+    }
+    .copy{
+      i{background: url('../images/datahub/copy.png') no-repeat;}
+    }
+    .detail{
+        i { background: url('../images/eye.png') 0 3px no-repeat; }
+    }
+    a:hover{background: #e5e6e8;}   
+}
+
+.dispatchList .operation .taskEdit {
+    cursor: pointer;
+    color: #0000FF;
+    background: url("../../../resources/images/tabSprite.png") no-repeat;
+    background-position:0 -32px;
+    display:block;
+    width:16px;
+    height:16px;
+    float:left;
+    margin-right:50px;
+}
+.dispatchList .operation .watchRecord {
+    cursor: pointer;
+    display:block;
+    background: url("../../../resources/images/detail.png") no-repeat;
+    width:16px;
+    height:16px;
+    float:left;
+}
+.dispatchList .oneStripMsg .detailMsg {
+    overflow: hidden;
+    width: 100%;
+    line-height:24px;
+}
+.dispatchList .oneStripMsg .detailMsg .effectDate,
+.creator,
+.statusBar,
+.projectGroup {
+    float: left;
+    margin-right: 20px;
+}
+ .pager{
+    overflow: hidden;
+}
+.dispatchList .pager ul{
+    border-right:0;
+    overflow:hidden;
+    float:right;
+    margin-top:20px;
+}
+.dispatchList .pager li{
+    display:block;
+    float:left;
+    width:40px;
+    height: 25px;
+    border-right:1px solid #dbdbdb;
+    border-top:1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    text-align: center;
+    line-height: 25px;
+    cursor:pointer;
+}
+.dispatchList .pager li.disabled{
+    background:#eee;
+}
+.dispatchList .pager li.active{
+    background:#014b70;
+    border-color:transparent;
+}
+.dispatchList .pager li.active a{
+    color:#fff;
+}
+ .pager li a{
+      color:#605f5f;
+ }
+.pager ul li:nth-child(1){
+    border-left: 1px solid #dbdbdb;
+}
+.dispatchList .pager li b{
+    text-align:center;
+    line-height: 25px;
+    color:#605f5f;
+}
+
+aside.aside ul .clientMNav{
+    color: #fff!important;
+    background: url("../../images/client_check.png") no-repeat!important;
+    background-position: 0 12px!important;
+}
+/*动态样式转换：*/
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,45 @@
+.innerCon{
+  h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+    b{color:#000; font-size: 14px;}
+    a{color:#999;}
+    a:hover{text-decoration: underline;}
+  }
+  [v-cloak]{display: none;}
+  .mt20{margin-top:20px;}
+  .ivu-menu-horizontal.ivu-menu-light:after{height: 0;}
+  .ivu-select-selection{height: 28px;}
+  .ivu-input-icon{cursor: pointer; height: 28px; line-height: 28px;}
+  article.main{ margin: 20px; padding:20px; background: #fff;
+    table td {border-left:0; border-top:0; padding-left: 0;}
+    .ivu-tooltip{display: block;
+      .ivu-tooltip-rel{display: block; text-overflow: ellipsis;  overflow: hidden;}
+    }
+    .ivu-tooltip-inner{white-space: normal;}
+    .pager{text-align: right;}
+  }
+}
+
+
+.layout{padding-left: 20px; background: #fff;
+  .ivu-menu-horizontal {
+    height: 40px;
+    line-height: 40px;
+  }
+  .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item{
+    border-top: 2px solid transparent;
+    border-bottom: 0;
+  }
+  .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active, .ivu-menu-light.ivu-menu-horizontal .ivu-menu-item-active:hover{
+    color: #004c6f;
+    border-top: 2px solid #004c6f;
+    border-bottom: 0;
+    background: #edeef0;
+  }
+
+  .ivu-menu-light .ivu-menu-item:hover{color:#000; border-bottom: 0;}
+}
+
+.main > .ivu-row-flex{margin-bottom: 20px;}
+.ivu-page-item-active{ background:#004c6f;}
+table .noData{display: block;  margin: 20px auto 0;}
+

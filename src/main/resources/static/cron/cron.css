@@ -1,0 +1,56 @@
+.cronCon{position: relative;}
+.cronCon.disabled:after{ content:'';  position: absolute;  left: 0;  top:0;  width: 100%; height: 100%; z-index: 2; cursor: not-allowed;}
+.cronCon .mt10{margin-bottom: 10px;}
+.cronCon .mt20{margin-bottom: 20px;}
+/*.cronCon{background: #f7f7f7;}*/
+.cronCon .clearfix:after{
+    content:'';
+    clear:both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.cronCon .Wdate.time{background: #fff url('./img/time.png') 135px no-repeat;}
+.cronCon .Wdate.date{background: #fff url('./img/date.png') 135px no-repeat;}
+
+.cronCon .item-group{ color:#000; position:relative;}
+.cronCon .group-type{background: #fff; border-bottom: 1px solid #ddd; height: 40px;}
+.cronCon .group-type a{float: left; min-width:120px; text-align: center; border:1px solid #ddd; height:40px; line-height: 40px; background: #fff; font-size: 14px; color:#333; font-weight: bold;}
+.cronCon .group-type a.cur{ border-bottom:0; border-top:3px solid #004c6f; line-height: 36px;}
+.cronCon .group-type a:not(:last-child){border-right: 0;}
+
+.cronCon h4.title{font-weight: normal; margin-bottom: 15px; line-height:25px;}
+.cronCon h4.title .line{float: right; width:calc(100% - 80px); height: 1px; background: #ccc; margin-top:12px;}
+.cronCon .tab{padding:20px; border:1px solid #ddd; border-top:0;border-bottom: 0;}
+.cronCon .once{display: inline-block;}
+.cronCon .onceDate{margin-left: 50px;}
+.cronCon .tab .onceDate label{margin-right: 40px;}
+.cronCon .reg-tab{display: none}
+.cronCon .reg-tab.hour.cur{ display: inline-block;margin-left: 92px;}
+.cronCon .reg-tab.day.cur{ display: inline-block;margin-left: 104px;}
+.cronCon .reg-tab.week, .cronCon .reg-tab.month{margin-top:15px;}
+.cronCon .reg-tab.month .radio{vertical-align: middle;}
+.cronCon .timeCon{margin-top:15px;}
+.cronCon .reg-tab.week.cur{display: block;}
+.cronCon input, .cronCon label{-webkit-user-select: none; user-select: none;}
+.cronCon .hour input{margin-right:10px; text-align: center;}
+.cronCon .reg-tab.month.cur{display: block;}
+.cronCon .reg-tab.month label{margin-right: 20px; margin-left: 10px;}
+.cronCon .week label{margin-right: 10px;}
+.cronCon .date-range .radio{vertical-align: middle;}
+.cronCon .date-range label{margin-right: 30px;}
+.cronCon .group-state{padding: 0 20px 20px 20px; border:1px solid #ddd; border-top:0;}
+.cronCon .group-state .item-name{vertical-align: top;}
+
+
+.cronCon .Wdate, .cronCon select, .cronCon input[type="text"]{margin-left:10px; padding-left: 10px; width:158px;}
+.cronCon textarea{width: calc(100% - 40px); height: 50px; border:1px solid #ccc; padding:5px; margin-left: 10px;}
+.cronCon input.Wdate {background-position-x: 135px; }
+
+.cronCon .btnCon{text-align: right; padding: 10px; display: none;}
+
+.cronCon .radio{display: inline-block; width:16px; height:16px; background:url("img/newRadioNo.png") no-repeat;margin-right:10px; vertical-align:top;}
+.cronCon .radio.cur{background-image: url('img/newRadioOk.png');}                          
+.cronCon .check{display: inline-block; width:16px; height:16px; background:url("img/boxLost.png") no-repeat;margin-right:5px; vertical-align: top;}
+.cronCon .check.cur{background-image: url('img/boxCheck.png');}              
+

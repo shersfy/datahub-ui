@@ -1,0 +1,77 @@
+.innerCon{
+    h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+        b{color:#000; font-size: 14px;}
+        a{color:#999;}
+        a:hover{text-decoration: underline;}
+    }
+    .select2-container--default .select2-results__option--highlighted[aria-selected]{width:300px;}
+    .listCon{margin:20px; padding:20px; background: #fff;}
+    .search{color: #000;
+        span{color: #000;}
+        .border-left{border-left: 3px solid #004c6f;padding-left: 10px;padding-right: 10px;font-size: 14px;line-height: 14px;font-weight: normal;}
+        input, select{width:150px; padding-left: 10px;font-family: "微软雅黑";}
+        select{padding-left: 6px;}
+        input.Wdate{width:95px;background-position: 75px 4px;font-size: 12px;padding-left:2px;}
+        input[type="checkbox"]{width:auto; vertical-align: middle; border:0;}
+        .task-result{margin-right: 40px;}
+        .filter{overflow: hidden; margin-top:15px; margin-bottom: 15px;
+            li{float: left;width:33.3%;
+                #taskId{width:204px;}
+            }
+            label{display: inline-block; width:100px; text-align: right; padding-right: 10px;}
+            label.w75{width:75px;}
+            label.inline{display: inline; padding:0;}
+            .myTask i{
+                display: inline;
+                padding: 8px;
+                margin: 0 5px 0 10px;
+                background: url(../images/taskManage/check.png) center center no-repeat;
+                &.checked{background: url('../images/taskManage/checked.png') center center no-repeat;}
+            }
+        }
+        .act{padding: 20px 0;border-bottom: 1px solid #e5e5e5;
+            button{font-size: 14px;margin-right: 20px;}
+        }
+        .search-form{border: 1px solid #e5e5e5;margin-top: 15px;}
+    }
+    .new-task{color: #fff;width:100px; margin:20px 0 10px;
+        b {font-size: 18px;padding-right: 5px;vertical-align: bottom;}
+    }
+    .list{ margin-top:15px;
+        table{
+            td{
+                a{padding: 5px; cursor: pointer;float: right; border-radius: 50%;}
+                i{width:16px;height: 16px;float: left;line-height: 20px;}
+                span{float: left;line-height: 25px; display: none;}
+            }
+            .edit, .del, .log{
+                i{background-image: url('../images/datahub/content_icon.png')}
+            }
+            .edit{ margin-left: 5px; margin-right: 5px;
+                i{background-position: 0 0;}
+            }
+            .del{
+                i{background-position: -32px 0;}
+            }
+            .log{
+                i{background-position: -16px 0;}
+            }
+            .copy{
+                i{background: url('../images/datahub/copy.png') no-repeat;}
+            }
+            .detail{
+                i { background: url('../images/eye.png') 0 3px no-repeat; }
+            }
+            .enable, .disable{
+                i{background-image: url('../images/clientUpload/tabSprite.png')}
+            }
+            .enable{i{background-position: 0 0}}
+            .disable{i{background-position: 0 -16px;}}
+            .hide{visibility: hidden;}
+            .space{width: 26px; cursor:auto;
+                &:hover{background: transparent;}
+            }            
+            tbody a:hover{background: #e5e6e8;}   
+        }
+    }
+}

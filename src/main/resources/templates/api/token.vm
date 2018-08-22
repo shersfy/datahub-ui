@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>$!{i18n.getProperty("common.title.token")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/token/libs.min.css?v=1508495800307">
+    <link rel="stylesheet" href="resources/libs/iView/iview.css?v=15085800307">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/token/token.css?v=1514194333658">
+</head>
+<body>
+    #parse("layout/header.vm")
+    #parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("common.title.openAPI")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("common.title.token")}</span></h2>
+
+        <article class="main" v-cloak>
+            <h3>$!{i18n.getProperty("token.text.tokenDesc")}</h3>
+            <i-table border :no-data-text="noData" :loading="isLoading" :data="tokenList" :columns="tokenColumn">
+            </i-table>
+        </article>
+    </div>
+</div>
+
+<script src="resources/dist/token/libs.min.js?v=1508495800307"></script>
+<script src="resources/libs/iView/iview.min.js?v=15084958007"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/token/token.js?v=1514194277353" async></script>
+</body>
+</html>

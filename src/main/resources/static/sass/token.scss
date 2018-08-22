@@ -1,0 +1,29 @@
+.innerCon{
+  h2.title{padding-left: 20px;line-height: 50px;background: #fff; font-weight: normal; color: #999;
+    b{color:#000; font-size: 14px;}
+    a{color:#999;}
+    a:hover{text-decoration: underline;}
+  }
+  [v-cloak]{display: none;}
+  .mt20{margin-top:20px;}
+  .pageTab{display: inline-block; width: 100%;
+    &[v-cloak]{display: none;}
+    button:focus{padding:6px 15px;}
+  }
+  .ivu-select-selection{height: 28px;}
+  .ivu-input-icon{cursor: pointer; height: 28px; line-height: 28px;}
+  article.main{ margin: 20px; padding:20px; background: #fff;
+    h3{font-weight: normal; margin-bottom: 10px;}
+    table td {border-left:0; border-top:0; padding-left: 0;}
+    tbody .act{color:#198af2; cursor: pointer;
+      i{color:#198af2; margin-right: 5px; vertical-align: text-bottom; font-size: 16px;}
+    }
+    .ivu-tooltip{display: block;
+      .ivu-tooltip-rel{display: block; text-overflow: ellipsis;  overflow: hidden;}
+    }
+    .item{margin-bottom: 20px;}
+    .pager{text-align: right;}
+  }
+}
+
+table .noData{display: block;  margin: 20px auto 0;}

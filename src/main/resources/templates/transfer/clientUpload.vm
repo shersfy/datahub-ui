@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>客户端列表</title>
+    <link rel="stylesheet" href="resources/dist/css/index/libs/libs.min.css">
+    <link rel="stylesheet" href="resources/dist/css/common/sweetalert.css">        
+    <link rel="stylesheet" href="resources/dist/css/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/css/clientUpload/main/clientUpload.css">
+</head>
+<body>
+#parse("layout/header.vm")
+#parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><img src="resources/dist/images/indexpage/dataInput.png"/>&emsp;/ &emsp;<a href="./">选择上传方式</a>&emsp;/&emsp;<a href="./">客户端上传</a></h2>
+        <div class="upload-conatiner">
+          <div class="upload-tab">
+            <p>下载客户端</p>
+            <div class="clientDownload">
+              <img src="resources/dist/images/clientUpload/clientDownload.png"/>
+              <div class="downloadMsg">
+                <p>下载安装说明:</p>
+                <span>通过下载客户端，配置源位置和目标位置，一旦源位置有新的dump文件，可实现dump文件的自动检测、解析及自动上传操作。</span>
+                <p class="tip">备注：</p>
+                <span>1、一个IP地址只能启动一个客户端。</br>
+                2、客户端成功部署以后，将进入客户端管理列表。</span>
+              </div>
+              <a href="./client/download" class="btnDownload">下载新的客户端</a>
+            </div>
+            <p class="listTip">客户端列表<span>（客户端成功部署以后，将显示在此列表内。）</span></p>
+            <table class="client-tab">
+              <thead>
+                <tr><th field="clientName">客户端名</th><th field="clientIp">IP地址</th><th field="status">运行状态</th><th style="text-align:center;">操作</th></tr>
+              </thead>
+              <tbody id="client-tbody">
+               
+              </tbody>
+            </table>
+          </div>
+       </div>     
+    </div>
+</div>
+<div class="coverTip">
+ 
+</div>
+<div class="tipContent">
+   <div class="header">
+    <span>删除</span>
+    <img src="resources/dist/images/clientUpload/delTipD.png" class="cancelIcon"/>
+   </div>
+   <div class="delMsg">
+    <img src="resources/dist/images/clientUpload/delTipW.png"/>
+    <div class="delWord">
+     <p>删除客户端后，该客户端所有任务将被停止，并且在客户端列表中清除该客户端所有信息。</p>
+     <h3>确定将该客户端信息删除？</h3>
+   </div>
+   </div>
+   <div class="delBtnBar">
+    <input autocomplete="off" type="button" value="确定" class="delOk"/><input autocomplete="off" type="button" value="取消" class="delCancel"/>
+   </div>
+ </div>
+<script src="resources/dist/js/index/libs/libs.min.js"></script>
+<script src="resources/i18n/message_lang.js"></script>
+<script src="resources/dist/js/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/js/common/sweetalert.min.js"></script>
+<script src="resources/dist/js/clientUpload/main/clientUpload.min.js"></script>
+</body>
+</html>

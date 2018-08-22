@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+		<title>$!{i18n.getProperty("clientM.title.clientTaskM")}</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/clientTaskM/libs.min.css?v=1508495800307">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/clientTaskM/clientTaskM.css?v=1509530168108">
+	</head>
+	<body>
+		#parse("layout/header.vm")
+		#parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><b>$!{i18n.getProperty("common.title.migrate")}</b>&emsp;>&emsp;<a href="./online.client">$!{i18n.getProperty("clientList.title.clientUp")}</a>&emsp;>&emsp;<span>$!{i18n.getProperty("index.title.taskManage")}</span></h2>
+				<div class="upload-conatiner">
+					<div class="taskManageList">
+						<div class="ctMHeader">
+							<p class="ctWatch"><span class="serviceSite"></span>$!{i18n.getProperty("clientM.title.taskView")}</p>
+						    <p class="newTask" href="">+$!{i18n.getProperty("clientM.title.newTask")}</p>
+						</div>
+						<div class="ctMTitle">
+							<p class="taskTit">$!{i18n.getProperty("clientList.option.task")}</p>
+							<p class="taskOper">$!{i18n.getProperty("clientList.option.oper")}</p>
+						</div>
+						<div class="dispatchList">
+							<div class="oneStripMsg sourceLoad">
+								<p style="text-align:center;"><img src="resources/dist/images/loading.gif" alt="" /></p>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/html" id="template/task">
+			<div>
+				{{if data.length==0}}
+				<p style="text-align: center;line-height: 40px;border: 1px solid #ddd;font-size:16px;padding:10px 0;color:#ddd;"><img src="resources/dist/images/noData.png" /></br>$!{i18n.getProperty("manage.title.noData")}</p>
+				{{else}}
+				{{each data as v i}}
+				<div class="oneStripMsg">
+					<div class="baseMsg">
+						<p class="type" title="{{v.periodStr}}">{{v.periodStr}}</p>
+						<p class="taskName">$!{i18n.getProperty("clientList.option.taskName")}: <span class="theName" title="{{v.jobName}}">{{v.jobName}}</span></p>
+						<p class="taskId">$!{i18n.getProperty("manage.title.taskId")}: <span class="theId">{{v.id}}</span></p>
+					</div>
+					<div class="taskExplain" field="{{v.id}}">
+						<p class="explain">$!{i18n.getProperty("clientM.option.taskNote")}: <span class="explainMsg">{{v.note}}</span></p>
+						<p class="operation">
+                            <a class="copy" href="./client.task?clientId={{v.fromId}}&jobId={{v.id}}&copy=1" title="$!{i18n.getProperty("manage.title.copy")}"><i></i><span>$!{i18n.getProperty("manage.title.copy")}</span></a>
+                            <a href="./client.task?clientId={{v.fromId}}&jobId={{v.id}}&detail=1" class="detail" title="$!{i18n.getProperty("common.option.taskDetail")}"><i></i><span>$!{i18n.getProperty("common.option.taskDetail")}</a>
+##							<a class="edit" href="./clientTask?clientId={{v.fromId}}&jobId={{v.id}}" title="$!{i18n.getProperty("manage.title.update")}"><i></i><span>$!{i18n.getProperty("manage.title.update")}</span></a>
+							<!-- <span class="taskEdit" field="{{v.id}}" jobid="{{v.id}}"></span> -->
+							<!-- <span class="watchRecord" jobId="{{v.id}}" field="{{v.id}}"></span> -->
+							<a class="log" href="./task.detail?jobId={{v.id}}&groups=3&fromId={{v.fromId}}" title="$!{i18n.getProperty("manage.title.runLog")}"><i></i><span>$!{i18n.getProperty("manage.title.runLog")}</span></a>
+                            <a class="del" title="$!{i18n.getProperty("clientList.option.del")}"><i></i><span>$!{i18n.getProperty("manage.title.runLog")}</span></a>
+                        </p>
+					</div>
+					<div class="detailMsg">
+						{{if getDate(v.endTime)=="9999/12/31"}}
+						<p class="effectDate">$!{i18n.getProperty("clientM.cronLife")}: <span class="startDate">{{getDate(v.startTime)}}</span> - <span class="endDate">$!{i18n.getProperty("clientM.option.none")}</span></p>
+						{{else if getDate(v.endTime)=="9999/1/31"}}
+						<p class="effectDate">$!{i18n.getProperty("clientM.cronLife")}: <span class="startDate">{{getDate(v.startTime)}}</span></p>
+						{{else}}
+						<p class="effectDate">$!{i18n.getProperty("clientM.cronLife")}: <span class="startDate">{{getDate(v.startTime)}}</span> - <span class="endDate">{{getDate(v.endTime)}}</span></p>
+						{{/if}}						
+						<p class="creator" title="{{v.userName}} {{v.createUserEmail}}" >$!{i18n.getProperty("manage.title.owner")}: <span class="name">{{v.userName}}</span><span class="email"></span></p>
+						<p class="statusBar">$!{i18n.getProperty("clientList.option.status")}: <span class="status">{{if v.status==1}}$!{i18n.getProperty("manage.title.execing")}{{else if v.status==2}}$!{i18n.getProperty("manage.title.end")}{{else}}$!{i18n.getProperty("manage.title.pause")}{{/if}}</span></p>
+					</div>
+				</div>
+				{{/each}}
+				{{/if}}
+			</div>
+			<div class="pager"></div>
+		</script>
+		<script src="resources/dist/clientTaskM/libs.min.js?v=1508495800307"></script>
+		<script src="resources/dist/common/common.js?v=1523175610950"></script>
+		<script src="resources/dist/clientTaskM/clientTaskM.js?v=1513306343676"></script>
+	</body>
+</html>

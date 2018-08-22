@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+    <title>$!{i18n.getProperty("clientList.title.clientList")}</title>
+    <link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="resources/dist/clientUploadIndex/libs.min.css">
+    <link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+    <link rel="stylesheet" href="resources/dist/clientUploadIndex/clientUpload.css?v=1515133616575">
+</head>
+<body>
+#parse("layout/header.vm")
+#parse("layout/aside.vm")
+<div class="mainCon">
+    <div class="innerCon">
+        <h2 class="title"><b>$!{i18n.getProperty("common.title.migrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("clientList.title.clientUp")}</span></h2>
+        <div class="upload-conatiner">
+          <div class="upload-tab  clientList">
+            <p>$!{i18n.getProperty("clientList.title.downClient")}</p>
+            <div class="clientDownload">
+              <img src="resources/dist/images/clientUpload/clientDownload.png"/>
+              <div class="downloadMsg clearfix">
+                <h5>$!{i18n.getProperty("clientList.title.synch")}:</h5>
+                <h5 class="normal">$!{i18n.getProperty("clientList.note.clientDesc")}</h5>
+                <h5 class="tip">$!{i18n.getProperty("clientList.note.mark")}: </h5>
+                <span>
+                	1、$!{i18n.getProperty("clientList.note.ip2client")}</br>
+                	2、$!{i18n.getProperty("clientList.note.accList")}</span>
+              </div>
+              <a href="./online/client/download" class="btnDownload">$!{i18n.getProperty("clientList.option.downNewClient")}</a>
+            </div>
+            <p class="listTip">$!{i18n.getProperty("clientList.title.clientList")}<span>$!{i18n.getProperty("clientList.note.clientNews")}</span></p>
+            <table class="client-tab">
+              <thead>
+                <tr><th field="clientName">$!{i18n.getProperty("clientList.option.clientName")}</th><th field="clientIp">$!{i18n.getProperty("clientList.option.ip")}</th><th field="status">$!{i18n.getProperty("clientList.option.status")}</th><th style="text-align:center;">$!{i18n.getProperty("clientList.option.oper")}</th></tr>
+              </thead>
+              <tbody id="client-tbody">
+               	
+              </tbody>
+            </table>
+          </div>
+        </div>     
+    </div>
+</div>
+<div class="coverTip">
+ 
+</div>
+<div class="tipContent">
+   <div class="header">
+    <span>$!{i18n.getProperty("clientList.option.del")}</span>
+    <img src="resources/dist/images/clientUpload/delTipD.png" class="cancelIcon"/>
+   </div>
+   <div class="delMsg">
+    <img src="resources/dist/images/clientUpload/delTipW.png"/>
+    <div class="delWord">
+     <p>$!{i18n.getProperty("clientList.note.delClientNote")}</p>
+     <h3>$!{i18n.getProperty("clientList.note.isDel")}</h3>
+   </div>
+   </div>
+   <div class="delBtnBar">
+    <input type="button" value="$!{i18n.getProperty("client.option.sure")}" class="delOk"/><input type="button" value="$!{i18n.getProperty("client.option.cancel")}" class="delCancel"/>
+   </div>
+ </div>
+<script src="resources/dist/clientUploadIndex/libs.min.js"></script>
+<script src="resources/dist/common/common.js?v=1523175610950"></script>
+<script src="resources/dist/clientUploadIndex/clientUpload.js?v=1522654549452"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.MsgTip{position: fixed; top:0; width: 300px; left: 50%;  margin-left: -150px;
+    z-index:2000; display: none; animation: slideDown 0.2s forwards; background: #f4eedc; color: #c58a2c;}
+.MsgTip i.type { float:left; width: 40px; height: 40px; background: url('./info.png') 12px no-repeat;}
+.MsgTip span.main{float:left; width:220px; word-wrap: break-word;word-break: break-all; line-height: 20px; padding:10px 0;}
+.MsgTip i.del{width: 40px; cursor: pointer; float: left; height: 40px; background: url('del.png') 12px no-repeat;}
+
+.MsgTip.success{background:#e3ecdc; color:#38811c;}
+.MsgTip.success .type{background: url('./success.png') 12px no-repeat;}
+.MsgTip.success .del{background: url('./success_del.png') 12px no-repeat;}
+
+@keyframes slideDown {
+    from { top:0;}
+    to { top:20% ;}
+}
+@-webkit-keyframes slideDown {
+     from { top:0;}
+     to { top:20%;}
+ }
+
+
+.ErrTip{position: fixed; top:0; width: 400px; left: 50%;  margin-left: -200px; border:1px solid #ccc;
+    z-index:2000; display: none; animation: slideDown 0.2s forwards; background: #fff; color: #333;}
+.ErrTip .head{height: 40px;}
+.ErrTip i.del{width: 40px; cursor: pointer; float: right; height: 40px; line-height: 40px; text-align: center; font-size: 26px; font-style: normal;}
+.ErrTip .del:hover{background: #fcfcfc;}
+.ErrTip .title{text-align: center; line-height: 35px; padding: 0 10px; word-break: break-all; word-wrap: break-word;}
+.ErrTip .title:before{content: url('./errTip.png');height: 35px;display: inline-block;vertical-align: middle;}
+.ErrTip .detail{text-align: center; margin-top:10px; padding: 0 10px; line-height: 20px; word-wrap: break-word; word-break: break-all;}
+.ErrTip .showToggle{float: right; line-height: 25px; padding: 0 10px; color: #3491e9; cursor: pointer;}
+.ErrTip .msg{display: none; clear: both; line-height: 20px;margin: 5px; padding: 5px;border: 1px solid #ccc;overflow-y: auto;  max-height: 150px; word-wrap: break-word; word-wrap: break-word;}
+.ErrTip .foot{clear: both;text-align: right;background: #f3f3f3; height: 40px;}
+.ErrTip .foot .close{height: 30px;width: 70px;cursor: pointer;border-radius: 2px; margin: 5px; background: #fff;}
+.ErrTip .foot .close:hover{opacity: 0.8;}
