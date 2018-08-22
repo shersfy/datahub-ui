@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>$!{i18n.getProperty("index.title.index")}</title>
+		<link rel="icon" href="resources/images/titleIcon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="resources/dist/index/libs.min.css">
+		<link rel="stylesheet" href="resources/dist/common/common.css?v=1523175610950">
+		<link rel="stylesheet" href="resources/dist/index/index.css?v=1516269734798">
+	</head>
+
+	<body>
+		#parse("layout/header.vm") 
+		#parse("layout/aside.vm")
+		<div class="mainCon">
+			<div class="innerCon">
+				<h2 class="title"><b>$!{i18n.getProperty("index.title.dataMigrate")}</b><span>&emsp;>&emsp;$!{i18n.getProperty("index.title.newTask")}</span></h2>
+				<ul class="dataSourceNav">
+					<li data-type="0" class="cur">$!{i18n.getProperty("index.title.all")}</li>
+					<li data-type="1">$!{i18n.getProperty("index.title.local")}</li>
+					<li data-type="2">$!{i18n.getProperty("index.title.db")}</li>
+					<li data-type="3">$!{i18n.getProperty("index.title.otherPlat")}</li>
+					<li data-type="4">$!{i18n.getProperty("index.title.other")}</li>
+				</ul>
+				<div class="upload-conatiner">
+					<div class="dataBox cur" data-tab="0">
+						<div class="oneSource">
+							<a href="./db?type=1&dbtype=38">
+								<img src="resources/images/mysql.jpg" alt="" />
+							</a>
+							<p class="typeName">MySQL</p>
+						</div>
+						<div class="oneSource">
+							<a href="./db?type=1&dbtype=4">
+								<img src="resources/images/oracle.jpg" alt="" />
+							</a>
+							<p class="typeName">Oracle</p>
+						</div>
+						<div class="oneSource">
+							<a href="./db?type=1&dbtype=40">
+								<img src="resources/images/SQL Server.jpg" alt="" />
+							</a>
+							<p class="typeName">SQL Server</p>
+						</div>
+						<div class="oneSource">
+							<a href="./db?type=1&dbtype=44">
+								<img src="resources/images/DB2.jpg" alt="" />
+							</a>
+							<p class="typeName">DB2</p>
+						</div>
+						<div class="oneSource">
+							<a href="./db?type=1&dbtype=24">
+								<img src="resources/images/psql.jpg" alt="" />
+							</a>
+							<p class="typeName">PostgreSQL</p>
+						</div>
+						<div class="oneSource">
+							<a href="./excel.upload">
+								<img src="resources/images/excel.jpg" alt="" />
+							</a>
+							<p class="typeName">Excel</p>
+						</div>
+						<div class="oneSource">
+							<a href="./csv.upload">
+								<img src="resources/images/csv.jpg" alt="" />
+							</a>
+							<p class="typeName">CSV</p>
+						</div>
+						<div class="oneSource">
+							<a href="./http">
+								<img src="resources/images/local.jpg" alt="" />
+							</a>
+							<p class="typeName">$!{i18n.getProperty("index.title.local2Hdfs")}</p>
+						</div>
+##						<div class="oneSource">
+##							<a href="./hive">
+##								<img src="resources/images/hive.jpg" alt="" />
+##							</a>
+##							<p class="typeName">Hive</p>
+##						</div>
+						<div class="oneSource">
+							<a href="./db?type=2">
+								<img src="resources/images/aliRds.jpg" alt="" />
+							</a>
+							<p class="typeName">$!{i18n.getProperty("index.title.ali")} RDS</p>
+						</div>
+						<div class="oneSource">
+							<a href="./db?type=3">
+								<img src="resources/images/amazonRds.jpg" alt="" />
+							</a>
+							<p class="typeName">$!{i18n.getProperty("index.title.amazon")} RDS</p>
+						</div>
+						<div class="oneSource">
+							<a href="./amazons3">
+								<img src="resources/images/amazonS3.jpg" alt="" />
+							</a>
+							<p class="typeName">$!{i18n.getProperty("index.title.amazon")} S3</p>
+						</div>
+						<div class="oneSource">
+							<a href="./ftp.upload">
+								<img src="resources/images/ftp.jpg" alt="" />
+							</a>
+							<p class="typeName">FTP</p>
+						</div>
+						<div class="oneSource">
+							<a href="./dump" class="dump2sql">
+								<img src="resources/images/sqlFile.png" alt="" />
+							</a>
+							<p class="typeName">$!{i18n.getProperty("dump.title.title")}</p>
+						</div>
+						<!--<div class="oneSource">
+							<a href="./httpface">
+								<img src="resources/images/Open API.jpg" alt="" />
+							</a>
+						</div>-->
+						<!--<div class="oneSource">
+							<a href="">
+								<img src="resources/images/sap.jpg" alt="" />
+							</a>
+							<div style="position:absolute;width:100%;height:100%;background:rgba(237,237,237,0.5);text-align:center;color:#000;line-height:200px;font-size:18px;z-index:100;top:0;left:0;display: none;" class="developing">开发中</div>
+						</div>
+						<div class="oneSource">
+							<a href="">
+								<img src="resources/images/erp.jpg" alt="" />
+							</a>
+							<div style="position:absolute;width:100%;height:100%;background:rgba(237,237,237,0.5);text-align:center;color:#000;line-height:200px;font-size:18px;z-index:100;top:0;left:0;display: none;" class="developing">开发中</div>
+						</div>-->
+					</div>
+					<div class="dataBox ba" data-tab="1">
+						<div class="boxPage cur">
+							<div class="oneSource">
+								<a href="./excel.upload">
+									<img src="resources/images/excel.jpg" alt="" />
+								</a>
+								<p class="typeName">Excel</p>
+							</div>
+							<div class="oneSource">
+								<a href="./csv.upload">
+									<img src="resources/images/csv.jpg" alt="" />
+								</a>
+								<p class="typeName">CSV</p>
+							</div>
+							<div class="oneSource">
+								<a href="./http">
+									<img src="resources/images/local.jpg" alt="" />
+								</a>
+								<p class="typeName">$!{i18n.getProperty("index.title.local2Hdfs")}</p>
+							</div>
+                            <div class="oneSource">
+                                <a href="./dump" class="dump2sql">
+                                    <img src="resources/images/sqlFile.png" alt="" />
+                                </a>
+                                <p class="typeName">$!{i18n.getProperty("dump.title.title")}</p>
+                            </div>
+						</div>
+					</div>
+					<div class="dataBox bb" data-tab="2">
+						<div class="boxPage  cur">
+							<div class="oneSource">
+								<a href="./db?type=1&dbtype=38">
+									<img src="resources/images/mysql.jpg" alt="" />
+								</a>
+								<p class="typeName">MySQL</p>
+							</div>
+							<div class="oneSource">
+								<a href="./db?type=1&dbtype=4">
+									<img src="resources/images/oracle.jpg" alt="" />
+								</a>
+								<p class="typeName">Oracle</p>
+							</div>
+							<div class="oneSource">
+								<a href="./db?type=1&dbtype=40">
+									<img src="resources/images/SQL Server.jpg" alt="" />
+								</a>
+								<p class="typeName">SQL Server</p>
+							</div>
+							<div class="oneSource">
+								<a href="./db?type=1&dbtype=44">
+									<img src="resources/images/DB2.jpg" alt="" />
+								</a>
+								<p class="typeName">DB2</p>
+							</div>
+							<div class="oneSource">
+								<a href="./db?type=1&dbtype=24">
+									<img src="resources/images/psql.jpg" alt="" />
+								</a>
+								<p class="typeName">PostgreSQL</p>
+							</div>
+##							<div class="oneSource">
+##								<a href="./hive">
+##									<img src="resources/images/hive.jpg" alt="" />
+##								</a>
+##								<p class="typeName">Hive</p>
+##							</div>
+						</div>
+					</div>
+					<div class="dataBox bc" data-tab="3">
+						<div class="boxPage  cur">
+							<div class="oneSource">
+								<a href="./db?type=2">
+									<img src="resources/images/aliRds.jpg" alt="" />
+								</a>
+								<p class="typeName">$!{i18n.getProperty("index.title.ali")} RDS</p>
+							</div>
+							<div class="oneSource">
+								<a href="./db?type=3">
+									<img src="resources/images/amazonRds.jpg" alt="" />
+								</a>
+								<p class="typeName">$!{i18n.getProperty("index.title.amazon")} RDS</p>
+							</div>
+							<div class="oneSource">
+								<a href="./amazons3">
+									<img src="resources/images/amazonS3.jpg" alt="" />
+								</a>
+								<p class="typeName">$!{i18n.getProperty("index.title.amazon")} S3</p>
+							</div>
+						</div>
+					</div>
+					<div class="dataBox bd" data-tab="4">
+						<div class="boxPage cur">
+							<div class="oneSource">
+								<a href="./ftp.upload">
+									<img src="resources/images/ftp.jpg" alt="" />
+								</a>
+								<p class="typeName">FTP</p>
+							</div>
+
+							<!--<div class="oneSource">
+								<a href="./httpface">
+									<img src="resources/images/Open API.jpg" alt="" />
+								</a>
+							</div>-->
+							<!--<div class="oneSource">
+								<a href="">
+									<img src="resources/images/sap.jpg" alt="" />
+								</a>
+								<div style="position:absolute;width:100%;height:100%;background:rgba(237,237,237,0.5);text-align:center;color:#000;line-height:200px;font-size:18px;z-index:100;top:0;left:0;display: none;" class="developing">开发中</div>
+							</div>
+							<div class="oneSource">
+								<a href="">
+									<img src="resources/images/erp.jpg" alt="" />
+								</a>
+								<div style="position:absolute;width:100%;height:100%;background:rgba(237,237,237,0.5);text-align:center;color:#000;line-height:200px;font-size:18px;z-index:100;top:0;left:0;display: none;" class="developing">开发中</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="resources/dist/index/libs.min.js"></script>
+		<script src="resources/dist/common/common.js?v=1523175610950"></script>
+		<script src="resources/dist/index/index.js"></script>
+	</body>
+
+</html>

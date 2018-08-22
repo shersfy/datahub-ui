@@ -9,19 +9,19 @@ public class PageController {
     
     @RequestMapping("/")
     public ModelAndView index() {
-        ModelAndView mv = new ModelAndView("index");
+        ModelAndView mv = new ModelAndView("redirect:/index.html");
         return mv;
     }
     
     @RequestMapping("/index")
     public ModelAndView index1() {
-        ModelAndView mv = new ModelAndView("redirect:/");
+        ModelAndView mv = new ModelAndView("redirect:/index.html");
         return mv;
     }
     
     @RequestMapping("/index.html")
     public ModelAndView index2() {
-        ModelAndView mv = new ModelAndView("redirect:/");
+        ModelAndView mv = new ModelAndView("index");
         return mv;
     }
     
