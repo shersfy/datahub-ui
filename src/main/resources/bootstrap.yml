@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8090
 spring:
   application:
     name: datahub-ui
@@ -20,16 +20,36 @@ spring:
     check-template-location: true
     reactive:
       max-chunk-size: 0
+#  redis
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
 
 # eureka server
 eureka:
   instance:
     prefer-ip-address: true
   client:
-    enabled: false
+    enabled: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
       
+# zuul reverse proxy, 默认反向代理注册到eureka微服务
+zuul:
+  routes:
+    datahub-db-executor: 
+      service-id: datahub-db-executor
+      path: /datahub/executor/db/**
+      sensitive-headers:
+      - Authorization
+    datahub-fs-executor: 
+      service-id: datahub-fs-executor
+      path: /datahub/executor/fs/**
+    datahub-job-manager: 
+      service-id: datahub-job-manager
+      path: /datahub/manager/**
+
 # logging
 logging:
   file: logs/${spring.application.name}.log
