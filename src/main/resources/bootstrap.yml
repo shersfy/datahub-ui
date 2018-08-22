@@ -20,12 +20,12 @@ spring:
     check-template-location: true
     reactive:
       max-chunk-size: 0
-#  redis
-  redis:
-    host: localhost
-    port: 6379
-    password: 123456
-
+  cloud:
+    config: # config server
+      uri: http://localhost:8888
+      label: master
+      profile: dev
+      
 # eureka server
 eureka:
   instance:
@@ -34,27 +34,3 @@ eureka:
     enabled: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
-      
-# zuul reverse proxy, 默认反向代理注册到eureka微服务
-zuul:
-  routes:
-    datahub-db-executor: 
-      service-id: datahub-db-executor
-      path: /datahub/executor/db/**
-      sensitive-headers:
-      - Authorization
-    datahub-fs-executor: 
-      service-id: datahub-fs-executor
-      path: /datahub/executor/fs/**
-    datahub-job-manager: 
-      service-id: datahub-job-manager
-      path: /datahub/manager/**
-
-# logging
-logging:
-  file: logs/${spring.application.name}.log
-  level:
-    root: info
-  pattern:
-    dateformat: yyyy-MM-dd HH:mm:ss.SSS
-    level: '%5p'

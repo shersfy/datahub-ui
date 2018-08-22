@@ -1,0 +1,38 @@
+version: 1.0.0
+spring:
+#  redis
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    
+# zuul reverse proxy, 默认反向代理注册到eureka微服务
+zuul:
+  routes:
+    datahub-db-executor: 
+      service-id: datahub-db-executor
+      path: /datahub/executor/db/**
+      sensitive-headers:
+      - Authorization
+    datahub-fs-executor: 
+      service-id: datahub-fs-executor
+      path: /datahub/executor/fs/**
+    datahub-job-manager: 
+      service-id: datahub-job-manager
+      path: /datahub/manager/**
+      
+# management
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+        
+# logging
+logging:
+  file: logs/${spring.application.name}.log
+  level:
+    root: info
+  pattern:
+    dateformat: yyyy-MM-dd HH:mm:ss.SSS
+    level: '%5p'
