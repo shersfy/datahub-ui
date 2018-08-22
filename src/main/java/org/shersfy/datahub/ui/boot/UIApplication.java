@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient
-@ComponentScan("org.shersfy.ui")
+@ComponentScan("org.shersfy.datahub.ui")
 @SpringBootApplication
 public class UIApplication {
 
